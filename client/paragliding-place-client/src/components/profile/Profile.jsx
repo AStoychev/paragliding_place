@@ -1,25 +1,39 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useParams, Link } from "react-router-dom"
+import { useAuthContext } from "../../contexts/AuthContext";
+
+import { useService } from "../../hooks/useService";
+
+import { profileServiceFactory } from "../../services/profileService";
+
 import { DifficultyRating } from "../difficultyRating/DifficultyRating"
 
 import styles from "./profile.modules.css"
 
 export const Profile = () => {
+    const userProfileId = useParams()
+    const profileId = userProfileId['userId']
 
-    // const [rate, setRace] = useState("A")
+    const { userId, isAuthenticated, userName, userEmail, userFirstName, userLastName, userAge, userCountry, userGender } = useAuthContext();
 
-    // const rateLevel = (rating) => {
-    //     console.log(1111111, rating)
-    //     setRace(rating)
+    const profileService = useService(profileServiceFactory);
 
-    // }
+    const [user, setUser] = useState([]);
+
+    useEffect(() => {
+        Promise.all([
+            profileService.getOne(profileId)
+        ]).then(result => {
+            setUser(result)
+        })
+    }, [])
+
 
     const isOwner = (placeOwner, ownerId) => {
         if (placeOwner === ownerId) {
             return true
         }
     }
-
-    // console.log(rate)
 
     return (
         <>
@@ -30,23 +44,31 @@ export const Profile = () => {
                             <div>
                                 <div className="itemDirection">
                                     <h1>
-                                        Profile Name
+                                        {userName}
                                     </h1>
                                 </div>
                             </div>
                             <div className="containerItem">
+                                {/* {Object.values(user).map(x => (
+                                    <div key={x.id}>{x.first_name}</div>
+                                ))} */}
 
-                                <div className="item">
-                                    <h3>Launch Coordinates</h3>
-                                    <p>Latitude: </p>
-                                    <p>Longitute:</p>
-                                    <h3>Description</h3>
-                                    <p></p>
-                                </div>
+                                {user.map(x => (
+                                    <div className="item" key={x.id}>
+                                        <h3>Full Name</h3>
+                                        <p>{x.first_name}</p>
+                                        <p>{x.last_name}</p>
+                                        <h3>Age:{x.age}</h3>
+                                        <p></p>
+                                    </div>
+                                ))}
+
+
+
 
                                 <div className="item">
                                     <h3>Landing Coordinates</h3>
-                                    <p>Latitude: </p>
+                                    <p>County{userCountry} </p>
                                     <p>Longitute:</p>
                                     <h3>Description</h3>
                                     <p></p>
@@ -59,30 +81,6 @@ export const Profile = () => {
                 </div>
 
             </div >
-
-            {/* levels = {
-                Beginner
-                Novice
-                Intermediate
-                Advanced
-            } */}
-
-            <DifficultyRating />
-
-
-            {/* <div className="ratingContainer">
-                <label className="labelRating" >
-                    <input
-                        type="radio"
-                        name="rating"
-                    />
-                    <TbCircleLetterA className="ratingLetter" onClick={() => setRating("A")} color={"A" <= (hover || rating) ? "#ffc107" : "#e4e5e9"} onMouseEnter={() => setHover("A")} onMouseLeave={() => setHover(null)}/>
-                    <TbCircleLetterB className="ratingLetter" onClick={() => setRating("B")} color={"B" <= (hover || rating) ? "#ffc107" : "#e4e5e9"} onMouseEnter={() => setHover("B")} onMouseLeave={() => setHover(null)}/>
-                    <TbCircleLetterC className="ratingLetter" onClick={() => setRating("C")} color={"C" <= (hover || rating) ? "#ffc107" : "#e4e5e9"} onMouseEnter={() => setHover("C")} onMouseLeave={() => setHover(null)}/>
-                    <TbCircleLetterD className="ratingLetter" onClick={() => setRating("D")} color={"D" <= (hover || rating) ? "#ffc107" : "#e4e5e9"} onMouseEnter={() => setHover("D")} onMouseLeave={() => setHover(null)}/>
-                </label>
-                <p className="ratingParagraph">Your rating is: <span className="chooseRating">{rating}</span></p>
-            </div> */}
 
 
         </>

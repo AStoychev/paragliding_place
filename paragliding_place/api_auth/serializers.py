@@ -39,3 +39,10 @@ class CreateUserSerializer(serializers.ModelSerializer):
         user_representation = super().to_representation(instance)
         user_representation.pop('password')
         return user_representation
+
+
+class DetailsUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserModel
+        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'age', 'gender')
+        # fields = ('username', 'first_name', 'last_name', 'email', 'age', 'country', 'gender')

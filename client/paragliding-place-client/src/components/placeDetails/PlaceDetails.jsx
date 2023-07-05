@@ -87,6 +87,7 @@ export const PlaceDetails = () => {
             })
     }, [])
 
+
     useEffect(() => {
         ratingService.getAll()
             .then(result => {

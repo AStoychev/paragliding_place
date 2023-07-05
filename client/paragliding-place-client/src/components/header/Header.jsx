@@ -62,7 +62,7 @@ export const Header = () => {
                            </li>
 
                            <li >Hello
-                           <Link className={styles.navItemUsername} to="/profile">{userName}</Link>
+                           <Link className={styles.navItemUsername} to={`/profile/${userId}`}>{userName}</Link>
                               {/* {userName} */}
                            </li>
                         </>

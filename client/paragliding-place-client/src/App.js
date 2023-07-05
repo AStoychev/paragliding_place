@@ -36,7 +36,7 @@ function App() {
                             <Route path='/register' element={<RegisterModal />} />
                             <Route path='/place-details/:placeId' element={<PlaceDetails />} />
                             <Route path='/createNewPlace' element={<CreateNewPlace />} />
-                            <Route path='/profile' element={<Profile />} />
+                            <Route path='/profile/:userId' element={<Profile />} />
                             <Route path='/about' element={<About />} />
                             <Route path='/logout' element={<Logout />} />
                             <Route path='/place/edit/:placeId' element={<EditPlace />} />

@@ -5,7 +5,7 @@ from rest_framework.authtoken import views as authtoken_views
 from rest_framework.authtoken import models as authtoken_models
 from rest_framework.response import Response
 
-from paragliding_place.api_auth.serializers import CreateUserSerializer
+from paragliding_place.api_auth.serializers import CreateUserSerializer, DetailsUserSerializer
 
 UserModel = get_user_model()
 
@@ -52,3 +52,28 @@ class LogoutApiView(rest_views.APIView):
         return Response({
             'message': 'user logged out'
         })
+
+
+class ListDetailsUser(rest_generic_views.ListAPIView):
+    queryset = UserModel.objects.all()
+    list_serializer_class = DetailsUserSerializer
+
+    def get_serializer_class(self):
+        return self.list_serializer_class
+
+    def get(self, request, *args, **kwargs):
+        # print(11111, request.query_params)
+        # user = UserModel.objects.all()
+        # serializer = DetailsUserSerializer(user, many=True)
+        # return Response(serializer.data)
+        try:
+            id = request.query_params["id"]
+            if id != None:
+                user = UserModel.objects.get(id=id)
+                serializer = DetailsUserSerializer(user)
+        except:
+            users = self.get_queryset()
+            serializer = DetailsUserSerializer(users, many=True)
+
+        # return Response(DetailsUserSerializer(self.list_serializer_class, many=True).data)
+        return Response(serializer.data)
