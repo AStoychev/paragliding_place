@@ -60,9 +60,6 @@ export const Profile = () => {
                                     </div>
                                 ))}
 
-
-
-
                                 <div className="item">
                                     <h3>Landing Coordinates</h3>
                                     <p>County{userCountry} </p>
