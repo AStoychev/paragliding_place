@@ -23,19 +23,20 @@ export const Profile = () => {
 
     return (
         <>
-            <div className={styles.container}>
-                <div className={styles.twoColumGrid}>
-                    <div className={styles.rightSide}>
-                        <div className={styles.topAndBottom}>
+            <div className="container">
+                <div className="twoColumGrid">
+                    <div className="rightSide">
+                        <div className="topAndBottom">
                             <div>
-                                <div className={styles.itemDirection}>
+                                <div className="itemDirection">
                                     <h1>
+                                        Profile Name
                                     </h1>
                                 </div>
                             </div>
-                            <div className={styles.containerItem}>
+                            <div className="containerItem">
 
-                                <div className={styles.item}>
+                                <div className="item">
                                     <h3>Launch Coordinates</h3>
                                     <p>Latitude: </p>
                                     <p>Longitute:</p>
@@ -43,7 +44,7 @@ export const Profile = () => {
                                     <p></p>
                                 </div>
 
-                                <div className={styles.item}>
+                                <div className="item">
                                     <h3>Landing Coordinates</h3>
                                     <p>Latitude: </p>
                                     <p>Longitute:</p>
