@@ -2,5 +2,24 @@
   "dependencies": {
     "react-geolocated": "^4.1.0",
     "react-icons": "^4.10.1"
-  }
+  },
+  "name": "paragliding_place",
+  "description": "This is paragliding place app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AStoychev/paragliding_place.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AStoychev/paragliding_place/issues"
+  },
+  "homepage": "https://github.com/AStoychev/paragliding_place#readme"
 }

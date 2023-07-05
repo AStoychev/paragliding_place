@@ -11,5 +11,16 @@
     "react-leaflet-cluster": "^2.1.0",
     "react-modal": "^3.16.1",
     "universal-cookie": "^4.0.4"
-  }
+  },
+  "name": "client",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

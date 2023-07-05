@@ -138,7 +138,7 @@ export const CreateNewPlace = () => {
             <section id={styles.createPlace} className="content auth">
                 <form method='POST' onSubmit={onSubmit}>
                     <div className={styles.threeColumnsGrid}>
-                        <div className={styles.leftSide}>1</div>
+                        <div className={styles.leftSide}></div>
                         <div className={styles.rightSide}>
                             <h3 className={styles.header}>Create Place</h3>
 
