@@ -1,0 +1,300 @@
+.container {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    overflow: auto;
+    background-color: rgb(211, 245, 255);
+    /* background-color: #d8dbe4; */
+    /* background-color: #f4f4f4; */
+}
+
+.twoColumGrid {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 2fr;
+    padding-left: 5%;
+}
+
+.twoColumGrid>* {
+    padding: 0.5rem;
+}
+
+.leftSide {
+    position: sticky;
+    width: 500px;
+    height: 700px;
+    margin-left: 90px;
+    margin-top: 1%;
+    /* background-position: 50%; */
+}
+
+.rightSide {
+    width: 80%;
+    height: 750px;
+    background-position: 50%;
+    margin-top: 10px;
+
+    /* background-color: rgba(132, 201, 137, 0.445); */
+}
+
+.leftSide:nth-of-type(1) {
+    flex-direction: column;
+    flex-shrink: 1;
+}
+
+.rightSide:nth-of-type(2) {
+    flex-direction: column;
+    flex-shrink: 2;
+}
+
+.topAndBottom {
+    width: 100%;
+    margin: auto;
+}
+
+.containerItem {
+    display: flex;
+    /* background-color: #f4f4f4; */
+    align-items: start;
+    flex-wrap: wrap;
+}
+
+.item {
+    flex: 1 0 100px;
+    height: 300px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: rgba(132, 201, 137, 0.445);
+    /* background-color: rgb(156, 201, 246); */
+    /* background-color: rgb(9, 87, 52); */
+    /* border-color: black;
+    border-style: solid;
+    border-width: 1px; */
+    /* background: #254de4; */
+    color: #000000;
+    margin: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item:nth-of-type(1) {
+    flex-direction: column;
+    flex-shrink: 1;
+}
+
+.item:nth-of-type(2) {
+    flex-direction: column;
+    flex-shrink: 2;
+}
+
+.itemDirection {
+    flex: 1 0 100px;
+    height: 20%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: rgba(132, 201, 137, 0.445);
+    border-style: solid;
+    border-width: 1px;
+    color: #000000;
+    margin: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonSetting {
+    padding-left: 10px;
+}
+
+.directionList {
+    color: rgb(0, 85, 255);
+    padding-top: 1%;
+    font-size: 18px;
+}
+
+.directionUnorderedList {
+    column-count: 3;
+}
+
+.comments {
+    flex: 1 0 100px;
+    height: 20%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: rgba(132, 201, 137, 0.445);
+    /* background-color: rgb(236, 253, 245); */
+    /* background-color: rgb(156, 201, 246); */
+    /* background-color: rgb(9, 87, 52); */
+    /* border-color: rgb(9, 87, 52);
+    border-style: solid;
+    border-width: 1px; */
+    /* background: #187e6d; */
+    color: #000000;
+    margin: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .commentContent {
+    font-size: 20px;
+    font-family: Marker Felt, 'Times New Roman', Times, serif;
+} */
+
+.buttonDeleteEditComments {
+    display: inline;
+}
+
+.clusterIcon {
+    height: 0.1px;
+    width: 0.1px;
+    border-radius: 50%;
+    background-color: rgb(59, 231, 16);
+    transform: translate(-25%, -25%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+.headerMap {
+    font-size: 12px;
+    margin-left: 30%;
+}
+
+.difficultyLevelDetails {
+    font-size: 23px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.logoutComment {
+    color: black;
+    /* background-color: #28bac1; */
+    /* flex: 1 0 100px; */
+    width: 80%;
+    margin-left: 10%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 17px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spanComment {
+    color: #000000;
+    background-color: rgb(111, 71, 255);
+    margin-left: 5px;
+    margin-bottom: 1px;
+    padding-left: 10px;
+}
+
+
+
+
+.ratingContainer {
+    width: 200px;
+    height: 180px;
+    margin-bottom: 1%;
+    margin-left: 26%;
+    background: rgb(64, 70, 64);
+}
+
+input[type=radio] {
+    display: none;
+}
+
+.labelRating {
+    display: inline;
+    color: rgb(0, 0, 0);
+    margin-left: 6.4%;
+}
+
+.ratingLetter {
+    cursor: pointer;
+    color: black;
+    font-size: 35px;
+
+}
+
+.ratingParagraph {
+    display: inline;
+    font-size: 21px;
+    padding-left: 5%;
+    color: rgb(205, 248, 217);
+}
+
+.chooseRating {
+    font-size: 24px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(252, 200, 68);
+}
+
+.submitRating {
+    width: 50px;
+    height: 30px;
+    font-size: 18px;
+    margin-left: 39%;
+    background: rgb(129, 174, 125);
+    color: rgb(254, 254, 254);
+}
+
+.placeLabel {
+    color: black;
+}
+
+.barRatingA {
+    height: 20px;
+    padding-bottom: 1%;
+    display: inline-block;
+    color: white;
+    background: rgb(159, 54, 66);
+}
+
+.barRatingB {
+    height: 20px;
+    padding-bottom: 1%;
+    display: inline-block;
+    color: white;
+    background: rgb(65, 77, 159);
+}
+
+.barRatingC {
+    height: 20px;
+    padding-bottom: 1%;
+    display: inline-block;
+    color: white;
+    background: rgb(58, 100, 43);
+}
+
+.barRatingD {
+    height: 20px;
+    padding-bottom: 1%;
+    display: inline-block;
+    color: white;
+    background: rgb(124, 75, 143);
+}
+
+.alreadyRateDiv{
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: rgb(28, 45, 88);
+}
+
+.alreadyRateSpan{
+    font-size: 23px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: rgb(28, 45, 88);
+}

@@ -1,0 +1,219 @@
+#loginPage {
+    position: relative;
+    width: 1391;
+    height: 596px;
+    /* border-radius: 20px; */
+    padding: 10px;
+    box-sizing: border-box;
+    background: #25372b;
+    /* background: url("C:\Users\Atanas\Desktop\living_wall client\client\public\images\Moss.jpg"); */
+    /* box-shadow: 0px 0px 32px 0px #49535e, -14px -14px 20px #191c21; */
+}
+
+#registerPage {
+    position: relative;
+    width: 1391;
+    height: 596px;
+    /* border-radius: 20px; */
+    padding: 10px;
+    box-sizing: border-box;
+    background: #25372b;
+    /* background: url("C:\Users\Atanas\Desktop\living_wall client\client\public\images\Moss.jpg"); */
+    /* box-shadow: 0px 0px 32px 0px #49535e, -14px -14px 20px #191c21; */
+}
+
+.header {
+    padding-bottom: 30px;
+}
+
+.container {
+    padding: 30px;
+}
+
+.fieldRegister {
+    padding: 0px;
+    margin: -50px;
+}
+
+.brand-logo {
+    height: 100px;
+    width: 100px;
+    /* background: #25372b; */
+    /* background: url("../images/icon-gamepad-2.png"); */
+    margin: auto;
+    border-radius: 5%;
+    box-sizing: border-box;
+    box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+}
+
+.container>h1 {
+    font-size: 50px;
+    margin-top: 30px;
+    /* font-weight: 900; */
+    font-size: 2.5rem;
+    text-align: center;
+    color: rgb(253, 250, 250);
+    letter-spacing: 1px;
+    font-family: Georgia;
+    /* 'Times New Roman', Times, serif; */
+    margin-bottom: 37px;
+}
+
+label,
+input {
+    display: block;
+    text-align: center;
+    width: 60%;
+    margin-bottom: -20px;
+    margin-left: 20%;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: Georgia;
+}
+
+label {
+    margin-bottom: -5px;
+    font-size: 30px;
+    letter-spacing: 1px;
+    padding: 5px;
+    color: white;
+    margin-top: 13px;
+    font-family: Georgia;
+    /* 'Times New Roman', Times, serif; */
+}
+
+label:nth-of-type(2) {
+    margin-top: 20px;
+}
+
+input::placeholder {
+    color: rgba(184, 179, 179, 0.678);
+}
+
+
+label[for="female"] {
+    margin-top: 10px;
+}
+
+input[type="nickname"],
+input[type="password"],
+input[type="number"],
+input[type="email"],
+input[type="username"],
+input[type="age"],
+input[type="description"],
+input[type="imageUrl"] {
+    background: #ecf0f3;
+    padding: 1px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    height: 50px;
+    margin-top: -15px;
+    font-size: 20px;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
+}
+
+.htmlContent {
+    font-size: 28px;
+    padding-bottom: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(9, 167, 56);
+}
+
+label[for="terms"]>input {
+    display: inline;
+}
+
+.submitBtn {
+    margin-top: 10px;
+    margin-left: 89px;
+    background: #006fe6;
+    /* background: #7abce5; */
+    height: 45px;
+    border-radius: 20px;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+    font-weight: 900;
+    /* box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white; */
+    transition: 0.5s;
+}
+
+.submitBtn:hover {
+    color: white;
+    background-color: rgb(0, 64, 133);
+    /* background-color: #268ccb; */
+}
+
+.submitDisabled {
+    margin-top: 10px;
+    margin-left: 89px;
+    background: #666e65;
+    /* background: #7abce5; */
+    height: 45px;
+    border-radius: 20px;
+    color: white;
+    font-size: 26px;
+    cursor: no-drop;
+    font-weight: 900;
+    /* box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white; */
+    transition: 0.5s;
+}
+
+.container {
+    text-align: left;
+    margin-top: 0px;
+}
+
+.downField>span {
+    position: absolute;
+    font-size: 18px;
+    bottom: 4px;
+    right: 8px;
+    text-decoration: none;
+    color: rgb(9, 167, 56);
+    /* background:  rgb(9, 167, 56); */
+    /* background: rgb(47, 177, 88); */
+    border-radius: 5px;
+    padding: 6px;
+    margin-right: 95px;
+    margin-bottom: -4px;
+}
+
+#fieldHere {
+    color: rgba(93, 71, 216, 0.957);
+}
+
+#fieldHere:hover {
+    color: rgba(197, 225, 12, 0.395);
+}
+
+
+/* .field-set-register {
+    width: 100px;
+    height: 100px;
+    border: 10px;
+    border-radius: 10px;
+    text-align: center;
+    border-color: black;
+    background-color: red;
+    opacity: 0.5;
+    margin-left: 80%;
+} */
+
+.navLink {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding-right: 15px;
+    /* color: rgb(82, 51, 187);
+    text-decoration: none; */
+}
+
+.navLink:hover {
+    color: yellow;
+    text-decoration: none;
+}

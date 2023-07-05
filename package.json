@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-geolocated": "^4.1.0",
+    "react-icons": "^4.10.1"
+  }
+}

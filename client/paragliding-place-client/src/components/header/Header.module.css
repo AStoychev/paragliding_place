@@ -1,0 +1,235 @@
+/* .header {
+    position: relative;
+    margin: -10px;
+    width: 98%;
+    height: 183px;
+    padding: 11px;
+}
+
+.container {
+    padding-top: 2%;
+}
+
+.topField {
+    display: block;
+    position: relative;
+    margin-bottom: 1px;
+    margin: -39px;
+    height: 130px;
+    padding-top: 0px;
+    background-color: yellowgreen;
+}
+
+.navBar {
+    width: 99%;
+    padding-top: 13px;
+}
+
+.route {
+    margin-left: 45%;
+}
+
+.collapse {
+    margin-left: -3%;
+    margin-top: 1.5%;
+    padding-top: 1%;
+    padding-left: 85%;
+    width: 348px;
+    height: 43px;
+    font-style: white;
+    background-color: rebeccapurple;
+}
+
+.navItem {
+    display: inline;
+    margin: 5px;
+    padding-right: 1px;
+    text-decoration: none;
+    font-size: 21px;
+}
+
+.addPlace {
+    display: inline;
+    margin: 5px;
+    margin-left: -870px;
+    text-decoration: none;
+    font-size: 21px;
+    color: white;
+}
+
+.addPlace:hover {
+    color: yellow;
+    text-decoration: none;
+}
+
+.navItemUsername{
+    display: inline;
+    margin: 5px;
+    padding-right: 1px;
+    text-decoration: none;
+    font-size: 21px;
+    color: yellowgreen;
+}
+
+.navLink {
+    color: rgb(82, 51, 187);
+    text-decoration: none;
+}
+
+.navLink:hover {
+    color: yellow;
+    text-decoration: none;
+} */
+
+.header {
+    width: 1682px;
+    background-color: rgb(9, 87, 52);
+}
+
+.container {
+    width: 100%;
+    background-color: rgb(9, 87, 52);
+    /* background-color: #f4f4f4; */
+    color: #555;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6em;
+    margin: 0;
+}
+
+.mainHeader {
+    background-color: rgb(9, 87, 52);
+    font-family: Chalkduster, fantasy, 'Times New Roman', Times, serif;
+    /* background-color: rgb(69, 101, 59); */
+    color: #fff;
+}
+
+.navBar {
+    background-color: #333;
+    color: #fff;
+}
+
+/* .navContainer {
+    text-align: center;
+    border: 2px dashed #f69c55;
+} */
+
+.navBar ul {
+    padding: 0;
+    list-style: none;
+}
+
+.navBar li {
+    display: inline;
+}
+
+.navLink {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding-right: 15px;
+}
+
+.navLink:hover {
+    color: yellow;
+    text-decoration: none;
+}
+
+.headerText {
+    color: #fff;
+    text-decoration: none;
+    font-size: 41px;
+}
+
+.route {
+    width: 10px;
+    height: 10px;
+}
+
+.navItemUsername {
+    display: inline;
+    text-decoration: none;
+    font-size: 18px;
+    color: yellowgreen;
+}
+
+
+/* .navItem {
+    color: #fff;
+    display: inline;
+    margin: 5px;
+    padding-right: 1px;
+    text-decoration: none;
+    font-size: 21px;
+} */
+
+/* .topField {
+    display: block;
+    position: relative;
+    margin-bottom: 1px;
+    margin: -39px;
+    height: 130px;
+    padding-top: 0px;
+    background-color: yellowgreen;
+}
+
+.navBar {
+    width: 99%;
+    padding-top: 13px;
+}
+
+.route {
+    margin-left: 45%;
+}
+
+.collapse {
+    margin-left: -3%;
+    margin-top: 1.5%;
+    padding-top: 1%;
+    padding-left: 85%;
+    width: 348px;
+    height: 43px;
+    font-style: white;
+    background-color: rebeccapurple;
+}
+
+.navItem {
+    display: inline;
+    margin: 5px;
+    padding-right: 1px;
+    text-decoration: none;
+    font-size: 21px;
+}
+
+.addPlace {
+    display: inline;
+    margin: 5px;
+    margin-left: -870px;
+    text-decoration: none;
+    font-size: 21px;
+    color: white;
+}
+
+.addPlace:hover {
+    color: yellow;
+    text-decoration: none;
+}
+
+.navItemUsername{
+    display: inline;
+    margin: 5px;
+    padding-right: 1px;
+    text-decoration: none;
+    font-size: 21px;
+    color: yellowgreen;
+}
+
+.navLink {
+    color: rgb(82, 51, 187);
+    text-decoration: none;
+}
+
+.navLink:hover {
+    color: yellow;
+    text-decoration: none;
+} */

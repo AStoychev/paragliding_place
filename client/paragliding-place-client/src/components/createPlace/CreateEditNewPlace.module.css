@@ -1,0 +1,304 @@
+/* #createPlace { */
+    /* position: sticky;
+    width: 1200px;
+    height: 887px; */
+    /* height: 748px; */
+    /* border-radius: 20px;
+    padding: 21px;
+    padding-right: 5px;
+    margin-left: 130px;
+    box-sizing: border-box;
+    background: #57ec89; */
+    /* background: url("C:\Users\Atanas\Desktop\paragliding_place\client\paragliding-place-client\public\images\locationParaglider.jpg"); */
+    /* box-shadow: 0px 0px 32px 0px #49535e, -14px -14px 20px #191c21; */
+/* } */
+
+/* container */
+.threeColumnsGrid {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 2fr;
+    padding-left: 210px;
+}
+
+/* columns */
+.threeColumnsGrid>* {
+    padding: 1rem;
+}
+
+/* left side of the panel */
+.leftSide {
+    width: 400px;
+    height: 700px;
+    margin-left: 90px;
+    margin-top: 50px;
+    background: url("C:\Users\Atanas\Desktop\paragliding_place\client\paragliding-place-client\public\images\paraglidingCreatePlaceNew.jpg");
+    background-position: 50%;
+    /* background-color: rebeccapurple; */
+}
+
+/* right side of the panel */
+.rightSide {
+    width: 600px;
+    height: 800px;
+    background-color: rgba(132, 201, 137, 0.445);
+}
+
+.header {
+    padding-left: 36%;
+    /* font-family: "Sans-Serif"; */
+}
+
+.placeLabel {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 30%;
+    color: black;
+    padding-right: 20%;
+}
+
+.inputName {
+    background: #ecf0f3;
+    height: 35px;
+    width: 375px;
+    margin-left: 17%;
+    margin-top: 1px;
+    font-size: 17px;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
+}
+
+.tablePosition {
+    margin-left: 13%;
+}
+
+th {
+    padding-left: 6px;
+}
+
+
+.labelDirection {
+    font-size: 15px;
+    padding-top: 1px;
+    margin-left: 13%;
+    color: black;
+    padding-right: 20%;
+}
+
+input[type="number"] {
+    background: #ecf0f3;
+    height: 35px;
+    width: 158px;
+    margin-left: 13%;
+    margin-top: 1px;
+    font-size: 17px;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
+}
+
+/* input[type="number"]{ padding: 20px 10px; line-height: 28px; } */
+
+.textareaDirection {
+    display: block;
+    text-align: center;
+    font-size: 17px;
+    width: 190px;
+    height: 35%;
+    max-height: 200px;
+    margin-top: 1px;
+    margin-left: 6%;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: Georgia;
+    box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
+}
+
+.tableDirection {
+    margin-left: 11%;
+}
+
+.tableDirectionDifferent {
+    padding-right: 30px;
+}
+
+.divCheck {
+    width: 80px;
+    height: 25px;
+    padding-right: 70px;
+    margin-left: 1px;
+    font-size: 17px;
+    /* border-radius: 15%; */
+    color: rgb(6, 6, 6);
+    /* background-color: rgb(24, 16, 89); */
+}
+
+.divCheckInput {
+    margin: 50px;
+    margin-bottom: 1px;
+    margin-top: -20px;
+
+    transform: translateY(-0.275em);
+}
+
+input[type="checkbox"] {
+    color: white;
+    background-color: rgb(57, 221, 57);
+    height: 10px;
+    width: 10px;
+    margin-top: -15px;
+    margin-left: 58px;
+    /* margin-left: 13%;
+    margin-top: 1px;
+    font-size: 17px;
+    border-radius: 50px; */
+    /* box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white; */
+}
+
+
+.checkboxWrapper *,
+.checkboxWrapper *::before,
+.checkboxWrapper *::after {
+    box-sizing: border-box;
+}
+
+.checkboxWrapper label {
+    display: block;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.checkboxWrapper input {
+    visibility: hidden;
+    display: none;
+}
+
+.checkboxWrapper input:checked~.checkbox {
+    transform: rotate(45deg);
+    width: 14px;
+    /* margin-left: 12px; */
+    margin-left: 67px;
+    margin-top: -33px;
+    border-color: #24c78e;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-radius: 0;
+}
+
+.checkboxWrapper .checkbox {
+    display: block;
+    margin-left: 59px;
+    margin-top: -27.5px;
+    width: inherit;
+    height: inherit;
+    border: 3px solid #434343;
+    border-radius: 6px;
+    transition: all 0.375s;
+}
+
+
+
+
+.submit {
+    background: #017aff;
+    margin-top: 6%;
+    margin-left: 25%;   
+    /* background: #7abce5; */
+    height: 41px;
+    width: 300px;
+    border-radius: 20px;
+    color: white;
+    font-size: 23px;
+    cursor: pointer;
+    font-weight: 900;
+    /* box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white; */
+    transition: 0.5s;
+}
+
+.submit:hover {
+    color: white;
+    background-color: #013b79;
+    /* background-color: #268ccb; */
+}
+
+.submitDisabled {
+    margin-top: 60px;
+    opacity: 0.7;
+    background: #0a2b4d;
+    /* background: #7abce5; */
+    height: 50px;
+    border-radius: 20px;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+    font-weight: 900;
+    /* box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white; */
+    transition: 0.5s;
+}
+
+.submitDisabled:hover {
+    color: white;
+    cursor: no-drop;
+    visibility: visible;
+    /* background-color: #268ccb; */
+}
+
+
+
+
+
+
+
+
+
+
+.ratingContainer {
+    width: 270px;
+    height: 60px;
+    margin-left: 26%;
+    background: rgb(64, 70, 64);
+    /* margin-left: 1px;
+    padding-right: 1px; */
+    /* float: left;
+    clear: none; */
+}
+
+input[type=radio] {
+    display: none;
+}
+
+.labelRating {
+    display: inline;
+    color: rgb(0, 0, 0);
+    margin-left: 6.4%;
+    /* float: left;
+    clear: none;
+    display: block;
+    padding: 0px 1em 0px 8px; */
+}
+
+.ratingLetter {
+    cursor: pointer;
+    color: black;
+    font-size: 35px;
+    /* float: left;
+    clear: none;
+    margin: 2px 0 0 2px; */
+
+}
+
+.ratingParagraph {
+    display: inline;
+    font-size: 21px;
+    padding-left: 5%;
+    color: rgb(205, 248, 217);
+}
+
+.chooseRating {
+    font-size: 24px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(252, 200, 68);
+}

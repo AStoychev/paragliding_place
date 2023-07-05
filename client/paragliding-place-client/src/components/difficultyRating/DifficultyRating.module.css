@@ -1,0 +1,57 @@
+.ratingContainer {
+    width: 220px;
+    height: 100px;
+    background: rgb(64, 70, 64);
+    /* margin-left: 1px;
+    padding-right: 1px; */
+    /* float: left;
+    clear: none; */
+}
+
+input[type=radio] {
+    display: none;
+}
+
+.labelRating {
+    display: inline;
+    color: rgb(0, 0, 0);
+    margin-left: 15%;
+    /* float: left;
+    clear: none;
+    display: block;
+    padding: 0px 1em 0px 8px; */
+}
+
+.ratingLetter {
+    cursor: pointer;
+    color: black;
+    font-size: 35px;
+    /* float: left;
+    clear: none;
+    margin: 2px 0 0 2px; */
+
+}
+
+.ratingParagraph {
+    display: inline;
+    font-size: 21px;
+    padding-left: 18%;
+    color: rgb(205, 248, 217);
+}
+
+.ratingButton {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 100%;
+    border-color: none;
+}
+
+.chooseRating {
+    font-size: 24px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(252, 200, 68);
+}

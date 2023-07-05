@@ -1,0 +1,31 @@
+.buttonCreateComment {
+    margin-bottom: 2%;
+    font-size: 12px;
+    position: relative;
+    bottom: 10px;
+    left: 10px;
+}
+
+.buttonEditComment {
+    width: 50px;
+    height: 25px;
+    border-radius: 15%;
+    border: none;
+    font-size: 5px;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    color: rgb(240, 253, 228);
+    background-color: rgb(76, 205, 71);
+}
+
+.buttonDeleteComment {
+    width: 50px;
+    height: 25px;
+    border-radius: 15%;
+    border: none;
+    font-size: 15px;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    color: rgb(240, 253, 228);
+    background-color: rgb(238, 138, 138);
+}

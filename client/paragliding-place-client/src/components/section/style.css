@@ -1,0 +1,46 @@
+/* This is css file created from React Leaflet */
+
+.sectionStyle {
+    position: fixed;
+    height: 710px;
+    width: 1683px;
+    /* padding-bottom: 1px; */
+    margin-top: -1px;
+}
+
+.mapContainer {
+    
+}
+
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+* {
+    /* box-sizing: border-box; */
+    margin: 0;
+    padding: 1px;
+}
+
+#root {
+    height: 100vh;
+} 
+
+/* sizing of map container */
+.leaflet-container {
+    height: 100vh;
+}
+
+.cluster-icon {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: rebeccapurple;
+    transform: translate(-25%, -25%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 1.5rem;
+}

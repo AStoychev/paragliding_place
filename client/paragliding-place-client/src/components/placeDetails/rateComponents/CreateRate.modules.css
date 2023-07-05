@@ -1,0 +1,104 @@
+/* .ratingContainer {
+    width: 200px;
+    height: 180px;
+    margin-bottom: 1%;
+    margin-left: 26%;
+    background: rgb(64, 70, 64);
+}
+
+input[type=radio] {
+    display: none;
+}
+
+.labelRating {
+    display: inline;
+    color: rgb(0, 0, 0);
+    margin-left: 6.4%;
+}
+
+.ratingLetter {
+    cursor: pointer;
+    color: black;
+    font-size: 35px;
+
+}
+
+.ratingParagraph {
+    display: inline;
+    font-size: 21px;
+    padding-left: 5%;
+    color: rgb(205, 248, 217);
+}
+
+.chooseRating {
+    font-size: 24px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(252, 200, 68);
+}
+
+.submitRating {
+    width: 50px;
+    height: 30px;
+    font-size: 18px;
+    margin-left: 39%;
+    background: rgb(129, 174, 125);
+    color: rgb(254, 254, 254);
+} */
+
+
+.ratingContainer {
+    width: 270px;
+    height: 130px;
+    margin-left: 26%;
+    background: rgb(64, 70, 64);
+    /* margin-left: 1px;
+    padding-right: 1px; */
+    /* float: left;
+    clear: none; */
+}
+
+input[type=radio] {
+    display: none;
+}
+
+.labelRating {
+    display: inline;
+    color: rgb(0, 0, 0);
+    margin-left: 6.4%;
+    /* float: left;
+    clear: none;
+    display: block;
+    padding: 0px 1em 0px 8px; */
+}
+
+.ratingLetter {
+    cursor: pointer;
+    color: black;
+    font-size: 35px;
+    /* float: left;
+    clear: none;
+    margin: 2px 0 0 2px; */
+
+}
+
+.chooseRating {
+    font-size: 24px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(252, 200, 68);
+}
+
+.ratingParagraph {
+    display: inline;
+    font-size: 21px;
+    padding-left: 20%;
+    color: rgb(205, 248, 217);
+}
+
+.submitRating {
+    width: 50px;
+    height: 30px;
+    font-size: 18px;
+    margin-left: 39%;
+    background: rgb(129, 174, 125);
+    color: rgb(254, 254, 254);
+}
