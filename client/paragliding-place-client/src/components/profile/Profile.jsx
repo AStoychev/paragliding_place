@@ -49,9 +49,6 @@ export const Profile = () => {
                                 </div>
                             </div>
                             <div className="containerItem">
-                                {/* {Object.values(user).map(x => (
-                                    <div key={x.id}>{x.first_name}</div>
-                                ))} */}
 
                                 {user.map(x => (
                                     <div className="item" key={x.id}>
