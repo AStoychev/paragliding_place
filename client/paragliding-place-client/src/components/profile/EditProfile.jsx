@@ -28,7 +28,6 @@ export const EditProfile = () => {
         first_name: '',
         last_name: '',
         age: '',
-        // gender: '',
     }, onProfileEditSubmit)
 
     useEffect(() => {
@@ -55,7 +54,6 @@ export const EditProfile = () => {
             <div className="container">
                 <div className="twoColumGrid">
                     <h3>Edit Profile</h3>
-                    {/* <div className="leftSide"></div> */}
                     <form method='POST' onSubmit={onSubmit}>
                         <div className="rightSide">
                             <div className="topAndBottom">
