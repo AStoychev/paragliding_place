@@ -84,10 +84,10 @@ class AppUser(auth_models.AbstractUser):
     )
 
     # You have to install first CountryField (pip install django-countries)
-    country = CountryField(
-        null=False,
-        blank=False,
-    )
+    # country = CountryField(
+    #     null=False,
+    #     blank=False,
+    # )
 
     gender = models.CharField(
         choices=Gender.choices(),

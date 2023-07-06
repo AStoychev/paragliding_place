@@ -81,6 +81,7 @@ export const EditPlace = () => {
         let len = Object.keys(values.direction).length
     }
 
+    console.log(values.difficulty_level)
     return (
         <div className={styles.container}>
             <section id={styles.createPlace} className="content auth">

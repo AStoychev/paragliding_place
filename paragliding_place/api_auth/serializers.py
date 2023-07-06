@@ -2,6 +2,8 @@ from django.contrib.auth import password_validation, get_user_model
 from django.core import exceptions
 from rest_framework import serializers
 
+from django_countries.serializer_fields import CountryField
+
 UserModel = get_user_model()
 
 
@@ -42,7 +44,23 @@ class CreateUserSerializer(serializers.ModelSerializer):
 
 
 class DetailsUserSerializer(serializers.ModelSerializer):
+
+    # country = CountryField()
     class Meta:
         model = UserModel
         fields = ('id', 'username', 'first_name', 'last_name', 'email', 'age', 'gender')
         # fields = ('username', 'first_name', 'last_name', 'email', 'age', 'country', 'gender')
+
+
+class UserUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserModel
+        fields = ('first_name', 'last_name', 'age', 'gender')
+
+    def update(self, instance, validated_data):
+        instance.first_name = validated_data.get('first_name', instance.first_name)
+        instance.last_name = validated_data.get('last_name', instance.last_name)
+        instance.age = validated_data.get('age', instance.age)
+        instance.gender = validated_data.get('gender', instance.gender)
+        instance.save()
+        return instance

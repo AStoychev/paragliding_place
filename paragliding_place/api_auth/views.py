@@ -5,7 +5,7 @@ from rest_framework.authtoken import views as authtoken_views
 from rest_framework.authtoken import models as authtoken_models
 from rest_framework.response import Response
 
-from paragliding_place.api_auth.serializers import CreateUserSerializer, DetailsUserSerializer
+from paragliding_place.api_auth.serializers import CreateUserSerializer, DetailsUserSerializer, UserUpdateSerializer
 
 UserModel = get_user_model()
 
@@ -77,3 +77,11 @@ class ListDetailsUser(rest_generic_views.ListAPIView):
 
         # return Response(DetailsUserSerializer(self.list_serializer_class, many=True).data)
         return Response(serializer.data)
+
+
+class UpdateProfileApiView(rest_generic_views.UpdateAPIView):
+    queryset = UserModel.objects.all()
+    list_serializer_class = UserUpdateSerializer
+
+    def get_serializer_class(self):
+        return self.list_serializer_class

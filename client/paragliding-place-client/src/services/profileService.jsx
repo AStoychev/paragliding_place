@@ -19,7 +19,7 @@ export const profileServiceFactory = (token) => {
     }
     
 
-    // const edit = (userId, data) => request.put(`${baseUrl}/${userId}`, data);
+    const edit = (userId, data) => request.put(`${baseUrl}/edit/${userId}`, data);
 
     // const deletePlace = (userId) => request.delete(`${baseUrl}/delete/${userId}`);
 
@@ -27,7 +27,7 @@ export const profileServiceFactory = (token) => {
         // getAll,
         getOne,
         // create,
-        // edit,
+        edit,
         // delete: deletePlace,
     };
 }

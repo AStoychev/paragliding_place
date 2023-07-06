@@ -4,6 +4,8 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 
 import { authServiceFactory } from '../services/authService';
 
+import { profileServiceFactory } from '../services/profileService';
+
 // Handling
 // Handling
 
@@ -21,6 +23,9 @@ export const AuthProvider = ({
     // Try error
 
     const authService = authServiceFactory(auth.token);
+
+    const profileService = profileServiceFactory()
+    const [profile, setProfile] = useState([])
 
     const onLoginSubmit = async (data) => {
 
@@ -83,10 +88,29 @@ export const AuthProvider = ({
         // This reload page after logout. Use for clear authentication token permision
     };
 
+    const onProfileEditSubmit = async (values) => {
+        const placeId = values.id
+        
+        const result = await profileService.edit(values.id, values);
+
+        setProfile(state => state.map(x => x.id === values.id ? result : x))
+
+        navigate(`profile/${placeId}`)
+    };
+
+    const isOwner = (compareId, ownerId) => {
+        if (compareId === ownerId) {
+            return true
+        }
+    }
+
+
     const contextValues = {
         onLoginSubmit,
         onRegisterSubmit,
         onLogout,
+        onProfileEditSubmit,
+        isOwner,
         userId: auth.user_id,
         token: auth.token,
         userEmail: auth.email,
@@ -101,6 +125,7 @@ export const AuthProvider = ({
         thisError: errors,
         errorEmail: errorEmail,
     };
+
     return (
         <>
             <AuthContext.Provider value={contextValues}>

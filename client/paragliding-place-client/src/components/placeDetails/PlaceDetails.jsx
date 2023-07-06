@@ -260,7 +260,7 @@ export const PlaceDetails = () => {
                             <div className={styles.itemDirection}>
                                 <h1>{place.place}
                                     {isOwner(place.user_id, userId) &&
-                                        <Link className={styles.buttonSetting} to={`/place/edit/${place.id}`} title="Setting" ><img src="../images/edit.png" alt="logo" /></Link>
+                                        <Link className={styles.buttonSetting} to={`/place/edit/${place.id}`} title="Setting" ><img src="../images/setting.png" alt="Setting" /></Link>
                                     }
                                 </h1>
                             </div>
