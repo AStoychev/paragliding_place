@@ -8,18 +8,20 @@ export const profileServiceFactory = (token) => {
     // const getAll = async () => {
     //     const result = await request.get(baseUrl);
     //     const places = Object.values(result);
-    
+
     //     return places;
     // };
-    
+
     const getOne = async (userId) => {
         const result = await request.get(`${baseUrl}?id=${userId}`);
         // const user = Object.values(result)
         return result
     }
-    
+
 
     const edit = (userId, data) => request.put(`${baseUrl}/edit/${userId}`, data);
+
+    const changePassword = (userId, data) => request.put(`${baseUrl}/edit/change-password/${userId}`, data)
 
     // const deletePlace = (userId) => request.delete(`${baseUrl}/delete/${userId}`);
 
@@ -28,6 +30,7 @@ export const profileServiceFactory = (token) => {
         getOne,
         // create,
         edit,
+        changePassword,
         // delete: deletePlace,
     };
 }

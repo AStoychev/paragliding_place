@@ -81,7 +81,6 @@ export const EditPlace = () => {
         let len = Object.keys(values.direction).length
     }
 
-    console.log(values.difficulty_level)
     return (
         <div className={styles.container}>
             <section id={styles.createPlace} className="content auth">
@@ -196,37 +195,41 @@ export const EditPlace = () => {
 
                             <label className={styles.placeLabel}>Difficulty Level</label>
                             <div className={styles.ratingContainer}>
-                                <label className={styles.labelRating} onChange={changeHandler} >
+                                <label htmlFor="ratingA" className={styles.labelRating} onChange={changeHandler} >
                                     <input
                                         type="radio"
                                         name="rating"
+                                        id="ratingA"
                                         value={values.difficulty_level}
                                         onChange={onRatingChange}
                                     />
                                     <TbCircleLetterA className={styles.ratingLetter} onClick={() => setRating("A")} color={"A" <= (hover || values.difficulty_level) ? "#ffc107" : "#e4e5e9"} onMouseEnter={() => setHover("A")} onMouseLeave={() => setHover(null)} />
                                 </label>
-                                <label className={styles.labelRating} onChange={changeHandler} >
+                                <label htmlFor="ratingB" className={styles.labelRating} onChange={changeHandler} >
                                     <input
                                         type="radio"
                                         name="rating"
+                                        id="ratingB"
                                         value={values.difficulty_level}
                                         onChange={onRatingChange}
                                     />
                                     <TbCircleLetterB className={styles.ratingLetter} onClick={() => setRating("B")} color={"B" <= (hover || values.difficulty_level) ? "#ffc107" : "#e4e5e9"} onMouseEnter={() => setHover("B")} onMouseLeave={() => setHover(null)} />
                                 </label>
-                                <label className={styles.labelRating} onChange={changeHandler} >
+                                <label htmlFor="ratingC" className={styles.labelRating} onChange={changeHandler} >
                                     <input
                                         type="radio"
                                         name="rating"
+                                        id="ratingC"
                                         value={values.difficulty_level}
                                         onChange={onRatingChange}
                                     />
                                     <TbCircleLetterC className={styles.ratingLetter} onClick={() => setRating("C")} color={"C" <= (hover || values.difficulty_level) ? "#ffc107" : "#e4e5e9"} onMouseEnter={() => setHover("C")} onMouseLeave={() => setHover(null)} />
                                 </label>
-                                <label className={styles.labelRating} onChange={changeHandler} >
+                                <label htmlFor="ratingD" className={styles.labelRating} onChange={changeHandler} >
                                     <input
                                         type="radio"
                                         name="rating"
+                                        id="ratingD"
                                         value={values.difficulty_level}
                                         onChange={onRatingChange}
                                     />

@@ -43,6 +43,13 @@ class CreateUserSerializer(serializers.ModelSerializer):
         return user_representation
 
 
+class ChangePasswordSerializer(serializers.Serializer):
+    model = UserModel
+
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)
+
+
 class DetailsUserSerializer(serializers.ModelSerializer):
 
     # country = CountryField()

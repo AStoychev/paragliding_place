@@ -1,11 +1,13 @@
 from django.contrib.auth import get_user_model
 
-from rest_framework import generics as rest_generic_views, views as rest_views
+from rest_framework import generics as rest_generic_views, views as rest_views, status
 from rest_framework.authtoken import views as authtoken_views
 from rest_framework.authtoken import models as authtoken_models
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from paragliding_place.api_auth.serializers import CreateUserSerializer, DetailsUserSerializer, UserUpdateSerializer
+from paragliding_place.api_auth.serializers import CreateUserSerializer, DetailsUserSerializer, UserUpdateSerializer, \
+    ChangePasswordSerializer
 
 UserModel = get_user_model()
 
@@ -24,6 +26,8 @@ class LoginApiView(authtoken_views.ObtainAuthToken):
         token, created = authtoken_models.Token.objects.get_or_create(user=user)
         return Response({
             'token': token.key,
+            # It is not good idea password to be here
+            'password': user.password,
             'user_id': user.pk,
             'username': user.username,
             'age': user.age,
@@ -52,6 +56,38 @@ class LogoutApiView(rest_views.APIView):
         return Response({
             'message': 'user logged out'
         })
+
+
+class ChangePasswordView(rest_generic_views.UpdateAPIView):
+    serializer_class = ChangePasswordSerializer
+    model = UserModel
+    permission_classes = (IsAuthenticated,)
+
+    def get_object(self, queryset=None):
+        obj = self.request.user
+        return obj
+
+    def update(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        serializer = self.get_serializer(data=request.data)
+
+        if serializer.is_valid():
+            if not self.object.check_password(serializer.data.get("old_password")):
+                return Response({"old_password": ["Wrong password."]}, status=status.HTTP_400_BAD_REQUEST)
+
+            self.object.set_password(serializer.data.get("new_password"))
+            self.object.save()
+
+            response = {
+                'status': 'success',
+                'code': 'status.HTTP_200_OK',
+                'message': 'Password update successfully',
+                'data': []
+            }
+
+            return Response(response)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class ListDetailsUser(rest_generic_views.ListAPIView):

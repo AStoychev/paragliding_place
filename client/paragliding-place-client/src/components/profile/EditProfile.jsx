@@ -40,22 +40,6 @@ export const EditProfile = () => {
         }
     }
 
-    // for(let i = 0; i < Object.values(values).length; i++){
-    //     if(!Object.values(values)[i]){
-    //         // console.log(111111, Object.values(values)[i])
-    //         Object.values(values)[i] = "A";
-    //         console.log(Object.values(values))
-    //     };
-    // };
-
-    // if (!values.first_name) {
-    //     values.first_name = "";
-    // };
-
-    // if (!values.last_name) {
-    //     values.last_name = "";
-    // };
-
     useEffect(() => {
         profileService.getOne(userId)
             .then(result => {
@@ -79,8 +63,6 @@ export const EditProfile = () => {
         values.email_visibility = visiblility
     }
 
-    console.log(values)
-
     return (
         <>
             <div className="container">
@@ -99,7 +81,11 @@ export const EditProfile = () => {
                                 <div className="containerItem">
 
                                     <div className="leftSide">
-
+                                    <span>
+                                        <Link className="changePasswordLink" to={`/profile/edit/change-password/${userId}`} title="Change Password">
+                                            <img src="../../images/key.png" alt="Change Password"/>
+                                            </Link>
+                                    </span>
                                     </div>
 
                                     <div className="item">

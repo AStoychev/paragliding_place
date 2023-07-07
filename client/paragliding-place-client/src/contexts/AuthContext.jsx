@@ -89,14 +89,24 @@ export const AuthProvider = ({
     };
 
     const onProfileEditSubmit = async (values) => {
-        const placeId = values.id
+        const profileId = values.id
         
         const result = await profileService.edit(values.id, values);
 
         setProfile(state => state.map(x => x.id === values.id ? result : x))
 
-        navigate(`profile/${placeId}`)
+        navigate(`profile/${profileId}`)
     };
+
+    const onChangePassword = async (values) => {
+        const profileId = values.id;
+        
+        const result = await profileService.changePassword(profileId, values)
+        
+        setProfile(state => state.map(x => x.id === values.id ? result : x))
+
+        navigate(`profile/${profileId}`)
+    }
 
     const isOwner = (compareId, ownerId) => {
         if (compareId === ownerId) {
@@ -110,8 +120,10 @@ export const AuthProvider = ({
         onRegisterSubmit,
         onLogout,
         onProfileEditSubmit,
+        onChangePassword,
         isOwner,
         userId: auth.user_id,
+        password: auth.password,
         token: auth.token,
         userEmail: auth.email,
         userName: auth.username,
