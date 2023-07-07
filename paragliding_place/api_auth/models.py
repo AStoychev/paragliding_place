@@ -24,6 +24,7 @@ class Gender(ChoicesEnumMixin, Enum):
     Female = "Female"
     Male = "Male"
     Neuter = "Neuter"
+    No = "No"
 
 
 class AppUser(auth_models.AbstractUser):
@@ -78,9 +79,14 @@ class AppUser(auth_models.AbstractUser):
         blank=False,
     )
 
+    email_visibility = models.BooleanField(
+        default=True,
+    )
+
     age = models.PositiveIntegerField(
         null=True,
         blank=True,
+        default=1
     )
 
     # You have to install first CountryField (pip install django-countries)
@@ -92,4 +98,5 @@ class AppUser(auth_models.AbstractUser):
     gender = models.CharField(
         choices=Gender.choices(),
         max_length=Gender.max_len(),
+        default="No"
     )

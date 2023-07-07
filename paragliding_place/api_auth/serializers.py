@@ -48,18 +48,19 @@ class DetailsUserSerializer(serializers.ModelSerializer):
     # country = CountryField()
     class Meta:
         model = UserModel
-        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'age', 'gender')
+        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'email_visibility', 'age', 'gender')
         # fields = ('username', 'first_name', 'last_name', 'email', 'age', 'country', 'gender')
 
 
 class UserUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
-        fields = ('first_name', 'last_name', 'age', 'gender')
+        fields = ('first_name', 'last_name', 'email_visibility', 'age', 'gender')
 
     def update(self, instance, validated_data):
         instance.first_name = validated_data.get('first_name', instance.first_name)
         instance.last_name = validated_data.get('last_name', instance.last_name)
+        instance.email_visibility = validated_data.get('email_visibility', instance.email_visibility)
         instance.age = validated_data.get('age', instance.age)
         instance.gender = validated_data.get('gender', instance.gender)
         instance.save()

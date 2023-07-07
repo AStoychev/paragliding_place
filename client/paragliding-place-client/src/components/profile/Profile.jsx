@@ -6,6 +6,8 @@ import { useService } from "../../hooks/useService";
 
 import { profileServiceFactory } from "../../services/profileService";
 
+import { findEmptyValue } from "../../services/validators";
+
 import { DifficultyRating } from "../difficultyRating/DifficultyRating"
 
 import styles from "./profile.modules.css"
@@ -27,6 +29,16 @@ export const Profile = () => {
             setUser(result)
         })
     }, [])
+
+    // const findEmptyValue = (value) => {
+    //     if(value === 1) {
+    //         return <span style={{fontSize: '15px', fontStyle: 'italic'}}>Not selected</span>
+    //     }
+    //     if(value === "No") {
+    //         return <span style={{fontSize: '15px', fontStyle: "italic"}}>Not selected</span>
+    //     }
+    //     return value
+    // }
 
     return (
         <>
@@ -57,9 +69,11 @@ export const Profile = () => {
                                                 }
                                             </h1>
                                             <p>Name: {x.first_name} {x.last_name}</p>
-                                            <p>Email: <a href={`mailto:${x.email}?subject = Feedback&body = Message`}>{x.email}</a></p>
-                                            <p>Age: {x.age}</p>
-                                            <p>Gender: {x.gender}</p>
+                                            {x.email_visibility &&
+                                                <p>Email: <a href={`mailto:${x.email}?subject = Feedback&body = Message`}>{x.email}</a></p>
+                                            }
+                                            <p>Age: {findEmptyValue(x.age)}</p>
+                                            <p>Gender: {findEmptyValue(x.gender)}</p>
                                             {/* <p key={x.id}>Country: {x.country}</p> */}
                                         </ul>
                                     </div>

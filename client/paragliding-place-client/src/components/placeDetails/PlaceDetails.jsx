@@ -193,12 +193,14 @@ export const PlaceDetails = () => {
         }
 
         place.rate && place.rate.map(x => {
-            if (x.user_id === userId) {
-                rate = x.rating
-                alreadyRate = true
-            }
 
             if (x.place_id_rating == placeId) {
+
+                if (x.user_id === userId) {
+                    rate = x.rating
+                    alreadyRate = true
+                }
+
                 // rate.push(x.rating)
                 if (x.rating === "A") {
                     rateA += 1
@@ -222,7 +224,7 @@ export const PlaceDetails = () => {
         rateC = inPercentage(rateC, allPeopleRate);
         rateD = inPercentage(rateD, allPeopleRate);
 
-        return [rateA, rateB, rateC, rateD, allPeopleRate, rate]
+        return [rateA, rateB, rateC, rateD, alreadyRate, rate]
     }
 
     return (
@@ -295,7 +297,7 @@ export const PlaceDetails = () => {
                                     Rate A: {ratingPlace()[0]} <br></br> <div className={styles.barRatingA} style={{ width: `${5 * ratingPlace()[0]}px` }}></div> <br></br>
                                     Rate B: {ratingPlace()[1]} <br></br> <div className={styles.barRatingB} style={{ width: `${5 * ratingPlace()[1]}px` }}></div> <br></br>
                                     Rate C: {ratingPlace()[2]} <br></br> <div className={styles.barRatingC} style={{ width: `${5 * ratingPlace()[2]}px` }}></div> <br></br>
-                                    Rate D: {ratingPlace()[3]} <br></br> <div className={styles.barRatingD} style={{ width: `${5 * ratingPlace()[2]}px` }}></div> <br></br>
+                                    Rate D: {ratingPlace()[3]} <br></br> <div className={styles.barRatingD} style={{ width: `${5 * ratingPlace()[3]}px` }}></div> <br></br>
 
                                     {ratingPlace()[4] ? <div className={styles.alreadyRateDiv}>You already rate for this place with rate: <span className={styles.alreadyRateSpan}>{ratingPlace()[5]}</span> </div> :
                                         <div>
@@ -314,9 +316,9 @@ export const PlaceDetails = () => {
                                             <CreateRace onRateSubmit={onRateSubmit} />
                                         </div>
                                     } */}
-                                    {/* <label className={styles.placeLabel}>Difficulty Level</label>
+                            {/* <label className={styles.placeLabel}>Difficulty Level</label>
                                     <CreateRace onRateSubmit={onRateSubmit}/> */}
-                                {/* </Accordion.Body>
+                            {/* </Accordion.Body>
                             </Accordion.Item> */}
                         </Accordion>
 
