@@ -15,6 +15,8 @@ import { useForm } from '../../hooks/useForm';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Link } from 'react-router-dom';
 
+import { isEqualAndHaveLength } from '../../validators/validators';
+
 import styles from '../login/LoginRegister.module.css';
 
 const LoginFormKeys = {
@@ -115,12 +117,6 @@ export const RegisterModal = () => {
             return true
         } else {
             return false
-        }
-    }
-
-    const isEqual = () => {
-        if (values.password === values.confirmPassword && (values.password).length >= 6 && (values.confirmPassword).length >= 6) {
-            return true
         }
     }
 
@@ -261,7 +257,7 @@ export const RegisterModal = () => {
                             />
                             {repeatPass === 1 && (values.confirmPassword).length >= 1 &&
                                 <>
-                                    {isEqual() === true ?
+                                    {isEqualAndHaveLength(values.password, values.confirmPassword) === true ?
 
                                         <p >
                                             <span style={{ color: "blue", margin: "35%", paddingLeft: "10%", paddingBottom: "10%" }}>Password match!</span>

@@ -6,11 +6,11 @@ import { useService } from "../../hooks/useService";
 
 import { profileServiceFactory } from "../../services/profileService";
 
-import { findEmptyValue } from "../../services/validators";
+import { findEmptyValue } from "../../validators/validators";
 
 import { DifficultyRating } from "../difficultyRating/DifficultyRating"
 
-import styles from "./profile.modules.css"
+import "./profile.modules.css"
 
 export const Profile = () => {
     const userProfileId = useParams()
@@ -69,7 +69,7 @@ export const Profile = () => {
                                                 }
                                             </h1>
                                             <p>Name: {x.first_name} {x.last_name}</p>
-                                            {x.email_visibility &&
+                                            {x.email_visibility === "Visible" &&
                                                 <p>Email: <a href={`mailto:${x.email}?subject = Feedback&body = Message`}>{x.email}</a></p>
                                             }
                                             <p>Age: {findEmptyValue(x.age)}</p>

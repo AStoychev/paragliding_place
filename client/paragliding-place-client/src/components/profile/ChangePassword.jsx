@@ -1,14 +1,16 @@
 import { useParams } from "react-router-dom"
+
 import { useForm } from "../../hooks/useForm";
 import { useAuthContext } from "../../contexts/AuthContext";
+import { isEqualAndHaveLength } from "../../validators/validators";
 
-import styles from "./profile.modules.css"
+import "./profile.modules.css"
 
 export const ChangePassword = () => {
     const userProfileId = useParams()
     const profileId = userProfileId['userId']
 
-    const { userId, password, isAuthenticated, onChangePassword, isOwner, userName, userEmail, userFirstName, userLastName, userAge, userCountry, userGender } = useAuthContext();
+    const { userId, onChangePassword } = useAuthContext();
 
     const { values, changeHandler, onSubmit, changeValues } = useForm({
         id: userId,
@@ -16,14 +18,6 @@ export const ChangePassword = () => {
         new_password: '',
         confirm_password: '',
     }, onChangePassword)
-
-    const isEqual = () => {
-        if (values.new_password === values.confirm_password && (values.new_password).length >= 6 && (values.confirm_password).length >= 6) {
-            return true
-        }
-    }
-
-    console.log((values.new_password).length)
 
     return (
         <>
@@ -65,7 +59,7 @@ export const ChangePassword = () => {
                                         />
                                     </label>
                                 </div>
-                                {isEqual() ?
+                                {isEqualAndHaveLength(values.new_password, values.confirm_password) ?
                                     <input type="submit" value="Change Password" />
                                     :
                                     <input type="submit" value="Change Password" disabled={true} />

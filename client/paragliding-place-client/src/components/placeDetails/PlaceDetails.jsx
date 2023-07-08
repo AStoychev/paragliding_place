@@ -46,7 +46,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 export const PlaceDetails = () => {
     const { placeId } = useParams();
-    const { userId, isAuthenticated, userName, userEmail } = useAuthContext();
+    const { userId, isAuthenticated, isOwner, userName, userEmail } = useAuthContext();
 
     const [allPlaces, setAllPlaces] = useState([]);
     const [allRating, setAllRating] = useState([]);
@@ -137,12 +137,6 @@ export const PlaceDetails = () => {
             ))
         }
         return haveComment
-    }
-
-    const isOwner = (placeOwner, ownerId) => {
-        if (placeOwner === ownerId) {
-            return true
-        }
     }
 
     const urlLink = (e, n) => {

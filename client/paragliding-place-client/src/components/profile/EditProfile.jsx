@@ -8,7 +8,7 @@ import { useService } from "../../hooks/useService";
 
 import { profileServiceFactory } from "../../services/profileService";
 
-import { findEmptyValue } from '../../services/validators';
+import { findEmptyValue } from '../../validators/validators';
 
 import { IoIosMan, IoIosWoman } from "react-icons/io";
 import { BsEmojiNeutralFill, BsEmojiNeutral } from "react-icons/bs";
@@ -60,7 +60,9 @@ export const EditProfile = () => {
     }
 
     const onVisibilityChange = (e) => {
+        console.log(values.email_visibility)
         values.email_visibility = visiblility
+        console.log(1111, values.email_visibility)
     }
 
     return (
@@ -109,28 +111,28 @@ export const EditProfile = () => {
                                                     onChange={changeHandler}
                                                 />
                                             </label>
-                                            <p>Email Visibility: {values.email_visibility === true ? "Visible" : "Unvisible"} <br></br>
+                                            <p>Email Visibility: {values.email_visibility} <br></br>
 
-                                                <label htmlFor='emailFalse' className="labelGender" onChange={changeHandler}>
+                                                <label htmlFor='emailInvisible' className="labelGender" onChange={changeHandler}>
                                                     <input
                                                         type="radio"
-                                                        id="emailFalse"
+                                                        id="emailInvisible"
                                                         name="rating"
                                                         value={values.email_visibility}
                                                         onChange={onVisibilityChange}
                                                     />
-                                                    <AiOutlineEyeInvisible className="genderIcon" onClick={() => setVisibility(false)} color={values.email_visibility == false ? "#ffc107" : "black"} />
+                                                    <AiOutlineEyeInvisible className="genderIcon" onClick={() => setVisibility("Invisible")} color={values.email_visibility == "Invisible" ? "#ffc107" : "black"} />
                                                 </label>
 
-                                                <label htmlFor='emailTrue' className="labelGender" onChange={changeHandler}>
+                                                <label htmlFor='emailVisible' className="labelGender" onChange={changeHandler}>
                                                     <input
                                                         type="radio"
-                                                        id="emailTrue"
+                                                        id="emailVisible"
                                                         name="rating"
                                                         value={values.email_visibility}
                                                         onChange={onVisibilityChange}
                                                     />
-                                                    <AiOutlineEye className="genderIcon" onClick={() => setVisibility(true)} color={values.email_visibility == true ? "#ffc107" : "black"} />
+                                                    <AiOutlineEye className="genderIcon" onClick={() => setVisibility("Visible")} color={values.email_visibility == "Visible" ? "#ffc107" : "black"} />
                                                 </label>
 
                                             </p>

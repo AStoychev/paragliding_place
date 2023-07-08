@@ -20,6 +20,11 @@ class ChoicesEnumMixin:
         return max(len(name) for name, _ in cls.choices())
 
 
+class EmailVisibility(ChoicesEnumMixin, Enum):
+    Visible = "Visible"
+    Invisible = "Invisible"
+
+
 class Gender(ChoicesEnumMixin, Enum):
     Female = "Female"
     Male = "Male"
@@ -36,6 +41,8 @@ class AppUser(auth_models.AbstractUser):
 
     LAST_NAME_MIN_LEN = 3
     LAST_NAME_MAX_LEN = 15
+
+    EMAIL_VISIBILITY_LEN = 10
 
     MIN_LEN_GENDER = 2
     MAX_LEN_GENDER = 21
@@ -79,8 +86,10 @@ class AppUser(auth_models.AbstractUser):
         blank=False,
     )
 
-    email_visibility = models.BooleanField(
-        default=True,
+    email_visibility = models.CharField(
+        choices=EmailVisibility.choices(),
+        max_length=EMAIL_VISIBILITY_LEN,
+        default="Visible"
     )
 
     age = models.PositiveIntegerField(
