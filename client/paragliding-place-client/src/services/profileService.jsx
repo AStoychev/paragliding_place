@@ -23,6 +23,8 @@ export const profileServiceFactory = (token) => {
 
     const changePassword = (userId, data) => request.put(`${baseUrl}/edit/change-password/${userId}`, data)
 
+    const resetPassword = (email) => request.post(`http://localhost:8000/api/auth/password_reset/`, email)
+
     // const deletePlace = (userId) => request.delete(`${baseUrl}/delete/${userId}`);
 
     return {
@@ -31,6 +33,7 @@ export const profileServiceFactory = (token) => {
         // create,
         edit,
         changePassword,
+        resetPassword,
         // delete: deletePlace,
     };
 }

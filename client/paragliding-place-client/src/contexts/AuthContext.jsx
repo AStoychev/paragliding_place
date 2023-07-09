@@ -108,6 +108,11 @@ export const AuthProvider = ({
         navigate(`profile/${profileId}`)
     }
 
+    const onResetPassword = async (values) => {
+        await profileService.resetPassword(values)
+        navigate('/feedback')
+    }
+
     const isOwner = (compareId, ownerId) => {
         if (compareId === ownerId) {
             return true
@@ -121,6 +126,7 @@ export const AuthProvider = ({
         onLogout,
         onProfileEditSubmit,
         onChangePassword,
+        onResetPassword,
         isOwner,
         userId: auth.user_id,
         password: auth.password,

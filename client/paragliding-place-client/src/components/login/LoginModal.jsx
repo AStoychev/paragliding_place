@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -13,7 +14,6 @@ import { RegisterModal } from '../register/RegisterModal';
 
 import { Link } from 'react-router-dom';
 
-import React from 'react';
 import styles from './LoginRegister.module.css';
 
 const LoginFormKeys = {
@@ -126,6 +126,9 @@ export const LoginModal = () => {
 
                 </Modal.Body>
                 <Modal.Footer >
+                    {/* Forget password */}
+                    <p style={{ paddingBottom: "30px", paddingRight: "175px", fontSize: "17px" }}>If you forget your password <Link to="reset-password" onClick={handleClose}>Forget Password</Link> </p>
+                    {/* Forget password */}
                     <p className={styles.downField}>
                         <span>If you don't have profile click <RegisterModal /></span>
                     </p>

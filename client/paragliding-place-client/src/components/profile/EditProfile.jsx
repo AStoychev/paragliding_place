@@ -60,9 +60,7 @@ export const EditProfile = () => {
     }
 
     const onVisibilityChange = (e) => {
-        console.log(values.email_visibility)
         values.email_visibility = visiblility
-        console.log(1111, values.email_visibility)
     }
 
     return (

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'django_rest_passwordreset',
     'rest_framework.authtoken',
     'corsheaders',
     'django_countries',
@@ -172,6 +173,8 @@ STATIC_URL = 'static/'
 
 # This is from my project paragliding shop
 AUTH_USER_MODEL = 'api_auth.AppUser'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DJANGO_SETTINGS_MODULE = True
 
