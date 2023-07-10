@@ -3,6 +3,8 @@ from django.urls import path, include
 from paragliding_place.api_auth.views import RegisterApiView, LoginApiView, LogoutApiView, ListDetailsUser, \
     UpdateProfileApiView, ChangePasswordView
 
+from paragliding_place.api_auth.signals import *
+
 urlpatterns = (
     path('register', RegisterApiView.as_view(), name='api register user'),
     path('login', LoginApiView.as_view(), name='api login user'),

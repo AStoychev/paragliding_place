@@ -15,6 +15,7 @@ from django.urls import reverse
 from django_rest_passwordreset.signals import reset_password_token_created
 from django.core.mail import send_mail
 
+
 class ChoicesEnumMixin:
     @classmethod
     def choices(cls):
@@ -134,6 +135,7 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
         # First url - is for current email
         # Second is for put the new passwotd and token
         print(f"http://localhost:8000{email_plaintext_message}"),
+        print("Copy this code and use it for reset your password in link below:", reset_password_token.key),
         print(f"http://localhost:8000/api/auth/password_reset/confirm/"),
         # To
         [reset_password_token.user.email]

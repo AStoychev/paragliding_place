@@ -174,8 +174,8 @@ label[for="terms"]>input {
     bottom: 4px;
     right: 8px;
     text-decoration: none;
-    color: rgb(9, 167, 56);
-    /* background:  rgb(9, 167, 56); */
+    color: rgb(0, 0, 0);
+    background:  rgb(9, 167, 56);
     /* background: rgb(47, 177, 88); */
     border-radius: 5px;
     padding: 6px;
