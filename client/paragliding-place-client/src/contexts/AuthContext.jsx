@@ -28,11 +28,12 @@ export const AuthProvider = ({
     const [profile, setProfile] = useState([])
 
     const onLoginSubmit = async (data) => {
+        const redirectTo = data.path
 
         try {
             const result = await authService.login(data);
             setAuth(result);
-            navigate('/');
+            navigate(`${redirectTo}`);
 
         } catch (error) {
             console.log('There is a problem')

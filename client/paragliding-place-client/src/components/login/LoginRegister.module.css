@@ -168,21 +168,6 @@ label[for="terms"]>input {
     margin-top: 0px;
 }
 
-.downField>span {
-    position: absolute;
-    font-size: 18px;
-    bottom: 4px;
-    right: 8px;
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    background:  rgb(9, 167, 56);
-    /* background: rgb(47, 177, 88); */
-    border-radius: 5px;
-    padding: 6px;
-    margin-right: 95px;
-    margin-bottom: -4px;
-}
-
 #fieldHere {
     color: rgba(93, 71, 216, 0.957);
 }

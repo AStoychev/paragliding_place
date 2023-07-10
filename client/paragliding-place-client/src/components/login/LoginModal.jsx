@@ -22,10 +22,15 @@ const LoginFormKeys = {
     Password: 'password',
 }
 
-export const LoginModal = () => {
+export const LoginModal = ({navigatePath}) => {
     const [show, setShow] = useState(false);
 
-    const handleCloseLogin = () => setShow(false);
+    if(navigatePath === undefined) {
+        navigatePath = "/"
+    }
+
+
+    const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const { onLoginSubmit } = useAuthContext();
@@ -33,6 +38,7 @@ export const LoginModal = () => {
         [LoginFormKeys.Username]: '',
         // [LoginFormKeys.Email]: '',
         [LoginFormKeys.Password]: '',
+        "path": navigatePath,
 
     }, onLoginSubmit);
 
@@ -75,7 +81,7 @@ export const LoginModal = () => {
                 Login
             </Button> */}
 
-            <Modal style={{ paddingTop: '50px' }} show={show}  onHide={handleCloseLogin}>
+            <Modal style={{ paddingTop: '50px' }} show={show} onHide={handleClose}>
                 <Modal.Header closeButton >
                     <Modal.Title style={{ color: 'rgb(9, 167, 56)', paddingLeft: '194px', fontSize: '28px' }}>Login</Modal.Title>
                 </Modal.Header>
@@ -127,15 +133,9 @@ export const LoginModal = () => {
                 </Modal.Body>
                 <Modal.Footer >
                     {/* Forget password */}
-                    <p style={{ paddingBottom: "30px", paddingRight: "175px", fontSize: "17px" }}>If you forget your password <Link to="reset-password" onClick={handleCloseLogin}>Forget Password</Link> </p>
+                    <p style={{ paddingBottom: "30px", paddingRight: "175px", fontSize: "17px" }}>If you forget your password <Link to="reset-password" onClick={handleClose}>Forget Password</Link> </p>
                     {/* Forget password */}
-                    <p className={styles.downField}>
-                        <span>If you don't have profile click <RegisterModal /></span>
-                    </p>
 
-                    {/* <Button variant="primary" onClick={onSubmit}>
-                        Save Changes
-                    </Button> */}
                 </Modal.Footer>
             </Modal>
         </>

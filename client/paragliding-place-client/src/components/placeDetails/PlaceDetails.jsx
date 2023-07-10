@@ -221,6 +221,8 @@ export const PlaceDetails = () => {
         return [rateA, rateB, rateC, rateD, alreadyRate, rate]
     }
 
+    const navigatePath = `place-details/${placeId}`
+
     return (
         <div className={styles.container}>
             <div className={styles.twoColumGrid}>
@@ -358,7 +360,7 @@ export const PlaceDetails = () => {
                                     <CommentModal onCommentSubmit={onCommentSubmit} />
                                 }
                                 {!isAuthenticated &&
-                                    <div className={styles.logoutComment}>If you want to left comment <span className={styles.spanComment}><LoginModal /></span> </div>
+                                    <div className={styles.logoutComment}>If you want to left comment <span className={styles.spanComment}><LoginModal navigatePath={navigatePath}/></span> </div>
                                 }
                             </div>
 

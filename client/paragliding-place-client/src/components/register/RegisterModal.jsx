@@ -172,7 +172,7 @@ export const RegisterModal = () => {
                             <Form.Control
                                 autoFocus
                                 type="email"
-                                id={styles.email}
+                                id="email"
                                 name="email"
                                 placeholder="livingwall@gmail.com"
                                 value={values.email}
@@ -196,7 +196,7 @@ export const RegisterModal = () => {
                             <Form.Control
                                 autoFocus
                                 type="username"
-                                id={styles.username}
+                                id="username"
                                 name="username"
                                 placeholder="Username"
                                 value={values.username}
@@ -219,11 +219,11 @@ export const RegisterModal = () => {
                             className="mb-3"
                             // controlId="exampleForm.ControlTextarea1"
                         >
-                            <Form.Label className={styles.htmlContent} htmlFor="login-pass">Password:</Form.Label>
+                            <Form.Label className={styles.htmlContent} htmlFor="register-pass">Password:</Form.Label>
                             <Form.Control
                                 type="password"
                                 name="password"
-                                id={styles.password}
+                                id="register-pass"
                                 placeholder="******"
                                 value={values.password}
                                 onChange={changeHandler}
@@ -244,11 +244,11 @@ export const RegisterModal = () => {
                             className="mb-3"
                             // controlId="exampleForm.ControlTextarea1"
                         >
-                            <Form.Label className={styles.htmlContent} htmlFor="login-pass">Confirm Password:</Form.Label>
+                            <Form.Label className={styles.htmlContent} htmlFor="confirm-pass">Confirm Password:</Form.Label>
                             <Form.Control
                                 type="password"
                                 name="confirmPassword"
-                                id={styles.confirmPassword}
+                                id="confirm-pass"
                                 placeholder="******"
                                 value={values.confirmPassword}
                                 onChange={changeHandler}
@@ -285,15 +285,6 @@ export const RegisterModal = () => {
                     }
 
                 </Modal.Body>
-                <Modal.Footer>
-                    <p className={styles.downField}>
-                        <span>If you already have profile click <LoginModal /></span>
-                    </p>
-
-                    {/* <Button variant="primary" onClick={onSubmit}>
-                        Save Changes
-                    </Button> */}
-                </Modal.Footer>
             </Modal>
         </>
     );
