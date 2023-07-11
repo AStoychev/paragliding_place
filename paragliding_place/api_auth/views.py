@@ -1,4 +1,5 @@
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, authenticate, login
+from rest_framework.authtoken.models import Token
 
 from rest_framework import generics as rest_generic_views, views as rest_views, status
 from rest_framework.authtoken import views as authtoken_views
@@ -16,6 +17,20 @@ class RegisterApiView(rest_generic_views.CreateAPIView):
     queryset = UserModel.objects.all()
     serializer_class = CreateUserSerializer
 
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        token, created = Token.objects.get_or_create(user=serializer.instance)
+        return Response({
+            'token': token.key,
+            'user_id': serializer.instance.id,
+            'username': serializer.instance.username,
+            'email': serializer.instance.email},
+            status=status.HTTP_201_CREATED,
+            headers=headers)
+
 
 class LoginApiView(authtoken_views.ObtainAuthToken):
 
@@ -27,10 +42,10 @@ class LoginApiView(authtoken_views.ObtainAuthToken):
         return Response({
             'token': token.key,
             # It is not good idea password to be here
-            'password': user.password,
+            # 'password': user.password,
             'user_id': user.pk,
             'username': user.username,
-            'age': user.age,
+            # 'age': user.age,
             # You can use this when email filed is in register page
             'email': user.email
         })

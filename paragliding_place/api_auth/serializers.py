@@ -15,7 +15,6 @@ class CreateUserSerializer(serializers.ModelSerializer):
     # This hashes the password (Not save in plain-text in the DB)
     def create(self, validated_data):
         user = super().create(validated_data)
-
         user.set_password(user.password)
         user.save()
 
@@ -39,7 +38,10 @@ class CreateUserSerializer(serializers.ModelSerializer):
         # If we want to return nothing we can use: return {} in the case below return only username
 
         user_representation = super().to_representation(instance)
+        user_representation.pop('username')
+        user_representation.pop('email')
         user_representation.pop('password')
+        user_representation.pop('age')
         return user_representation
 
 
