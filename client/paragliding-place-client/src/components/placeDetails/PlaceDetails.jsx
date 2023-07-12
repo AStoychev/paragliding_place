@@ -26,6 +26,8 @@ import { MapContainer, TileLayer, Marker, Popup, useMapEvent, ZoomControl } from
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { Icon, divIcon, marker } from "leaflet";
 
+import { isOwner } from "../../validators/validators";
+
 import { usePlaceContext } from "../../contexts/PlaceContext";
 import { useCommentContext } from "../../contexts/CommentContext";
 
@@ -46,7 +48,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 export const PlaceDetails = () => {
     const { placeId } = useParams();
-    const { userId, isAuthenticated, isOwner, userName, userEmail } = useAuthContext();
+    const { userId, isAuthenticated, userName, userEmail } = useAuthContext();
 
     const [allPlaces, setAllPlaces] = useState([]);
     const [allRating, setAllRating] = useState([]);

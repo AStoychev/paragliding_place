@@ -6,7 +6,7 @@ import { useService } from "../../hooks/useService";
 
 import { profileServiceFactory } from "../../services/profileService";
 
-import { findEmptyValue } from "../../validators/validators";
+import { isOwner, findEmptyValue } from "../../validators/validators";
 
 import { DifficultyRating } from "../difficultyRating/DifficultyRating"
 
@@ -16,7 +16,7 @@ export const Profile = () => {
     const userProfileId = useParams()
     const profileId = userProfileId['userId']
 
-    const { userId, isAuthenticated, isOwner, userName, userEmail, userFirstName, userLastName, userAge, userCountry, userGender } = useAuthContext();
+    const { userId, isAuthenticated, userName, userEmail, userFirstName, userLastName, userAge, userCountry, userGender } = useAuthContext();
 
     const profileService = useService(profileServiceFactory);
 

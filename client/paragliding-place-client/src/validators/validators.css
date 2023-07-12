@@ -5,12 +5,12 @@
 
 .showIsValid {
     color: blue;
-    margin: 35%;
-    padding-left: 11.5%;
+    margin: 0.5%;
+    padding-left: 0.5%;
 }
 
 .showIsInvalid {
     color: red;
-    margin: 11.5%;
-    padding: 33%;
+    margin: 0.5%;
+    padding: 0.5%;
 }

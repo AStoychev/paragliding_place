@@ -1,5 +1,12 @@
 import "./validators.css"
 
+// This validator function check if user is owner
+export const isOwner = (compareId, ownerId) => {
+    if (compareId === ownerId) {
+        return true
+    }
+}
+
 
 // This validator function is use in Profile and EditProfile
 export const findEmptyValue = (value) => {
@@ -68,6 +75,7 @@ export const showValidUsername = () => {
 export const showInvalidUsername = () => {
     return <span className="showIsInvalid">Username have to start with uppercase and have to be at least 2 characters!</span>
 };
+
 
 // This validator function is use in RegisterModal and ChangePassword and show valid match message
 export const passwordValidMatch = () => {

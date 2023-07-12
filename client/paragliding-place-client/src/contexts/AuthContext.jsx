@@ -114,12 +114,6 @@ export const AuthProvider = ({
         navigate('/feedback')
     }
 
-    const isOwner = (compareId, ownerId) => {
-        if (compareId === ownerId) {
-            return true
-        }
-    }
-
 
     const contextValues = {
         onLoginSubmit,
@@ -128,7 +122,6 @@ export const AuthProvider = ({
         onProfileEditSubmit,
         onChangePassword,
         onResetPassword,
-        isOwner,
         userId: auth.user_id,
         password: auth.password,
         token: auth.token,

@@ -1,85 +1,21 @@
-import { useContext, useState, useEffect, useReducer, useRef } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
 
-import "./style.css"
-import "leaflet/dist/leaflet.css";
+import { placeServiceFactory } from "../../services/placeService";
+
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 import { Icon, divIcon } from "leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
+import "leaflet/dist/leaflet.css";
 
-import { useForm } from "../../hooks/useForm";
-import { AuthContext } from '../../contexts/AuthContext';
-
-// import { ModalForecast } from "./modalForecast/ModalForecast";
-
-import { placeServiceFactory } from "../../services/placeService";
-// import { commentServiceFactory } from "../../services/commentService";
-// import { useCommentContext } from "../../contexts/CommentContext";
-
-// import { create } from "../../services/commentService";
-import React from "react";
-import { placeReducer } from "../../reducers/placeReducer";
-
-import { useGeolocated } from "react-geolocated";
-
-// This is for find my location
-import L from "leaflet";
-import icon from "../findMyLocation/constants"
-// This is for find my location
+import "./style.css"
 
 export const Section = () => {
 
-    const { coords, isGeolocationAvailable, isGeolocationEnabled } =
-        useGeolocated({
-            positionOptions: {
-                enableHighAccuracy: false,
-            },
-            userDecisionTimeout: 10000,
-        });
-
-    const DEFAULT_LATITUDE = 42.149278;
-    const DEFAULT_LONGITUDE = 24.747013;
-
-    // To work this correctly you have to fix the geolocate functionality 
-    const latitudes = coords ? coords.latitude : DEFAULT_LATITUDE;
-    const longitudes = coords ? coords.longitude : DEFAULT_LONGITUDE;
-
-    // const tryCoords = (lat, long) => {
-    //     const centerCordinates = []
-    //     if (isGeolocationEnabled) {
-    //         centerCordinates.push(lat, long)
-    //     } else {
-    //         centerCordinates.push(DEFAULT_LATITUDE, DEFAULT_LONGITUDE)
-    //     }
-    //     return centerCordinates
-    // }
-
-    // const latitude = coords.map(x => (
-    //     x.latitude ? x.latitude : DEFAULT_LATITUDE
-    // ));
-    // const longitude = coords.map(x => (
-    //     x.longitude ? x.longitude : DEFAULT_LONGITUDE
-    // ));
-
     // Show all places
     const [allPlaces, setAllPlaces] = useState([]);
-    const [openModal, setOpenModal] = useState(false)
-    const [allComment, setComment] = useState([])
     const allPlaceService = placeServiceFactory();
-    // const allCommentService = commentServiceFactory();
-
-    const [place, dispatch] = useReducer(placeReducer, {});
-
-    // const { onCreateCommentSubmit } = useCommentContext();
-    // const { values, onSubmit } = useForm({
-    //     id: '',
-    //     text: '',
-    //     place_comment_id: '',
-    //     user_id: '',
-    //     owner: '',
-    // }, onCreateCommentSubmit);
-
 
     useEffect(() => {
         allPlaceService.getAll()
@@ -88,50 +24,9 @@ export const Section = () => {
             })
     }, [])
 
-    // For comment
-
-
-    // useEffect(() => {
-    //     allCommentService.getAll()
-    //         .then(result => {
-    //             setComment(result)
-    //         })
-    // }, [])
-
-    // useEffect(() => {
-    //     allCommentService.getOne()
-    //         .then(result => {
-    //             setComment(result)
-    //         })
-    // }, [])
-
-    const compareIdPlace = (placeId, placeIdInComment) => {
-        let isEqual = false
-        if (placeId === placeIdInComment) {
-            isEqual = true
-        }
-        return isEqual
-    }
-
-    // const onCommentSubmit = async (values) => {
-    //     const response = await allCommentService.create(values.comment);
-    //     // const response = await create(values.comment);
-
-    //     dispatch({
-    //         type: 'COMMENT_ADD',
-    //         payload: response,
-    //         userName,
-    //     })
-    // };
-
     const takeIdPlace = (id) => {
         return id
     }
-
-    // For comment
-
-
-    // Show all places
 
     const customIcon = new Icon({
         iconUrl: require('../../img/paragliding.png'),
@@ -142,7 +37,7 @@ export const Section = () => {
         iconUrl: require('../../img/target.png'),
         iconSize: [49, 49]
     })
-
+    
     // This is our custom icon for cluster
     const createCustomClusterIcon = (cluster) => {
         return new divIcon({
@@ -150,26 +45,6 @@ export const Section = () => {
             className: "custom-marker-cluster",
             // iconSize: point(33, 33, true),
         });
-    }
-
-    const showSuitableDirection = (direction_length, uniqueKey) => {
-        let dir = ''
-        for (let i = 0; i < direction_length.length; i++) {
-            // dir.push(<h1 key={`${uniqueKey}${direction_length}`}>Hellllo {direction_length[i]}</h1>)
-            dir = <p key={`${uniqueKey}${direction_length}`}> {direction_length[i]}</p>
-        }
-        return dir
-    }
-
-    const { isAuthenticated, userId, userEmail, userName, userAuth, userAge, userFirstName } = useContext(AuthContext);
-    const isOwner = (placeOwner, ownerId) => {
-        if (placeOwner === ownerId) {
-            return true
-        }
-    }
-
-    const takeInfoForComment = () => {
-
     }
 
     // This is for find my location
@@ -194,8 +69,6 @@ export const Section = () => {
     
     return (
         <div className="sectionStyle">
-            {/* cosnt positionCenter = [42.5233, 24.7334] */}
-            {/* <MapContainer style={{ height: "100%", minHeight: "100%" }} className="mapContainer" center={[latitudes, longitudes]} zoom={5} > */}
             <MapContainer style={{ height: "100%", minHeight: "100%" }} className="mapContainer" center={[44.158567, 9.213165]} zoom={5} >
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

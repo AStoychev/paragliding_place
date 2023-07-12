@@ -19,7 +19,7 @@ export const EditProfile = () => {
     const userProfileId = useParams()
     const profileId = userProfileId['userId']
 
-    const { userId, isAuthenticated, onProfileEditSubmit, isOwner, userName, userEmail, userFirstName, userLastName, userAge, userCountry, userGender } = useAuthContext();
+    const { userId, isAuthenticated, onProfileEditSubmit, userName, userEmail, userFirstName, userLastName, userAge, userCountry, userGender } = useAuthContext();
 
     const profileService = useService(profileServiceFactory);
 

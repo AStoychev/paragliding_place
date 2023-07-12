@@ -72,7 +72,6 @@ export const RegisterModal = () => {
             return true
         }
     }
-
     // Email exist error
 
     return (
@@ -80,6 +79,7 @@ export const RegisterModal = () => {
             <Link variant="primary" onClick={handleShow} className={styles.navLink}>
                 Register
             </Link>
+
 
             <Modal style={{ paddingTop: '50px' }} show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
@@ -99,13 +99,14 @@ export const RegisterModal = () => {
                                 onChange={changeHandler}
                                 onClick={onClickField}
                             />
-                            {checkEmai === true &&
-                                <p > {emailValidation(values.email) === true ?
-                                    showIsValid("Email")
-                                    :
-                                    showIsInvalid("Email")
-                                }
-                                </p>
+                            {checkEmai === true && (values.email).length >= 1 &&
+                                <>
+                                    {emailValidation(values.email) === true ?
+                                        showIsValid("Email")
+                                        :
+                                        showIsInvalid("Email")
+                                    }
+                                </>
                             }
                         </Form.Group>
 
@@ -128,6 +129,7 @@ export const RegisterModal = () => {
                                     showInvalidUsername()
                                 }
                                 </p>
+                                
                             }
                         </Form.Group>
 
@@ -181,8 +183,8 @@ export const RegisterModal = () => {
                     </Form>
                     <label>
 
-                        {checkForErrorEmail() === 1 ?
-                            <span style={{ fontSize: "20px", fontWeight: "bold", color: "red", margin: "8%", paddingLeft: "11.5%" }}>Email or password don't match!</span>
+                        {checkForErrorEmail() === true ?
+                            <span style={{ fontSize: "20px", fontWeight: "bold", color: "red", margin: "8%", paddingLeft: "11.5%" }}>We’re sorry. This email or usesrname already exists…</span>
                             :
                             <span></span>
                         }
