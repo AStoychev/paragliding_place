@@ -33,6 +33,21 @@ export const placeReducer = (state, action) => {
                 ],
             }
 
+        // case 'COMMENT_EDIT':
+        //     return {
+        //         ...state,
+        //         comments: [
+        //             ...state.comments,
+        //             {
+        //                 ...action.payload,
+        //                 author: {
+        //                     username: action.userName,
+        //                     // email: action.userEmail,
+        //                 }
+        //             }
+        //         ],
+        //     }
+
 
         case 'RATING_ADD':
             return {

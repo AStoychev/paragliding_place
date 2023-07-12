@@ -1,9 +1,10 @@
 /* This is css file created from React Leaflet */
 
 .sectionStyle {
-    position: fixed;
-    height: 710px;
+    position:fixed;
+    height: 740px;
     width: 1683px;
+    /* padding-top: 6.6%; */
     /* padding-bottom: 1px; */
     margin-top: -1px;
 }

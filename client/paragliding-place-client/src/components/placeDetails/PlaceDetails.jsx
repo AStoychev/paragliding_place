@@ -295,27 +295,17 @@ export const PlaceDetails = () => {
                                     Rate C: {ratingPlace()[2]} <br></br> <div className={styles.barRatingC} style={{ width: `${5 * ratingPlace()[2]}px` }}></div> <br></br>
                                     Rate D: {ratingPlace()[3]} <br></br> <div className={styles.barRatingD} style={{ width: `${5 * ratingPlace()[3]}px` }}></div> <br></br>
 
-                                    {ratingPlace()[4] ? <div className={styles.alreadyRateDiv}>You already rate for this place with rate: <span className={styles.alreadyRateSpan}>{ratingPlace()[5]}</span> </div> :
-                                        <div>
-                                            <label className={styles.placeLabel}>Difficulty Level</label>
-                                            <CreateRace onRateSubmit={onRateSubmit} />
-                                        </div>
+                                    {isAuthenticated ?
+                                        ratingPlace()[4] ? <div className={styles.alreadyRateDiv} > You already rate for this place with rate: <span className={styles.alreadyRateSpan}>{ratingPlace()[5]}</span> </div> :
+                                            <div>
+                                                <label className={styles.placeLabel}>Difficulty Level</label>
+                                                <CreateRace onRateSubmit={onRateSubmit} />
+                                            </div>
+                                        :
+                                        <div className={styles.logoutComment}>If you want to vote <span className={styles.spanComment}><LoginModal navigatePath={navigatePath} /></span> </div>
                                     }
                                 </Accordion.Body>
                             </Accordion.Item>
-                            {/* <Accordion.Item eventKey="1">
-                                <Accordion.Header>If you have flown to the place, place rate its difficulty</Accordion.Header>
-                                <Accordion.Body>
-                                    {ratingPlace()[4] ? <div>You already rate for this place with rate: </div> :
-                                        <div>
-                                            <label className={styles.placeLabel}>Difficulty Level</label>
-                                            <CreateRace onRateSubmit={onRateSubmit} />
-                                        </div>
-                                    } */}
-                            {/* <label className={styles.placeLabel}>Difficulty Level</label>
-                                    <CreateRace onRateSubmit={onRateSubmit}/> */}
-                            {/* </Accordion.Body>
-                            </Accordion.Item> */}
                         </Accordion>
 
                         <div>
@@ -339,7 +329,7 @@ export const PlaceDetails = () => {
                                     <h2>Comments:
                                     </h2>
                                     <div>{haveComments().map(x => (
-                                        <div key={x.id}> {x.owner}: {x.text}
+                                        <div key={x.id}> <Link to={`/profile/${x.user_id}`}>{x.owner}</Link>: {x.text}
                                             {isOwner(x.user_id, userId) &&
                                                 <div className={styles.buttonDeleteEditComments}>
                                                     <DeleteCommentModal deleteComment={x.id} />
@@ -356,11 +346,10 @@ export const PlaceDetails = () => {
                             </div>
 
                             <div className={styles.logoutComment}>
-                                {isAuthenticated &&
+                                {isAuthenticated ?
                                     <CommentModal onCommentSubmit={onCommentSubmit} />
-                                }
-                                {!isAuthenticated &&
-                                    <div className={styles.logoutComment}>If you want to left comment <span className={styles.spanComment}><LoginModal navigatePath={navigatePath}/></span> </div>
+                                    :
+                                    <div className={styles.logoutComment}>If you want to left comment <span className={styles.spanComment}><LoginModal navigatePath={navigatePath} /></span> </div>
                                 }
                             </div>
 

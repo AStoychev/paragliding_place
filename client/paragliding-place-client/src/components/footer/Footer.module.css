@@ -17,8 +17,10 @@
 } */
 
 .footer {
+    width: 99.5%;
     position: fixed;
-    width: 1683px;
+    /* position: fixed;
+    width: 1683px; */
     /* height: auto; */
     overflow: hidden;
     height: 8%;

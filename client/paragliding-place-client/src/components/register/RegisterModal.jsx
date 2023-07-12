@@ -1,11 +1,6 @@
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
-import ModalTitle from 'react-bootstrap/ModalTitle'
 
 import { LoginModal } from '../login/LoginModal';
 
@@ -15,15 +10,12 @@ import { useForm } from '../../hooks/useForm';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Link } from 'react-router-dom';
 
-import { isEqualAndHaveLength } from '../../validators/validators';
+import {
+    isEqualAndHaveLength, emailValidation, usernameValidation, showIsValid, showIsInvalid, showValidUsername,
+    showInvalidUsername, passwordValidMatch, passwordInvalidMatch
+} from '../../validators/validators';
 
 import styles from '../login/LoginRegister.module.css';
-
-const LoginFormKeys = {
-    Username: 'username',
-    // Email: 'email',
-    Password: 'password',
-}
 
 export const RegisterModal = () => {
     const [show, setShow] = useState(false);
@@ -43,81 +35,16 @@ export const RegisterModal = () => {
 
     const [checkEmai, setEmail] = useState("");
     const [checkUsername, setUsername] = useState("")
-    const [pass, setPass] = useState("");
-    const [repeatPass, setRepeatPass] = useState("");
+    const [checkPass, setPass] = useState("");
+    const [checkRepeatPass, setRepeatPass] = useState("");
 
-
-    let count = 0;
-
-    const onBlurEmail = (e) => {
-        count = 0;
-        setEmail(count);
-    }
-
-    const onBlurUsername = (e) => {
-        count = 0;
-        setUsername(count);
-    }
-
-    const onBlurPass = (e) => {
-        count = 0;
-        setPass(count);
-    }
-
-    const onBlurRepeatPassword = (e) => {
-        count = 0;
-        setPass(count);
-        setRepeatPass(count);
-
-    }
-
-    const onClickEmail = (e) => {
+    const onClickField = (e) => {
         if (e) {
-            count = 1;
-            setEmail(count);
-        }
-    }
-
-    const onClickUsername = (e) => {
-        if (e) {
-            count = 1;
-            setUsername(count);
-        }
-    }
-
-    const onClickPassword = (e) => {
-        if (e) {
-            count = 1;
-            setPass(count);
-        }
-    }
-
-    const onClickConfirmPassword = (e) => {
-        let count = 0;
-        if (e) {
-            count = 1;
-            setRepeatPass(count);
-        }
-    }
-
-    const emailValidation = (emailValue) => {
-        let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-
-        if (emailValue.match(emailFormat)) {
-            return true
-        } else {
-            return false
-        }
-    }
-
-    const usernameValidation = (usernameValue) => {
-        let usernameFormat = /[A-Z][a-z]*/
-
-        if (usernameValue.match(usernameFormat) && usernameValue.length >= 2) {
-            return true
-        } else {
-            return false
-        }
+            setEmail(true);
+            setUsername(true);
+            setPass(true);
+            setRepeatPass(true);
+        };
     }
 
     const isRequired = []
@@ -146,19 +73,13 @@ export const RegisterModal = () => {
         }
     }
 
-
     // Email exist error
 
     return (
         <>
-            {/* <Link className={styles.navLink} onClick={handleShow} to="/login">Login</Link> */}
             <Link variant="primary" onClick={handleShow} className={styles.navLink}>
                 Register
             </Link>
-
-            {/* <Button variant="primary" onClick={handleShow}>
-                Login
-            </Button> */}
 
             <Modal style={{ paddingTop: '50px' }} show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
@@ -166,7 +87,6 @@ export const RegisterModal = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1"> */}
                         <Form.Group className="mb-3">
                             <Form.Label className={styles.htmlContent} htmlFor="email">Email:</Form.Label>
                             <Form.Control
@@ -177,20 +97,18 @@ export const RegisterModal = () => {
                                 placeholder="livingwall@gmail.com"
                                 value={values.email}
                                 onChange={changeHandler}
-                                onClick={onClickEmail}
-                                onBlur={onBlurEmail}
+                                onClick={onClickField}
                             />
-                            {checkEmai === 1 && (values.email).length >= 1 &&
+                            {checkEmai === true &&
                                 <p > {emailValidation(values.email) === true ?
-                                    <span style={{ color: "blue", margin: "35%", paddingLeft: "11.5%" }}>Email is valid!</span>
+                                    showIsValid("Email")
                                     :
-                                    <span style={{ color: "red", margin: "11.5%", padding: "33%" }}>Email is not valid!</span>
+                                    showIsInvalid("Email")
                                 }
                                 </p>
                             }
                         </Form.Group>
 
-                        {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">  */}
                         <Form.Group className="mb-3">
                             <Form.Label className={styles.htmlContent} htmlFor="username">Username:</Form.Label>
                             <Form.Control
@@ -201,23 +119,21 @@ export const RegisterModal = () => {
                                 placeholder="Username"
                                 value={values.username}
                                 onChange={changeHandler}
-                                onClick={onClickUsername}
-                                onBlur={onBlurUsername}
+                                onClick={onClickField}
                             />
-                            {checkUsername === 1 && (values.username).length >= 1 &&
+                            {checkUsername === true && (values.username).length >= 1 &&
                                 <p > {usernameValidation(values.username) === true ?
-                                    <span style={{ color: "blue", margin: "35%", paddingLeft: "11.5%" }}>Username is valid!</span>
+                                    showValidUsername()
                                     :
-                                    <span style={{ color: "red", margin: "-6%", padding: "33%" }}>Username have to start with uppercase
-                                        and have to be at least 2 characters!</span>
+                                    showInvalidUsername()
                                 }
                                 </p>
                             }
                         </Form.Group>
 
+
                         <Form.Group
                             className="mb-3"
-                            // controlId="exampleForm.ControlTextarea1"
                         >
                             <Form.Label className={styles.htmlContent} htmlFor="register-pass">Password:</Form.Label>
                             <Form.Control
@@ -227,14 +143,13 @@ export const RegisterModal = () => {
                                 placeholder="******"
                                 value={values.password}
                                 onChange={changeHandler}
-                                onClick={onClickPassword}
-                                onBlur={onBlurPass}
+                                onClick={onClickField}
                             />
-                            {pass === 1 && (values.password).length >= 1 &&
-                                <p > {(values.password).length < 6 ?
-                                    <span style={{ color: "red", margin: "35%", padding: "1%" }}>Password have to be at least 6 characters!</span>
+                            {checkPass === true && (values.password).length >= 1 &&
+                                <p > {(values.password).length >= 6 ?
+                                    showIsValid("Password")
                                     :
-                                    <span style={{ color: "blue", margin: "35%", paddingLeft: "10%" }}>Password is valid!</span>
+                                    showIsInvalid("Password")
                                 }
                                 </p>
                             }
@@ -242,7 +157,6 @@ export const RegisterModal = () => {
 
                         <Form.Group
                             className="mb-3"
-                            // controlId="exampleForm.ControlTextarea1"
                         >
                             <Form.Label className={styles.htmlContent} htmlFor="confirm-pass">Confirm Password:</Form.Label>
                             <Form.Control
@@ -252,26 +166,21 @@ export const RegisterModal = () => {
                                 placeholder="******"
                                 value={values.confirmPassword}
                                 onChange={changeHandler}
-                                onClick={onClickConfirmPassword}
-                                onBlur={onBlurRepeatPassword}
+                                onClick={onClickField}
                             />
-                            {repeatPass === 1 && (values.confirmPassword).length >= 1 &&
+                            {checkRepeatPass === true && (values.confirmPassword).length >= 1 &&
                                 <>
                                     {isEqualAndHaveLength(values.password, values.confirmPassword) === true ?
-
-                                        <p >
-                                            <span style={{ color: "blue", margin: "35%", paddingLeft: "10%", paddingBottom: "10%" }}>Password match!</span>
-                                        </p>
+                                        passwordValidMatch()
                                         :
-                                        <p >
-                                            <span style={{ color: "red", margin: "35%", paddingLeft: "10%", paddingBottom: "10%" }}>Password mismatch!</span>
-                                        </p>
+                                        passwordInvalidMatch()
                                     }
                                 </>
                             }
                         </Form.Group>
                     </Form>
                     <label>
+
                         {checkForErrorEmail() === 1 ?
                             <span style={{ fontSize: "20px", fontWeight: "bold", color: "red", margin: "8%", paddingLeft: "11.5%" }}>Email or password don't match!</span>
                             :
