@@ -30,30 +30,13 @@ export const Profile = () => {
         })
     }, [])
 
-    // const findEmptyValue = (value) => {
-    //     if(value === 1) {
-    //         return <span style={{fontSize: '15px', fontStyle: 'italic'}}>Not selected</span>
-    //     }
-    //     if(value === "No") {
-    //         return <span style={{fontSize: '15px', fontStyle: "italic"}}>Not selected</span>
-    //     }
-    //     return value
-    // }
-
     return (
         <>
             <div className="container">
                 <div className="twoColumGrid">
-                    {/* <div className="leftSide"></div> */}
                     <div className="rightSide">
                         <div className="topAndBottom">
-                            <div>
-                                {/* <div className="itemDirection">
-                                    <h1>
-                                        {userName}
-                                    </h1>
-                                </div> */}
-                            </div>
+
                             <div className="containerItem">
 
                                 <div className="leftSide">

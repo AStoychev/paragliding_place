@@ -25,6 +25,7 @@ export const isEqualAndHaveLength = (newValue, confirmValue) => {
     if (newValue === confirmValue && (newValue).length >= 6 && (confirmValue).length >= 6) {
         return true
     }
+    return false
 };
 
 
@@ -77,13 +78,13 @@ export const showInvalidUsername = () => {
 };
 
 
-// This validator function is use in RegisterModal and ChangePassword and show valid match message
+// This validator function is use in RegisterModal and ChangePassword and show password valid match message
 export const passwordValidMatch = () => {
     return <span className="showIsValid">Password match!</span>
 };
 
 
-// This validator function is use in RegisterModal and ChangePassword and show valid inmatch message
+// This validator function is use in RegisterModal and ChangePassword and show password mismatch message
 export const passwordInvalidMatch = () => {
     return <span className="showIsInvalid">Password mismatch!</span>
 };

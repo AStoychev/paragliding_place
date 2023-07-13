@@ -47,26 +47,19 @@ export const RegisterModal = () => {
         };
     }
 
-    const isRequired = []
-    const items = (Object.values(values));
+    const passwordAndConfirmPassordIsValid = isEqualAndHaveLength(values.password, values.confirmPassword);
+    const emailIsValid = emailValidation(values.email);
+    const usernameIsValid = usernameValidation(values.username)
 
-    const isFull = () => {
-        if (isRequired.length === items.length) {
+    const checkAllFieldIsTrue = () => {
+        if (passwordAndConfirmPassordIsValid && emailIsValid && usernameIsValid) {
             return true
-        } else {
-            return false
         }
-    }
-
-    for (let i = 0; i < items.length; i++) {
-        if ((items[i].length) > 0) {
-            isRequired.push(1)
-        }
+        return false
     }
 
     // Email exist error
     let { errorEmail } = useContext(AuthContext);
-
     const checkForErrorEmail = () => {
         if (Object.values(errorEmail).length > 0) {
             return true
@@ -101,7 +94,7 @@ export const RegisterModal = () => {
                             />
                             {checkEmai === true && (values.email).length >= 1 &&
                                 <>
-                                    {emailValidation(values.email) === true ?
+                                    {emailIsValid ?
                                         showIsValid("Email")
                                         :
                                         showIsInvalid("Email")
@@ -123,13 +116,14 @@ export const RegisterModal = () => {
                                 onClick={onClickField}
                             />
                             {checkUsername === true && (values.username).length >= 1 &&
-                                <p > {usernameValidation(values.username) === true ?
-                                    showValidUsername()
-                                    :
-                                    showInvalidUsername()
-                                }
+                                <p >
+                                    {usernameValidation(values.username) === true ?
+                                        showValidUsername()
+                                        :
+                                        showInvalidUsername()
+                                    }
                                 </p>
-                                
+
                             }
                         </Form.Group>
 
@@ -148,11 +142,12 @@ export const RegisterModal = () => {
                                 onClick={onClickField}
                             />
                             {checkPass === true && (values.password).length >= 1 &&
-                                <p > {(values.password).length >= 6 ?
-                                    showIsValid("Password")
-                                    :
-                                    showIsInvalid("Password")
-                                }
+                                <p >
+                                    {(values.password).length >= 6 ?
+                                        showIsValid("Password")
+                                        :
+                                        showIsInvalid("Password")
+                                    }
                                 </p>
                             }
                         </Form.Group>
@@ -172,7 +167,7 @@ export const RegisterModal = () => {
                             />
                             {checkRepeatPass === true && (values.confirmPassword).length >= 1 &&
                                 <>
-                                    {isEqualAndHaveLength(values.password, values.confirmPassword) === true ?
+                                    {passwordAndConfirmPassordIsValid ?
                                         passwordValidMatch()
                                         :
                                         passwordInvalidMatch()
@@ -189,7 +184,7 @@ export const RegisterModal = () => {
                             <span></span>
                         }
                     </label>
-                    {isFull() === true ?
+                    {checkAllFieldIsTrue() ?
                         <input type="submit" className={styles.submitBtn} value="Register" onClick={onSubmit} />
                         :
                         <input className={styles.submitDisabled} type="submit" value="Register" title="You have to fill all fields!" disabled />

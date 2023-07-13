@@ -17,10 +17,10 @@ const LoginFormKeys = {
     Password: 'password',
 }
 
-export const LoginModal = ({navigatePath}) => {
+export const LoginModal = ({ navigatePath }) => {
     const [show, setShow] = useState(false);
 
-    if(navigatePath === undefined) {
+    if (navigatePath === undefined) {
         navigatePath = "/"
     }
 
@@ -37,44 +37,21 @@ export const LoginModal = ({navigatePath}) => {
 
     }, onLoginSubmit);
 
-    const isRequired = []
-    const items = (Object.values(values));
-
-    const isFull = () => {
-        if (isRequired.length === items.length) {
-            return true
-        } else {
-            return false
-        }
-    }
-
-    for (let i = 0; i < items.length; i++) {
-        if ((items[i].length) > 0) {
-            isRequired.push(1)
-        }
-    }
+    const checkAllFieldIsFull = !Object.values(values).includes("")
 
     const { thisError } = useAuthContext()
 
-    let count = 0
-
     const checkForErrors = () => {
         if (Object.values(thisError).length > 0) {
-            count = 1
-            return count
+            return true
         }
     }
 
     return (
         <>
-            {/* <Link className={styles.navLink} onClick={handleShow} to="/login">Login</Link> */}
             <Link variant="primary" onClick={handleShow} className={styles.navLink}>
                 Login
             </Link>
-
-            {/* <Button variant="primary" onClick={handleShow}>
-                Login
-            </Button> */}
 
             <Modal style={{ paddingTop: '50px' }} show={show} onHide={handleClose}>
                 <Modal.Header closeButton >
@@ -82,9 +59,7 @@ export const LoginModal = ({navigatePath}) => {
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1"> */}
                         <Form.Group className="mb-3">
-                            {/* <Form.Label className={styles.htmlContent} htmlFor="username">Username</Form.Label> */}
                             <Form.Label className={styles.htmlContent}>Username</Form.Label>
                             <Form.Control
                                 autoFocus
@@ -98,9 +73,7 @@ export const LoginModal = ({navigatePath}) => {
                         </Form.Group>
                         <Form.Group
                             className="mb-3"
-                        // controlId="exampleForm.ControlTextarea1"
                         >
-                            {/* <Form.Label className={styles.htmlContent} htmlFor="login-pass">Password</Form.Label> */}
                             <Form.Label className={styles.htmlContent}>Password</Form.Label>
                             <Form.Control
                                 type="password"
@@ -113,13 +86,13 @@ export const LoginModal = ({navigatePath}) => {
                         </Form.Group>
                     </Form>
                     <label>
-                        {checkForErrors() === 1 ?
+                        {checkForErrors() ?
                             <span style={{ fontSize: "20px", fontWeight: "bold", color: "red", margin: "8%", paddingLeft: "11.5%" }}>Email or password don't match!</span>
                             :
                             <span></span>
                         }
                     </label>
-                    {isFull() === true ?
+                    {checkAllFieldIsFull ?
                         <input type="submit" className={styles.submitBtn} value="Login" onClick={onSubmit} />
                         :
                         <input className={styles.submitDisabled} type="submit" value="Login" title="You have to fill all fields!" disabled />
@@ -127,9 +100,9 @@ export const LoginModal = ({navigatePath}) => {
 
                 </Modal.Body>
                 <Modal.Footer >
-                    {/* Forget password */}
+                    {/* Reset password */}
                     <p style={{ paddingBottom: "30px", paddingRight: "175px", fontSize: "17px" }}>If you forget your password <Link to="reset-password" onClick={handleClose}>Forget Password</Link> </p>
-                    {/* Forget password */}
+                    {/* Reset password */}
 
                 </Modal.Footer>
             </Modal>
