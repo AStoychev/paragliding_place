@@ -12,8 +12,6 @@ import Tooltip from 'react-bootstrap/Tooltip';
 
 import { requestFactory } from "../../services/requester";
 
-import { DifficultyRating } from '../difficultyRating/DifficultyRating';
-
 import styles from './CreateEditNewPlace.module.css';
 
 
