@@ -1,0 +1,19 @@
+.container {
+    width: 1800px;
+    height: 1000px;
+    margin-right: 10%;
+    color: rebeccapurple;
+}
+
+.headerAbout {
+    display: flex;
+    font-size: 35px;
+    color: rebeccapurple;
+    margin-top: 2%;
+    justify-content: center;
+    align-items: center;
+}
+
+.idea {
+    padding-bottom: 8px;
+}

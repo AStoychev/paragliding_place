@@ -1,54 +1,62 @@
+import "./About.modules.css"
+
 export const About = () => {
    return (
       <div className="service">
+         <h2 className="headerAbout">About</h2>
          <div className="container">
-            <div className="row">
+            {/* <div className="row">
                <div className="col-md-12">
                   <div className="titlepage">
-                     <h2>About <span className="green">Living Wall</span></h2>
+                     <h2 className="headerAbout">About <span className="green">Application</span></h2>
                   </div>
                </div>
-            </div>
+            </div> */}
             <div className="row">
-               <div className="col-md-10 offset-md-1">
+               <div className="col-md-12 offset-md-1" style={{marginLeft: "3%"}}>
                   <div className="row">
-                     <div className="col-md-4 col-sm-6">
+                     <div className="col-md-5 col-sm-6">
                         <div className="service_box">
-                           <i><img src="images/eco-friendly.png" alt="#" /></i>
-                           <h3>Moss Wall</h3>
-                           <p>Moss walls or moss wall art is a type of green wall or living wall.
-                              It is made of preserved natural materials; several different types,
-                              colors and textures of moss, drift wood, dried pods and mushrooms,
-                              bark, faux stone and preserved plants.</p>
+                           <h3>SpotFly<i><img src="images/routes.png" alt="#"/></i></h3>
+                           <p>
+                              SpotFly is web application who is created to help a junior paragliding pilot, but not only,
+                              to find suitable place for their first fligt without instructor to guide them. In this application
+                              you can find information about where is the launch and landing zone, coordinates, description,
+                              difficulty level of the place, wing direction for launch.
+                           </p>
                         </div>
                      </div>
-                     <div className="col-md-4 offset-md-1 col-sm-6">
+                     <div className="col-md-5 offset-md-1 col-sm-6">
                         <div className="service_box">
-                           <i><img src="images/clock.png" alt="#" /></i>
-                           <h3>Lifespan </h3>
-                           <p>The lifespan of a preserved moss wall can range anywhere from two
-                              to eight plus years before it needs professional touch-ups. The
-                              longevity depends on the type of moss used, the ambient moisture
-                              of the environment, and whether the installation is out of human reach.</p>
+                           <h3>Idea<i><img className="idea" src="images/idea-about.png" alt="#" /></i> </h3>
+                           <p>
+                              As a pilot with not much experience I never knew whether a place was suitable ot nor, what its a 
+                              characteristics to the place, what wind direction is suitable for launch. So I decide to develop this application
+                              and of course it's one of my biggest project at the moment in the field of web development. In addition to information
+                              about the place, you can also vote about difficulty level on place according to your experience and leave your comment. And of course if you
+                              know or find a new place to practice our beautiful sport, don't hesitate to share it with us.
+                           </p>
                         </div>
                      </div>
-                     <div className="col-md-4 offset-md-3 col-sm-6 mar_top">
+                     <div className="col-md-5 offset-md-1 col-sm-6 mar_top" style={{marginLeft: "5%"}}>
                         <div className="service_box">
-                           <i><img src="images/moss.png" alt="#" /></i>
-                           <h3>What About Moss</h3>
-                           <p>Sheet Moss is a species of moss that grows in sheets. It is also
-                              called carpet moss and is a popular moss species for home décor
-                              walls and biophilic designs because of its uniform growth pattern.</p>
+                           <h3>About Launch<i><img src="images/launch.png" alt="#" /></i></h3>
+                           <p>
+                              The icon of Launch show you place where you can start your flight. When you see on the map, you can click on details
+                              to see more information about the chosen place. After your flight you can comment the place and give a opinion or description
+                              about you fligh. You can point out features of the place that would help future visitors.
+                           </p>
                         </div>
                      </div>
-                     <div className="col-md-4 offset-md-1 col-sm-6 mar_top">
+                     <div className="col-md-5 offset-md-1 col-sm-6 mar_top">
                         <div className="service_box">
-                           <i><img src="images/enviroment.png" alt="#" /></i>
-                           <h3>Environment</h3>
-                           <p>Living moss walls will not only make your space look better, but
-                              it also adds appeal to the indoor air aroma and makes the areas
-                              air quality much healthier! Live plants, trees and moss use CO2
-                              that helps circulate air throughout an area.</p>
+                           <h3>About Landing<i><img src="images/landing.png" alt="#" /></i></h3>
+                           <p>
+                              The icon of Landing show you place where can landing after start yout flight. When you see this icon on the map, you 
+                              can click on details and also can see information about the chosen place. After your flight you can leave comment about the
+                              flight and its features. If you find a more suitable landing spot, pleas feel free to share in the comment and we'll mark 
+                              the spot on the map.
+                           </p>
                         </div>
                      </div>
                   </div>
