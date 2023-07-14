@@ -1,0 +1,75 @@
+.search {
+    /* display: flex; */
+    width: 350px;
+    height: 44px;
+    border: 1px solid rgb(14, 15, 15);
+    /* border-style: solid; */
+    border-color: rgb(109, 152, 155);
+    margin-top: -12.5%;
+    margin-left: 367%;
+    /* background-color: transparent; */
+    background-color: #d5e9fa;
+}
+
+.dropdown {
+    /* background-color: #333; */
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(14, 15, 15);
+}
+
+.dropdown:empty {
+    border: none;
+}
+
+.dropdown-row {
+    /* background: #caf3f8; */
+    font-size: 17px;
+    color: rgb(7, 7, 7);
+    cursor: pointer;
+    text-align: start;
+    margin: 2px 0;
+}
+
+.dropdown-row:hover {
+    color: white;
+    background-color: rgb(98, 161, 158);
+    cursor: pointer;
+    text-align: start;
+    margin: 2px 0;
+}
+
+input {
+    width: 220px;
+    /* background-color:  #caf3f8; */
+    background-color: transparent;
+    padding-top: 1px;
+}
+
+.search-inner {
+    display: flex;
+}
+
+.searchInput {
+    font-size: 18px;
+    width: 270px;
+}
+
+.searchBtn {
+    font-size: 12px;
+    margin-top: -1.5px;
+    margin-left: auto;
+}
+
+.spanFindPlace {
+    font-weight: bold;
+}
+
+.transitionButton {
+    background: none;
+    border: none;
+    width: 43px;
+    height: 43px;
+    position: relative;
+    left: 1640px;
+}

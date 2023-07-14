@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 
 import { placeServiceFactory } from "../../services/placeService";
 
-import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
-import { Icon, divIcon } from "leaflet";
+import { MapContainer, TileLayer, useMap, Marker, Popup, LayersControl, LayerGroup, Circle, Pane } from "react-leaflet";
+import { Icon, divIcon, latLng, map } from "leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
+
+// Search
+import { Search } from "../search/Search";
+// Search
 import "leaflet/dist/leaflet.css";
 
 import "./style.css"
@@ -37,7 +41,7 @@ export const Section = () => {
         iconUrl: require('../../img/target.png'),
         iconSize: [49, 49]
     })
-    
+
     // This is our custom icon for cluster
     const createCustomClusterIcon = (cluster) => {
         return new divIcon({
@@ -46,6 +50,14 @@ export const Section = () => {
             // iconSize: point(33, 33, true),
         });
     }
+
+    // Search
+    const [searchingData, setSearchingData] = useState("");
+
+    const getDataFromSearch = (newData) => {
+        setSearchingData(newData);
+    }
+    // Search
 
     // This is for find my location
     const LocationMarker = () => {
@@ -57,7 +69,7 @@ export const Section = () => {
         useEffect(() => {
             map.locate().on("locationfound", function (e) {
                 setPosition(e.latlng);
-                map.flyTo(e.latlng, map.zoom=13);
+                map.flyTo(searchingData ? searchingData : e.latlng, map.zoom = 13);
                 // map.flyTo(e.latlng, map.getZoom());
                 setBbox(e.bounds.toBBoxString().split(","));
             });
@@ -66,7 +78,48 @@ export const Section = () => {
     }
     // This is for find my location
 
-    
+    const [latNotLocation, setLatNotLocation] = ([44.158567])
+    const [lngNotLocation, setLangNotLocation] = ([9.213165])
+    const notLocateDirection = [latNotLocation, lngNotLocation]
+
+    // useEffect(() => {
+    //     setLatNotLocation(() => 44.158567 * 2);
+    //     setLangNotLocation(() => 9.213165 * 2);
+    // }, [])
+
+    // useEffect(() => {
+    //     notLocateDirection.map(x => (
+    //         searchingData
+    //         ?
+    //         setLatNotLocation(() => searchingData[0])
+    //         &&
+    //         setLangNotLocation(() => searchingData[1])
+    //         :
+    //         setLatNotLocation(() => [44.158567])
+    //         &&
+    //         setLangNotLocation(() => [9.213165])
+    //     ))
+            
+    // }, [])
+
+    // const searchNotLocate = () => {
+    //     if (searchingData) {
+    //         setLatNotLocation(() => searchingData[0]);
+    //         setLangNotLocation(() => searchingData[1])
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     notLocateDirection.map()
+    //         .then(
+    //             searchingData
+    //             ?
+    //             () => setLangNotLocation(searchingData[0])
+    //             :
+    //             () => setLangNotLocation(searchingData[1])
+    //         )
+    // }, [])
+
     return (
         <div className="sectionStyle">
             <MapContainer style={{ height: "100%", minHeight: "100%" }} className="mapContainer" center={[44.158567, 9.213165]} zoom={5} >
@@ -74,6 +127,10 @@ export const Section = () => {
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
+
+                <div className="search-container">
+                    <Search getDataFromSearch={getDataFromSearch} />
+                </div>
 
                 <MarkerClusterGroup
                     chunkedLoading
@@ -90,7 +147,7 @@ export const Section = () => {
 
                                 <p>{marker.longitude_takes_off}, {marker.latitude_takes_off}</p>
                                 <p>{marker.longitude_landing}, {marker.latitude_landing}</p>
-                                
+
                             </Popup>
                         </Marker>
                     ))}

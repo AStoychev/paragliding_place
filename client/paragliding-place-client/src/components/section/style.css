@@ -1,7 +1,7 @@
 /* This is css file created from React Leaflet */
 
 .sectionStyle {
-    position:fixed;
+    /* position:absolute; */
     height: 740px;
     width: 1683px;
     /* padding-top: 6.6%; */
@@ -10,7 +10,8 @@
 }
 
 .mapContainer {
-    
+    position: relative;
+    z-index: 999;
 }
 
 .App {
@@ -45,3 +46,10 @@
     font-weight: 900;
     font-size: 1.5rem;
 }
+
+.search-container {
+    position: absolute;
+    top: 0.05%;
+    left: -0.5%;
+    z-index: 1000;
+  }
