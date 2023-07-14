@@ -11,6 +11,9 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 // Search
 import { Search } from "../search/Search";
 // Search
+
+import { customIcon, customIconLanding } from "../customIcon/customIcon";
+
 import "leaflet/dist/leaflet.css";
 
 import "./style.css"
@@ -31,16 +34,6 @@ export const Section = () => {
     const takeIdPlace = (id) => {
         return id
     }
-
-    const customIcon = new Icon({
-        iconUrl: require('../../img/paragliding.png'),
-        iconSize: [49, 49]
-    })
-
-    const customIconLanding = new Icon({
-        iconUrl: require('../../img/target.png'),
-        iconSize: [49, 49]
-    })
 
     // This is our custom icon for cluster
     const createCustomClusterIcon = (cluster) => {

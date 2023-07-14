@@ -35,6 +35,8 @@ import { CommentModal } from "./commentComponents/CreateCommentModal";
 import { DeleteCommentModal } from "./commentComponents/DeleteCommentModal";
 import { EditCommentModal } from "./commentComponents/EditCommentModal";
 
+import { customIcon, customIconLanding } from "../customIcon/customIcon";
+
 import styles from "../placeDetails/placeDetails.module.css";
 // import { map } from "leaflet";
 
@@ -164,16 +166,6 @@ export const PlaceDetails = () => {
 
         });
     }
-
-    const customIcon = new Icon({
-        iconUrl: require('../../img/paragliding.png'),
-        iconSize: [49, 49]
-    })
-
-    const customIconLanding = new Icon({
-        iconUrl: require('../../img/target.png'),
-        iconSize: [49, 49]
-    })
 
     const ratingPlace = () => {
         let alreadyRate = false
