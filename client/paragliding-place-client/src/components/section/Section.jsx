@@ -78,51 +78,20 @@ export const Section = () => {
     }
     // This is for find my location
 
-    const [latNotLocation, setLatNotLocation] = ([44.158567])
-    const [lngNotLocation, setLangNotLocation] = ([9.213165])
-    const notLocateDirection = [latNotLocation, lngNotLocation]
 
-    // useEffect(() => {
-    //     setLatNotLocation(() => 44.158567 * 2);
-    //     setLangNotLocation(() => 9.213165 * 2);
-    // }, [])
-
-    // useEffect(() => {
-    //     notLocateDirection.map(x => (
-    //         searchingData
-    //         ?
-    //         setLatNotLocation(() => searchingData[0])
-    //         &&
-    //         setLangNotLocation(() => searchingData[1])
-    //         :
-    //         setLatNotLocation(() => [44.158567])
-    //         &&
-    //         setLangNotLocation(() => [9.213165])
-    //     ))
-            
-    // }, [])
-
-    // const searchNotLocate = () => {
-    //     if (searchingData) {
-    //         setLatNotLocation(() => searchingData[0]);
-    //         setLangNotLocation(() => searchingData[1])
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     notLocateDirection.map()
-    //         .then(
-    //             searchingData
-    //             ?
-    //             () => setLangNotLocation(searchingData[0])
-    //             :
-    //             () => setLangNotLocation(searchingData[1])
-    //         )
-    // }, [])
+    // This is for search when location is turned off
+    function FlyMapTo() {
+        const map = useMap()
+        useEffect(() => {
+            map.flyTo(searchingData ? searchingData : [44.158567, 9.213165], searchingData ? map.zoom = 13 : map.zoom = 5)
+        }, [searchingData])
+        return null
+    }
+    // This is for search when location is turned off
 
     return (
         <div className="sectionStyle">
-            <MapContainer style={{ height: "100%", minHeight: "100%" }} className="mapContainer" center={[44.158567, 9.213165]} zoom={5} >
+                <MapContainer style={{ height: "100%", minHeight: "100%" }} className="mapContainer" center={[44.158567, 9.213165]} zoom={5} >
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -163,6 +132,7 @@ export const Section = () => {
                 {/* This is for find my location */}
                 <LocationMarker />
                 {/* This is for find my location */}
+                <FlyMapTo />
             </MapContainer>
         </div >
     )
