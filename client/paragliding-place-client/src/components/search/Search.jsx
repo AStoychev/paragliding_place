@@ -42,14 +42,6 @@ export const Search = ({
     }
     // Send data to Section
 
-    // const onlySearchWord = []
-    // allPlaces.map(x => {
-    //     if (x.place === value) {
-    //         onlySearchWord.push(Number(x.latitude_takes_off))
-    //         onlySearchWord.push(Number(x.longitude_takes_off))
-    //     }
-    // })
-
     return (
         <>
             <button
