@@ -46,9 +46,20 @@ export const Section = () => {
 
     // Search
     const [searchingData, setSearchingData] = useState("");
+    const [found, setFound] = useState(true);
 
     const getDataFromSearch = (newData) => {
-        setSearchingData(newData);
+        const foundLocation = allPlaces.some(el =>
+            el.place.toLowerCase() === newData.toLowerCase()
+        )
+        setFound(foundLocation)
+        setTimeout(() => setFound(true), 1500)
+
+        allPlaces.map(item => {
+            if (item.place.toLowerCase() === newData.toLowerCase()) {
+                setSearchingData([item.latitude_takes_off, item.longitude_takes_off]);
+            }
+        })
     }
     // Search
 
@@ -73,7 +84,7 @@ export const Section = () => {
 
 
     // This is for search when location is turned off
-    function FlyMapTo() {
+    const SearchPlaceLocationOff = () => {
         const map = useMap()
         useEffect(() => {
             map.flyTo(searchingData ? searchingData : [44.158567, 9.213165], searchingData ? map.zoom = 13 : map.zoom = 5)
@@ -84,14 +95,14 @@ export const Section = () => {
 
     return (
         <div className="sectionStyle">
-                <MapContainer style={{ height: "100%", minHeight: "100%" }} className="mapContainer" center={[44.158567, 9.213165]} zoom={5} >
+            <MapContainer style={{ height: "100%", minHeight: "100%" }} className="mapContainer" center={[44.158567, 9.213165]} zoom={5} >
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
 
                 <div className="search-container">
-                    <Search getDataFromSearch={getDataFromSearch} />
+                    <Search found={found} getDataFromSearch={getDataFromSearch} />
                 </div>
 
                 <MarkerClusterGroup
@@ -125,7 +136,10 @@ export const Section = () => {
                 {/* This is for find my location */}
                 <LocationMarker />
                 {/* This is for find my location */}
-                <FlyMapTo />
+
+                {/* This is for search place when location is off */}
+                <SearchPlaceLocationOff />
+                {/* This is for search place when location is off */}
             </MapContainer>
         </div >
     )

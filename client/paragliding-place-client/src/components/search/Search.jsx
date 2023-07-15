@@ -9,11 +9,11 @@ import Fade from 'react-bootstrap/Fade';
 import "./Search.modules.css"
 
 export const Search = ({
+    found,
     getDataFromSearch,
 }) => {
 
     const [value, setValue] = useState('');
-    const [direction, setDirection] = useState([]);
 
     const [open, setOpen] = useState(false);
 
@@ -34,14 +34,21 @@ export const Search = ({
 
     const onSearch = (searchTerm, latLong) => {
         setValue(searchTerm);
-        setDirection(latLong);
     }
 
     // Send data to Section
     const ClickHandler = () => {
-        getDataFromSearch(direction)
+        getDataFromSearch(value)
     }
     // Send data to Section
+
+    // const onlySearchWord = []
+    // allPlaces.map(x => {
+    //     if (x.place === value) {
+    //         onlySearchWord.push(Number(x.latitude_takes_off))
+    //         onlySearchWord.push(Number(x.longitude_takes_off))
+    //     }
+    // })
 
     return (
         <>
@@ -76,11 +83,7 @@ export const Search = ({
                                         }).slice(0, 5)
                                         .map((item) => (
                                             <div
-                                                onClick={() => onSearch(item.place,
-                                                    [
-                                                        Number(item.latitude_takes_off),
-                                                        Number(item.longitude_takes_off)
-                                                    ])}
+                                                onClick={() => onSearch(item.place)}
                                                 className="dropdown-row"
                                                 key={item.id}
                                             >
@@ -88,11 +91,18 @@ export const Search = ({
                                             </div>
                                         ))}
                                 </div>
+                                {/* Not Found */}
+                                {!found &&
+                                    < div className="notFoundField">
+                                        <span className="spanNotFound">{value} Not Found</span>
+                                    </div>
+                                }
+                                {/* Not Found */}
                             </div>
                         </div>
                     </div>
-                </Fade>
-            </div>
+                </Fade >
+            </div >
         </>
     )
 }

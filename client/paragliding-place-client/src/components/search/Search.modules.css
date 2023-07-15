@@ -73,3 +73,15 @@ input {
     position: relative;
     left: 1640px;
 }
+
+.notFoundField {
+    width: 330px;
+    height: 50px;
+    text-align: center;
+    background-color: rgb(151, 109, 109);
+}
+
+.spanNotFound {
+    font-size: 21px;
+    color: white;
+}
