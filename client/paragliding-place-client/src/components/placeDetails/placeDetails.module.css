@@ -254,37 +254,9 @@ input[type=radio] {
     color: black;
 }
 
-.barRatingA {
-    height: 20px;
-    padding-bottom: 1%;
-    display: inline-block;
-    color: white;
-    background: rgb(159, 54, 66);
-}
-
-.barRatingB {
-    height: 20px;
-    padding-bottom: 1%;
-    display: inline-block;
-    color: white;
-    background: rgb(65, 77, 159);
-}
-
-.barRatingC {
-    height: 20px;
-    padding-bottom: 1%;
-    display: inline-block;
-    color: white;
-    background: rgb(58, 100, 43);
-}
-
-.barRatingD {
-    height: 20px;
-    padding-bottom: 1%;
-    display: inline-block;
-    color: white;
-    background: rgb(124, 75, 143);
-}
+/* .voteBar {
+    background: none;
+} */
 
 .alreadyRateDiv{
     font-size: 20px;

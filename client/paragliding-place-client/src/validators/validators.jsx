@@ -88,3 +88,10 @@ export const passwordValidMatch = () => {
 export const passwordInvalidMatch = () => {
     return <span className="showIsInvalid">Password mismatch!</span>
 };
+
+
+// This function return percentage use in PlaceDetails
+export const inPercentage = (rate, allPeople) => {
+    let result = (rate / allPeople) * 100
+    return Math.round(result)
+}

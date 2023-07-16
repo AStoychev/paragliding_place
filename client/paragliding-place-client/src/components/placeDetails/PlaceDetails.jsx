@@ -1,12 +1,7 @@
 import { useState, useEffect, useReducer } from "react"
 import { useParams, Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom";
 import Accordion from 'react-bootstrap/Accordion';
-import { IconContext } from "react-icons";
-import { TbCircleLetterA, TbCircleLetterB, TbCircleLetterC, TbCircleLetterD } from "react-icons/tb";
-import { CgLoadbar } from "react-icons/cg"
-
-import { useForm } from "../../hooks/useForm";
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 import { placeServiceFactory } from "../../services/placeService";
 // import * as commentService from "../../services/commentService"
@@ -24,9 +19,9 @@ import { LoginModal } from "../login/LoginModal";
 
 import { MapContainer, TileLayer, Marker, Popup, useMapEvent, ZoomControl } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
-import { Icon, divIcon, marker } from "leaflet";
+import { divIcon } from "leaflet";
 
-import { isOwner } from "../../validators/validators";
+import { isOwner, inPercentage } from "../../validators/validators";
 
 import { usePlaceContext } from "../../contexts/PlaceContext";
 import { useCommentContext } from "../../contexts/CommentContext";
@@ -53,7 +48,6 @@ export const PlaceDetails = () => {
     const { userId, isAuthenticated, userName, userEmail } = useAuthContext();
 
     const [allPlaces, setAllPlaces] = useState([]);
-    const [allRating, setAllRating] = useState([]);
     const [clickHeader, setClickHeader] = useState(`Click On Map To See The Start`)
     const [headerSpiner, setHeaderSpiner] = useState(<Spinner animation="grow" size="sm" />)
 
@@ -65,7 +59,6 @@ export const PlaceDetails = () => {
     const ratingService = useService(ratingServiceFactory)
     const placeService = useService(placeServiceFactory);
     const allPlaceService = placeServiceFactory();
-    const navigate = useNavigate();
 
     useEffect(() => {
         Promise.all([
@@ -88,14 +81,6 @@ export const PlaceDetails = () => {
         allPlaceService.getAll()
             .then(result => {
                 setAllPlaces(result)
-            })
-    }, [])
-
-
-    useEffect(() => {
-        ratingService.getAll()
-            .then(result => {
-                setAllRating(result)
             })
     }, [])
 
@@ -174,11 +159,6 @@ export const PlaceDetails = () => {
         let rateB = 0;
         let rateC = 0;
         let rateD = 0;
-
-        const inPercentage = (rate, allPeople) => {
-            let result = (rate / allPeople) * 100
-            return Math.round(result)
-        }
 
         place.rate && place.rate.map(x => {
 
@@ -284,10 +264,10 @@ export const PlaceDetails = () => {
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header>See the ratings of the pilots who visited the place</Accordion.Header>
                                 <Accordion.Body >
-                                    Rate A: {ratingPlace()[0]} <br></br> <div className={styles.barRatingA} style={{ width: `${5 * ratingPlace()[0]}px` }}></div> <br></br>
-                                    Rate B: {ratingPlace()[1]} <br></br> <div className={styles.barRatingB} style={{ width: `${5 * ratingPlace()[1]}px` }}></div> <br></br>
-                                    Rate C: {ratingPlace()[2]} <br></br> <div className={styles.barRatingC} style={{ width: `${5 * ratingPlace()[2]}px` }}></div> <br></br>
-                                    Rate D: {ratingPlace()[3]} <br></br> <div className={styles.barRatingD} style={{ width: `${5 * ratingPlace()[3]}px` }}></div> <br></br>
+                                    Rate A: {ratingPlace()[0]}% <br></br> <ProgressBar className={styles.voteBar} variant="success" now={ratingPlace()[0]} /><br></br>
+                                    Rate B: {ratingPlace()[1]}% <br></br> <ProgressBar className={styles.voteBar} variant="info" now={ratingPlace()[1]} /><br></br>
+                                    Rate C: {ratingPlace()[2]}% <br></br> <ProgressBar className={styles.voteBar} variant="warning" now={ratingPlace()[2]} /><br></br>
+                                    Rate D: {ratingPlace()[3]}% <br></br> <ProgressBar className={styles.voteBar} variant="danger" now={ratingPlace()[3]} /> <br></br>
 
                                     {isAuthenticated ?
                                         ratingPlace()[4] ? <div className={styles.alreadyRateDiv} > You already rate for this place with rate: <span className={styles.alreadyRateSpan}>{ratingPlace()[5]}</span> </div> :

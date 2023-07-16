@@ -1,7 +1,7 @@
 /* This is css file created from React Leaflet */
 
 .sectionStyle {
-    /* position:absolute; */
+    /* position:inherit; */
     height: 740px;
     width: 1683px;
     /* padding-top: 6.6%; */

@@ -121,6 +121,7 @@
 
 .navContainer {
     display: inline-block;
+    position: inherit;
     text-align: center;
     padding-top: 1%;
     /* text-align: center;
