@@ -18,9 +18,9 @@ import { CreateNewPlace } from './components/createPlace/CreateNewPlace';
 
 import { Profile } from './components/profile/Profile';
 import { EditProfile } from './components/profile/EditProfile';
-import { ChangePassword } from './components/profile/ChangePassword';
-import { ResetPassword } from './components/profile/ResetPassword';
-import { Feedback } from './components/profile/Feedback';
+import { ChangePassword } from './components/profile/passwordManagement/ChangePassword';
+import { ResetPassword } from './components/profile/passwordManagement/ResetPassword';
+import { Feedback } from './components/profile/passwordManagement/Feedback';
 
 import { PlaceDetails } from './components/placeDetails/PlaceDetails';
 import { EditPlace } from './components/editPlace/EditPlace';

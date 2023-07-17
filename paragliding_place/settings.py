@@ -147,9 +147,14 @@ STATIC_URL = 'static/'
 # This is from my project paragliding shop
 AUTH_USER_MODEL = 'api_auth.AppUser'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 # This is for sending email in post
+
+EMAIL_BACKEND = os.environ.get('EMAIL_EMAIL_BACKEND')
+EMAIL_HOST = os.environ.get('EMAIL_EMAIL_HOST')
+EMAIL_HOST_USER = os.environ.get('EMAIL_EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_EMAIL_HOST_PASSWORD')
+EMAIL_PORT = os.environ.get('EMAIL_EMAIL_PORT')
+EMAIL_USE_TLS = os.environ.get('EMAIL_EMAIL_USE_TLS')
 
 # Тhis is for sending email in post
 

@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom"
 
-import { useForm } from "../../hooks/useForm";
-import { useAuthContext } from "../../contexts/AuthContext";
-import { isEqualAndHaveLength } from "../../validators/validators";
+import { useForm } from "../../../hooks/useForm";
+import { useAuthContext } from "../../../contexts/AuthContext";
+import { isEqualAndHaveLength } from "../../../validators/validators";
 
-import { profileServiceFactory } from "../../services/profileService";
+import { profileServiceFactory } from "../../../services/profileService";
 
-import "./profile.modules.css"
-import { useService } from "../../hooks/useService";
+import "../profile.modules.css"
+import { useService } from "../../../hooks/useService";
 
 export const ResetPassword = () => {
     const userProfileId = useParams()

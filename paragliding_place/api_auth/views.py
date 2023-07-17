@@ -113,10 +113,6 @@ class ListDetailsUser(rest_generic_views.ListAPIView):
         return self.list_serializer_class
 
     def get(self, request, *args, **kwargs):
-        # print(11111, request.query_params)
-        # user = UserModel.objects.all()
-        # serializer = DetailsUserSerializer(user, many=True)
-        # return Response(serializer.data)
         try:
             id = request.query_params["id"]
             if id != None:

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import "./profile.modules.css"
+import "../profile.modules.css"
 
 export const Feedback = () => {
     return (

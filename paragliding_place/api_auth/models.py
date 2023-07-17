@@ -118,7 +118,6 @@ class AppUser(auth_models.AbstractUser):
 
 
 # For django reset password
-
 @receiver(reset_password_token_created)
 def password_reset_token_created(sender, instance, reset_password_token, *args, **kwargs):
 
@@ -126,17 +125,13 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
 
     send_mail(
         # Title
-        "Password Reset for {title}".format(title="SpotFly"),
+        'Hello from SpotFly Reset Password',
         # Message
-        email_plaintext_message,
+        'Hey! SpotFly is here. If you want to reset your password, please follow the steps below: \n'
+        'Copy this code:' f' {reset_password_token.key}\n' 
+        'Click on this link and follow next step: http://localhost:8000/api/auth/password_reset/confirm/',
         # From
-        "noreply@somehost.local",
-        # From developer purpose, show urls
-        # First url - is for current email
-        # Second is for put the new passwotd and token
-        print(f"http://localhost:8000{email_plaintext_message}"),
-        print("Copy this code and use it for reset your password in link below:", reset_password_token.key),
-        print(f"http://localhost:8000/api/auth/password_reset/confirm/"),
+        'stoychev.nas@gmail.com',
         # To
-        [reset_password_token.user.email]
+        (reset_password_token.user.email,),
     )

@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom"
 
-import { useForm } from "../../hooks/useForm";
-import { useAuthContext } from "../../contexts/AuthContext";
-import { isEqualAndHaveLength } from "../../validators/validators";
+import { useForm } from "../../../hooks/useForm";
+import { useAuthContext } from "../../../contexts/AuthContext";
+import { isEqualAndHaveLength } from "../../../validators/validators";
 
-import "./profile.modules.css"
+import "../profile.modules.css"
 
 export const ChangePassword = () => {
     const userProfileId = useParams()
