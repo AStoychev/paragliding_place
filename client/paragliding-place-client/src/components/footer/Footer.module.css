@@ -17,16 +17,22 @@
 } */
 
 .footer {
+    width: 100%;
+    text-align: center;
+    margin-top: -0.3%;
+  }
+
+/* .footer {
     width: 99.5%;
-    position: fixed;
+    position: fixed; */
     /* position: fixed;
     width: 1683px; */
     /* height: auto; */
-    overflow: hidden;
+    /* overflow: hidden;
     height: 8%;
     bottom: 0;
     background-color: rgb(9, 87, 52);
-}
+} */
 
 .container {
     background-color: rgb(9, 87, 52);
