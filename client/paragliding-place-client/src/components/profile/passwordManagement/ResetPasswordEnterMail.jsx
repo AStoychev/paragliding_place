@@ -12,12 +12,22 @@ export const ResetPasswordEnterMail = () => {
     const { onResetPassword } = useAuthContext();
 
     const [email, setEmail] = useState();
+    const [loading, setLoading] = useState(false);
+    const [disabled, setDisabled] = useState(false)
 
-    const { values, changeHandler, onSubmit, changeValues } = useForm({
+    const fetchData = () => {
+        setLoading(true)
+    };
+
+    const onSpinerLoad = () => {
+        setDisabled(true)
+    }
+
+    const { changeHandler, onSubmit } = useForm({
         email: '',
     }, onResetPassword)
 
-    console.log(email)
+    console.log(disabled)
 
     return (
         <>
@@ -35,6 +45,7 @@ export const ResetPasswordEnterMail = () => {
                                             type="email"
                                             id="email"
                                             name='email'
+                                            disabled={disabled}
                                             onInput={e => setEmail(e.target.value)}
                                             onChange={changeHandler}
 
@@ -42,13 +53,18 @@ export const ResetPasswordEnterMail = () => {
                                     </label>
                                 </div>
                                 <div className="submitResetPassword">
-                                    <input type="submit" value="Reset Password" />
+                                    <input type="submit" onClick={fetchData} value="Reset Password" disabled={disabled} />
+                                    {loading ?
+                                        <Spinner animation="border" variant="info" onAnimationStart={onSpinerLoad}/>
+                                        :
+                                        ""
+                                    }
                                 </div>
                             </div>
 
                         </div>
                     </form>
-                </div>
+                </div >
 
             </div >
         </>

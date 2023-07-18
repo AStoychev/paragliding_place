@@ -13,7 +13,10 @@ export const ResetPasswordEnterToken = () => {
     const [confirmPassword, setConfirmPassword] = useState();
     const [token, setToken] = useState();
 
-    const { changeHandler, onSubmit } = useForm(onCreateNewPassword)
+    const { changeHandler, onSubmit } = useForm({
+        password: '',
+        token: '',
+    }, onCreateNewPassword)
 
     const passwordAndConfirmPassordIsEqual = password && token ? isEqualAndHaveLength(password, confirmPassword) : false
 
