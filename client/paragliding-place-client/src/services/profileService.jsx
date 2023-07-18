@@ -21,9 +21,11 @@ export const profileServiceFactory = (token) => {
 
     const edit = (userId, data) => request.put(`${baseUrl}/edit/${userId}`, data);
 
-    const changePassword = (userId, data) => request.put(`${baseUrl}/edit/change-password/${userId}`, data)
+    const changePassword = (userId, data) => request.put(`${baseUrl}/edit/change-password/${userId}`, data);
 
-    const resetPassword = (email) => request.post(`http://localhost:8000/api/auth/password_reset/`, email)
+    const resetPassword = (email) => request.post(`http://localhost:8000/api/auth/password_reset/`, email);
+
+    const createNewPassword = (password, token) => request.post(`http://localhost:8000/api/auth/password_reset/confirm/`, password, token);
 
     // const deletePlace = (userId) => request.delete(`${baseUrl}/delete/${userId}`);
 
@@ -34,6 +36,7 @@ export const profileServiceFactory = (token) => {
         edit,
         changePassword,
         resetPassword,
+        createNewPassword,
         // delete: deletePlace,
     };
 }

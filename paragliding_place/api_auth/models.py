@@ -121,7 +121,8 @@ class AppUser(auth_models.AbstractUser):
 @receiver(reset_password_token_created)
 def password_reset_token_created(sender, instance, reset_password_token, *args, **kwargs):
 
-    email_plaintext_message = "{}?token={}".format(reverse('password_reset:reset-password-request'), reset_password_token.key)
+    email_plaintext_message = "{}?token={}".format(reverse('password_reset:reset-password-request'),
+                                                   reset_password_token.key)
 
     send_mail(
         # Title
@@ -129,7 +130,7 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
         # Message
         'Hey! SpotFly is here. If you want to reset your password, please follow the steps below: \n'
         'Copy this code:' f' {reset_password_token.key}\n' 
-        'Click on this link and follow next step: http://localhost:8000/api/auth/password_reset/confirm/',
+        'Click on this link and follow next step: http://localhost:3000/reset-password/confirm',
         # From
         'stoychev.nas@gmail.com',
         # To

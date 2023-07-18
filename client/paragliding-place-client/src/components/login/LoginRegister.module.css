@@ -110,7 +110,8 @@ input[type="email"],
 input[type="username"],
 input[type="age"],
 input[type="description"],
-input[type="imageUrl"] {
+input[type="imageUrl"],
+input[type="token"] {
     background: #ecf0f3;
     padding: 1px;
     padding-bottom: 5px;

@@ -1,24 +1,17 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom"
 
 import { useForm } from "../../../hooks/useForm";
 import { useAuthContext } from "../../../contexts/AuthContext";
-import { isEqualAndHaveLength } from "../../../validators/validators";
 
-import { profileServiceFactory } from "../../../services/profileService";
-
+import Spinner from 'react-bootstrap/Spinner';
 import "../profile.modules.css"
-import { useService } from "../../../hooks/useService";
 
-export const ResetPassword = () => {
-    const userProfileId = useParams()
-    const profileId = userProfileId['userId']
 
-    const { userId, onResetPassword } = useAuthContext();
+export const ResetPasswordEnterMail = () => {
+
+    const { onResetPassword } = useAuthContext();
 
     const [email, setEmail] = useState();
-
-    const profileService = useService(profileServiceFactory);
 
     const { values, changeHandler, onSubmit, changeValues } = useForm({
         email: '',
@@ -48,8 +41,9 @@ export const ResetPassword = () => {
                                         />
                                     </label>
                                 </div>
+                                <div className="submitResetPassword">
                                     <input type="submit" value="Reset Password" />
-                                
+                                </div>
                             </div>
 
                         </div>

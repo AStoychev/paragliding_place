@@ -184,10 +184,11 @@ export const RegisterModal = () => {
                             <span></span>
                         }
                     </label>
-                    {checkAllFieldIsTrue() ?
-                        <input type="submit" className={styles.submitBtn} value="Register" onClick={onSubmit} />
-                        :
-                        <input className={styles.submitDisabled} type="submit" value="Register" title="You have to fill all fields!" disabled />
+                    {
+                        checkAllFieldIsTrue() ?
+                            <input type="submit" className={styles.submitBtn} value="Register" onClick={onSubmit} />
+                            :
+                            <input className={styles.submitDisabled} type="submit" value="Register" title="You have to fill all fields!" disabled />
                     }
 
                 </Modal.Body>

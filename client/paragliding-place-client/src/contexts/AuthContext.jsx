@@ -114,6 +114,11 @@ export const AuthProvider = ({
         navigate('/feedback')
     }
 
+    const onCreateNewPassword = async (password, token) => {
+        await profileService.createNewPassword(password, token)
+        navigate('/')
+    }
+
 
     const contextValues = {
         onLoginSubmit,
@@ -122,6 +127,7 @@ export const AuthProvider = ({
         onProfileEditSubmit,
         onChangePassword,
         onResetPassword,
+        onCreateNewPassword,
         userId: auth.user_id,
         password: auth.password,
         token: auth.token,
