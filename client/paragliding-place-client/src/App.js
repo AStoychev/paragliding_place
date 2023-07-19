@@ -22,7 +22,8 @@ import { EditProfile } from './components/profile/EditProfile';
 import { ChangePassword } from './components/profile/passwordManagement/ChangePassword';
 import { ResetPasswordEnterMail } from './components/profile/passwordManagement/ResetPasswordEnterMail';
 import { ResetPasswordEnterToken } from './components/profile/passwordManagement/ResetPasswordEnterToken';
-import { Feedback } from './components/profile/passwordManagement/Feedback';
+import { FeedbackEnterMail } from './components/profile/passwordManagement/FeedbackEnterMail';
+import { FeedbackEnterToken } from './components/profile/passwordManagement/FeedbackEnterToken';
 
 import { PlaceDetails } from './components/placeDetails/PlaceDetails';
 import { EditPlace } from './components/editPlace/EditPlace';
@@ -50,7 +51,8 @@ function App() {
                             <Route path='/profile/edit/change-password/:userId' element={<ChangePassword />} />
                             <Route path='/reset-password' element={<ResetPasswordEnterMail />} />
                             <Route path='/reset-password/confirm' element={<ResetPasswordEnterToken />} />
-                            <Route path='/feedback' element={<Feedback />} />
+                            <Route path='/feedback-enter-mail' element={<FeedbackEnterMail />} />
+                            <Route path='/feedback-enter-token' element={<FeedbackEnterToken />} />
                             <Route path='/about' element={<About />} />
                             <Route path='/logout' element={<Logout />} />
                             <Route path='/place/edit/:placeId' element={<EditPlace />} />

@@ -111,12 +111,12 @@ export const AuthProvider = ({
 
     const onResetPassword = async (values) => {
         await profileService.resetPassword(values)
-        navigate('/feedback')
+        navigate('/feedback-enter-mail')
     }
 
     const onCreateNewPassword = async (password, token) => {
         await profileService.createNewPassword(password, token)
-        navigate('/')
+        navigate('/feedback-enter-token')
     }
 
 

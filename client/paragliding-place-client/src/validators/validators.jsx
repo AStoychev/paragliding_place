@@ -54,6 +54,13 @@ export const usernameValidation = (usernameValue) => {
 }
 
 
+// This function return percentage use in PlaceDetails
+export const inPercentage = (rate, allPeople) => {
+    let result = (rate / allPeople) * 100
+    return Math.round(result)
+}
+
+
 // This validator function is use in RegisterModal and show valid message
 export const showIsValid = (inputField) => {
     return <span className="showIsValid">{inputField} is valid!</span>
@@ -65,33 +72,3 @@ export const showIsInvalid = (inputField) => {
     return <span className="showIsInvalid">{inputField} is not valid!</span>
 };
 
-
-// This validator function is use in RegisterModal and show valid message for Username
-export const showValidUsername = () => {
-    return <span className="showIsValid">Username is valid!</span>
-};
-
-
-// This validator function is use in RegisterModal and show invalid message for Username
-export const showInvalidUsername = () => {
-    return <span className="showIsInvalid">Username have to start with uppercase and have to be at least 2 characters!</span>
-};
-
-
-// This validator function is use in RegisterModal and ChangePassword and show password valid match message
-export const passwordValidMatch = () => {
-    return <span className="showIsValid">Password match!</span>
-};
-
-
-// This validator function is use in RegisterModal and ChangePassword and show password mismatch message
-export const passwordInvalidMatch = () => {
-    return <span className="showIsInvalid">Password mismatch!</span>
-};
-
-
-// This function return percentage use in PlaceDetails
-export const inPercentage = (rate, allPeople) => {
-    let result = (rate / allPeople) * 100
-    return Math.round(result)
-}

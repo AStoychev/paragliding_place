@@ -15,6 +15,8 @@ import {
     showInvalidUsername, passwordValidMatch, passwordInvalidMatch
 } from '../../validators/validators';
 
+import { ShowValidUsername, ShowInvalidUsername, PasswordValidMatch, PasswordInvalidMatch } from '../../utils/messages';
+
 import styles from '../login/LoginRegister.module.css';
 
 export const RegisterModal = () => {
@@ -24,7 +26,7 @@ export const RegisterModal = () => {
     const handleShow = () => setShow(true);
 
     const { onRegisterSubmit } = useContext(AuthContext);
-    const { values, changeHandler, onSubmit } = useForm({
+    const { values, changeHandler, onSubmit, keyDownHandler } = useForm({
         email: '',
         username: '',
         // age: '',
@@ -91,6 +93,7 @@ export const RegisterModal = () => {
                                 value={values.email}
                                 onChange={changeHandler}
                                 onClick={onClickField}
+                                onKeyDown={keyDownHandler}
                             />
                             {checkEmai === true && (values.email).length >= 1 &&
                                 <>
@@ -114,13 +117,14 @@ export const RegisterModal = () => {
                                 value={values.username}
                                 onChange={changeHandler}
                                 onClick={onClickField}
+                                onKeyDown={keyDownHandler}
                             />
                             {checkUsername === true && (values.username).length >= 1 &&
                                 <p >
                                     {usernameValidation(values.username) === true ?
-                                        showValidUsername()
+                                        <ShowValidUsername />
                                         :
-                                        showInvalidUsername()
+                                        <ShowInvalidUsername />
                                     }
                                 </p>
 
@@ -140,6 +144,7 @@ export const RegisterModal = () => {
                                 value={values.password}
                                 onChange={changeHandler}
                                 onClick={onClickField}
+                                onKeyDown={keyDownHandler}
                             />
                             {checkPass === true && (values.password).length >= 1 &&
                                 <p >
@@ -164,13 +169,14 @@ export const RegisterModal = () => {
                                 value={values.confirmPassword}
                                 onChange={changeHandler}
                                 onClick={onClickField}
+                                onKeyDown={keyDownHandler}
                             />
                             {checkRepeatPass === true && (values.confirmPassword).length >= 1 &&
                                 <>
                                     {passwordAndConfirmPassordIsValid ?
-                                        passwordValidMatch()
+                                        < PasswordValidMatch />
                                         :
-                                        passwordInvalidMatch()
+                                        < PasswordInvalidMatch />
                                     }
                                 </>
                             }

@@ -38,8 +38,12 @@ export const commentServiceFactory = (token) => {
     //     return result
     // }
 
+    const deleteComment = async (commentId) => {
+        const result = await request.delete(`${baseUrl}/delete/${commentId}`);
+        return result
+    }
 
-    const deleteComment = (commentId) => request.delete(`${baseUrl}/delete/${commentId}`);
+    // const deleteComment = (commentId) => request.delete(`${baseUrl}/delete/${commentId}`);
 
     return {
         getAll,

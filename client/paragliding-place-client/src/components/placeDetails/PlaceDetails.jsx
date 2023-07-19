@@ -21,7 +21,8 @@ import { MapContainer, TileLayer, Marker, Popup, useMapEvent, ZoomControl } from
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { divIcon } from "leaflet";
 
-import { isOwner, inPercentage } from "../../validators/validators";
+import { urlForecast } from "../../utils/urlForecast";
+import { isOwner } from "../../validators/validators";
 
 import { usePlaceContext } from "../../contexts/PlaceContext";
 import { useCommentContext } from "../../contexts/CommentContext";
@@ -32,16 +33,18 @@ import { EditCommentModal } from "./commentComponents/EditCommentModal";
 
 import { customIcon, customIconLanding } from "../customIcon/customIcon";
 
-import styles from "../placeDetails/placeDetails.module.css";
 // import { map } from "leaflet";
+
+import { ratingCalculate } from "../../utils/ratingCalculate";
 
 import "leaflet/dist/leaflet.css";
 // import L from "leaflet";
 
 import Button from 'react-bootstrap/Button';
 
-
 import Spinner from 'react-bootstrap/Spinner';
+
+import styles from "../placeDetails/placeDetails.module.css";
 
 export const PlaceDetails = () => {
     const { placeId } = useParams();
@@ -109,6 +112,17 @@ export const PlaceDetails = () => {
         })
     }
 
+    // const onCommentDelete = async (values) => {
+    //     const response = await commentService.deleteComment(values.id);
+
+    //     dispatch({
+    //         type: 'COMMENT_DELETE',
+    //         payload: response,
+    //         userName,
+    //         userEmail,
+    //     })
+    // }
+
     const showAllDirections = () => {
         return Object.keys(place.direction || {}).filter(k => place.direction[k])
     }
@@ -126,12 +140,6 @@ export const PlaceDetails = () => {
             ))
         }
         return haveComment
-    }
-
-    const urlLink = (e, n) => {
-        let url = `https://www.meteoblue.com/en/weather/week/${e}N${n}E`
-
-        return url
     }
 
     const MyComponent = () => {
@@ -152,48 +160,13 @@ export const PlaceDetails = () => {
         });
     }
 
-    const ratingPlace = () => {
-        let alreadyRate = false
-        let rate = "";
-        let rateA = 0;
-        let rateB = 0;
-        let rateC = 0;
-        let rateD = 0;
-
-        place.rate && place.rate.map(x => {
-
-            if (x.place_id_rating == placeId) {
-
-                if (x.user_id === userId) {
-                    rate = x.rating
-                    alreadyRate = true
-                }
-
-                // rate.push(x.rating)
-                if (x.rating === "A") {
-                    rateA += 1
-                } else if (x.rating == "B") {
-                    rateB += 1
-                } else if (x.rating == "C") {
-                    rateC += 1
-                } else if (x.rating == "D") {
-                    rateD += 1
-                }
-            }
-        })
-
-        let allPeopleRate = rateA + rateB + rateC + rateD
-        // let digits = [rateA, rateB, rateC, rateD]
-        // let maxDigit = digits.indexOf(Math.max(...digits))
-        // let maxRate = digits[maxDigit]
-
-        rateA = inPercentage(rateA, allPeopleRate);
-        rateB = inPercentage(rateB, allPeopleRate);
-        rateC = inPercentage(rateC, allPeopleRate);
-        rateD = inPercentage(rateD, allPeopleRate);
-
-        return [rateA, rateB, rateC, rateD, alreadyRate, rate]
-    }
+    // This come from ratingCalculate utils and use it fot ratinf system
+    const rateA = ratingCalculate(place, placeId, userId)[0];
+    const rateB = ratingCalculate(place, placeId, userId)[1];
+    const rateC = ratingCalculate(place, placeId, userId)[2];
+    const rateD = ratingCalculate(place, placeId, userId)[3];
+    const alreadyRate = ratingCalculate(place, placeId, userId)[4];
+    const ownRate = ratingCalculate(place, placeId, userId)[5];
 
     const navigatePath = `place-details/${placeId}`
 
@@ -264,13 +237,13 @@ export const PlaceDetails = () => {
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header>See the ratings of the pilots who visited the place</Accordion.Header>
                                 <Accordion.Body >
-                                    Rate A: {ratingPlace()[0]}% <br></br> <ProgressBar className={styles.voteBar} variant="success" now={ratingPlace()[0]} /><br></br>
-                                    Rate B: {ratingPlace()[1]}% <br></br> <ProgressBar className={styles.voteBar} variant="info" now={ratingPlace()[1]} /><br></br>
-                                    Rate C: {ratingPlace()[2]}% <br></br> <ProgressBar className={styles.voteBar} variant="warning" now={ratingPlace()[2]} /><br></br>
-                                    Rate D: {ratingPlace()[3]}% <br></br> <ProgressBar className={styles.voteBar} variant="danger" now={ratingPlace()[3]} /> <br></br>
+                                    Rate A: {rateA}% <br></br> <ProgressBar className={styles.voteBar} variant="success" now={rateA} /><br></br>
+                                    Rate B: {rateB}% <br></br> <ProgressBar className={styles.voteBar} variant="info" now={rateB} /><br></br>
+                                    Rate C: {rateC}% <br></br> <ProgressBar className={styles.voteBar} variant="warning" now={rateC} /><br></br>
+                                    Rate D: {rateD}% <br></br> <ProgressBar className={styles.voteBar} variant="danger" now={rateD} /> <br></br>
 
                                     {isAuthenticated ?
-                                        ratingPlace()[4] ? <div className={styles.alreadyRateDiv} > You already rate for this place with rate: <span className={styles.alreadyRateSpan}>{ratingPlace()[5]}</span> </div> :
+                                        alreadyRate ? <div className={styles.alreadyRateDiv} > You already rate for this place with rate: <span className={styles.alreadyRateSpan}>{ownRate}</span> </div> :
                                             <div>
                                                 <label className={styles.placeLabel}>Difficulty Level</label>
                                                 <CreateRace onRateSubmit={onRateSubmit} />
@@ -290,7 +263,7 @@ export const PlaceDetails = () => {
                                         <li className={styles.directionList}>{k}</li>
                                     </ul>
                                 ))}
-                                <form action={urlLink(place.latitude_takes_off, place.longitude_takes_off)} method="get" target="_blank">
+                                <form action={urlForecast(place.latitude_takes_off, place.longitude_takes_off)} method="get" target="_blank">
                                     <Button variant="info" type="submit">Forecast</Button>
                                 </form>
                             </div>
@@ -302,6 +275,7 @@ export const PlaceDetails = () => {
                                 <div className="details-comments">
                                     <h2>Comments:
                                     </h2>
+
                                     <div>{haveComments().map(x => (
                                         <div key={x.id}> <Link to={`/profile/${x.user_id}`}>{x.owner}</Link>: {x.text}
                                             {isOwner(x.user_id, userId) &&

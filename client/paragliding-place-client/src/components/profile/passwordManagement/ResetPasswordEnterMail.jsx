@@ -27,8 +27,6 @@ export const ResetPasswordEnterMail = () => {
         email: '',
     }, onResetPassword)
 
-    console.log(disabled)
-
     return (
         <>
             <div className="container">

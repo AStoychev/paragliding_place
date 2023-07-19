@@ -1,19 +1,12 @@
-import { useAuthContext } from '../../contexts/AuthContext';
 import { useForm } from '../../hooks/useForm';
 
 import React, { useState } from 'react';
-import { PlaceContext } from '../../contexts/PlaceContext';
 import { usePlaceContext } from '../../contexts/PlaceContext';
 import { TbCircleLetterA, TbCircleLetterB, TbCircleLetterC, TbCircleLetterD } from "react-icons/tb";
-
-import Button from 'react-bootstrap/Button';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
 
 import { requestFactory } from "../../services/requester";
 
 import styles from './CreateEditNewPlace.module.css';
-
 
 export const CreateNewPlace = () => {
 
@@ -60,15 +53,9 @@ export const CreateNewPlace = () => {
     }, onCreatePlaceSubmit);
 
     const [directions, setDirections] = useState({});
-    const [showDirection, setShowDirection] = useState("")
 
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
-
-
-    const [value, setValue] = useState([1, 3]);
-    const handleChange = (val) => setValue(val);
-
 
     // Delete not functional only for test show info about places in db
     // You can use this for rendering information on the map when is all already
@@ -80,25 +67,6 @@ export const CreateNewPlace = () => {
     };
     // Delete not functional only for test show info about places in db
 
-    const isRequired = []
-    const items = (Object.values(values));
-
-    const isFull = () => {
-        if (isRequired.length === items.length - 1) {
-            return true
-        } else {
-            return false
-        }
-    }
-
-    for (let i = 0; i < items.length; i++) {
-        if ((items[i].length) > 0) {
-            isRequired.push(1)
-        }
-    }
-
-    //
-
     const onRatingChange = (e) => {
         values.difficulty_level = rating
     }
@@ -109,26 +77,6 @@ export const CreateNewPlace = () => {
 
         setDirections(state => ({ ...state, [e.target.value]: e.target.checked }));
 
-        let len = Object.keys(values.direction).length
-    }
-
-
-    const showAllDirection = () => {
-        let allDirections = []
-        for (let i = 0; i < Object.keys(values.direction).length; i++) {
-            let allDirectionsItem = Object.keys(values.direction)[i]
-            allDirections.push(allDirectionsItem)
-        }
-
-        return (
-            allDirections.map(x => (
-                <div key={x}>
-                    <label htmlFor={x} key={Object.keys(values.direction).length}>{x}</label>
-                    {/* <label for={x} key={Object.keys(values.direction).length}>{x}</label> */}
-                    <input type="checkbox" name="direction" value={x} id={x} onChange={onDirectionsChange} checked={directions[{ x }] || false} key={Object.keys(values.direction)} style={{ margin: '10px' }}></input>
-                </div>
-            ))
-        )
     }
 
     return (
@@ -454,12 +402,3 @@ export const CreateNewPlace = () => {
         </div>
     );
 }
-
-
-{/* <table>
-    <tr>
-        <th>Column1</th>
-        <th>Column2</th>
-        <th>Column3</th>
-    </tr>
-</table> */}

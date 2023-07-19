@@ -24,12 +24,11 @@ export const LoginModal = ({ navigatePath }) => {
         navigatePath = "/"
     }
 
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const { onLoginSubmit } = useAuthContext();
-    const { values, changeHandler, onSubmit } = useForm({
+    const { values, changeHandler, onSubmit, keyDownHandler } = useForm({
         [LoginFormKeys.Username]: '',
         // [LoginFormKeys.Email]: '',
         [LoginFormKeys.Password]: '',
@@ -46,7 +45,7 @@ export const LoginModal = ({ navigatePath }) => {
             return true
         }
     }
-
+    
     return (
         <>
             <Link variant="primary" onClick={handleShow} className={styles.navLink}>
@@ -69,6 +68,7 @@ export const LoginModal = ({ navigatePath }) => {
                                 name={LoginFormKeys.Username}
                                 value={values[LoginFormKeys.Username]}
                                 onChange={changeHandler}
+                                onKeyDown={keyDownHandler}
                             />
                         </Form.Group>
                         <Form.Group
@@ -82,6 +82,7 @@ export const LoginModal = ({ navigatePath }) => {
                                 name={LoginFormKeys.Password}
                                 value={values[LoginFormKeys.Password]}
                                 onChange={changeHandler}
+                                onKeyDown={keyDownHandler}
                             />
                         </Form.Group>
                     </Form>

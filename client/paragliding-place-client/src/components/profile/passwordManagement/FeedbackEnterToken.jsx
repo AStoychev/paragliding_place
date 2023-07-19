@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import "../profile.modules.css"
 
-export const Feedback = () => {
+export const FeedbackEnterToken = () => {
     return (
         <>
             <div className="container">
@@ -10,8 +10,7 @@ export const Feedback = () => {
                         <div className="rightSide">
                             <div className="topAndBottom">
                                 <div className="containerItem">
-                                    Check your email for next step!
-                                    Or 
+                                    You password was changed
                                     Go to <Link to="/">Home Page</Link>
                                 </div>
                             </div>

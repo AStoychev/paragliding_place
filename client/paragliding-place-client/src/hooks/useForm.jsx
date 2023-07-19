@@ -9,6 +9,7 @@ export const useForm = (initialValues, onSubmitHandler) => {
     };
 
     const onSubmit = (e) => {
+
         e.preventDefault();
 
         onSubmitHandler(values);
@@ -20,10 +21,20 @@ export const useForm = (initialValues, onSubmitHandler) => {
         setValues(newValues);
     }
 
+    // This is for login with enter
+    const keyDownHandler = e => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            onSubmitHandler(values);
+            setValues(initialValues);
+        }
+    }
+
     return {
         values,
         changeHandler,
         onSubmit,
         changeValues,
+        keyDownHandler,
     };
 };
