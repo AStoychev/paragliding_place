@@ -4,7 +4,6 @@ import Accordion from 'react-bootstrap/Accordion';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 import { placeServiceFactory } from "../../services/placeService";
-// import * as commentService from "../../services/commentService"
 
 import { commentServiceFactory } from "../../services/commentService";
 import { ratingServiceFactory } from "../../services/ratingService";
@@ -32,18 +31,11 @@ import { DeleteCommentModal } from "./commentComponents/DeleteCommentModal";
 import { EditCommentModal } from "./commentComponents/EditCommentModal";
 
 import { customIcon, customIconLanding } from "../customIcon/customIcon";
-
-// import { map } from "leaflet";
-
 import { ratingCalculate } from "../../utils/ratingCalculate";
 
 import "leaflet/dist/leaflet.css";
-// import L from "leaflet";
-
 import Button from 'react-bootstrap/Button';
-
 import Spinner from 'react-bootstrap/Spinner';
-
 import styles from "../placeDetails/placeDetails.module.css";
 
 export const PlaceDetails = () => {
@@ -56,7 +48,7 @@ export const PlaceDetails = () => {
 
     const [place, dispatch] = useReducer(placeReducer, {});
 
-    // const { removeComment } = useCommentContext()
+    const { comments, onCreateCommentSubmit, removeComment } = useCommentContext()
 
     const commentService = useService(commentServiceFactory)
     const ratingService = useService(ratingServiceFactory)
@@ -90,15 +82,8 @@ export const PlaceDetails = () => {
     const placeCenterLatitude = parseFloat(place.latitude_takes_off);
     const placeCenterLongitude = parseFloat(place.longitude_takes_off);
 
-    const onCommentSubmit = async (values) => {
-        const response = await commentService.create(values.text, placeId, userId, userName);
-
-        dispatch({
-            type: 'COMMENT_ADD',
-            payload: response,
-            userName,
-            userEmail,
-        })
+    const onCommentSubmit = (values) => {
+        onCreateCommentSubmit(values.text, placeId, userId, userName)
     };
 
     const onRateSubmit = async (values) => {
@@ -112,16 +97,9 @@ export const PlaceDetails = () => {
         })
     }
 
-    // const onCommentDelete = async (values) => {
-    //     const response = await commentService.deleteComment(values.id);
-
-    //     dispatch({
-    //         type: 'COMMENT_DELETE',
-    //         payload: response,
-    //         userName,
-    //         userEmail,
-    //     })
-    // }
+    const onCommentDelete = (values) => {
+        removeComment(values)
+    }
 
     const showAllDirections = () => {
         return Object.keys(place.direction || {}).filter(k => place.direction[k])
@@ -131,8 +109,9 @@ export const PlaceDetails = () => {
 
     const haveComments = () => {
         let haveComment = []
-        {
-            place.comments && place.comments.map(x => (
+        {   
+            comments && comments.map(x => (
+            // place.comments && place.comments.map(x => (
                 x.place_comment == place.id ?
                     haveComment.push(x)
                     :
@@ -280,7 +259,8 @@ export const PlaceDetails = () => {
                                         <div key={x.id}> <Link to={`/profile/${x.user_id}`}>{x.owner}</Link>: {x.text}
                                             {isOwner(x.user_id, userId) &&
                                                 <div className={styles.buttonDeleteEditComments}>
-                                                    <DeleteCommentModal deleteComment={x.id} />
+                                                    {<DeleteCommentModal commentId={x.id} onCommentDelete={onCommentDelete} />}
+                                                    {/* <DeleteCommentModal deleteComment={x.id} /> */}
                                                     <EditCommentModal editComment={x.text} editCommentId={x.id} commentPlaceId={placeId} />
                                                 </div>
                                             }

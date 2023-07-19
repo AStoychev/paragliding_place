@@ -1,40 +1,19 @@
 import React, { useState } from 'react';
+
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-
-import { useService } from "../../../hooks/useService";
-import { commentServiceFactory } from "../../../services/commentService";
-// import { useCommentContext } from '../../contexts/CommentContext';
-
 import styles from "../commentComponents/comment.module.css";
 
 
-export const DeleteCommentModal = (props) => {
+export const DeleteCommentModal = ({ commentId, onCommentDelete }) => {
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    // const {removeComment} = useCommentContext();
-
-    const commentService = useService(commentServiceFactory)
-
-    const onCommentDelete = async (commentId) => {
-        await commentService.deleteComment(commentId);
-        // removeComment(commentId);
-        // const response = commentService.getAll()
-
-        // dispatch({
-        //     type: 'COMMENT_DELETE',
-        //     payload: response,
-        //     userName,
-        //     userEmail,
-        // })
-
-        window.location.reload()
-
+    const onDelete = () => {
+        onCommentDelete(commentId)
         handleClose()
-
     }
 
     return (
@@ -52,7 +31,7 @@ export const DeleteCommentModal = (props) => {
                     <Button variant="secondary" onClick={handleClose}>
                         No
                     </Button>
-                    <Button variant="primary" onClick={() => onCommentDelete(props.deleteComment)}>
+                    <Button variant="primary" onClick={onDelete}>
                         Yes
                     </Button>
                 </Modal.Footer>

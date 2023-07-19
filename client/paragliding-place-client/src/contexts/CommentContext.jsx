@@ -20,12 +20,12 @@ export const CommentProvider = ({
             })
     }, []);
 
-    const onCreateCommentSubmit = async (data) => {
-        const newComment = await commentService.create(data);
+    const onCreateCommentSubmit = async (text, placeId, userId, userName) => {
+        const newComment = await commentService.create(text, placeId, userId, userName);
 
         setComment(state => [...state, newComment])
 
-        navigate('/')
+        navigate(`place-details/${placeId}`)
     };
 
     const onCommentEditSubmit = async (values) => {
@@ -39,7 +39,8 @@ export const CommentProvider = ({
         navigate(`place-details/${placeId}`)
     };
 
-    const removeComment = (commentId) => {
+    const removeComment = async (commentId) => {
+        await commentService.deleteComment(commentId)
         setComment(state => state.filter(comment => comment.id !== commentId))
     }
 

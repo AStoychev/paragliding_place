@@ -18,6 +18,7 @@ export const placeReducer = (state, action) => {
         //         ],
         //     }
 
+        // This doesn't work anymore
         case 'COMMENT_ADD':
             return {
                 ...state,
@@ -32,6 +33,7 @@ export const placeReducer = (state, action) => {
                     }
                 ],
             }
+        // This doesn't work anymore
 
         // case 'COMMENT_EDIT':
         //     return {
