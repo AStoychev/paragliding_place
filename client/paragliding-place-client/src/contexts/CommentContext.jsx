@@ -1,7 +1,6 @@
 import { createContext, useState, useEffect, useContext } from "react";
 
 import { useNavigate } from 'react-router-dom';
-// import { commentServiceFactory } from '../services/commentService'
 import { commentServiceFactory } from "../services/commentService";
 
 export const CommentContext = createContext();
