@@ -3,9 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 
 import { useForm } from '../../../hooks/useForm';
 
-import { commentServiceFactory } from '../../../services/commentService';
 import { useCommentContext } from '../../../contexts/CommentContext';
-import { useService } from '../../../hooks/useService';
 
 import Button from 'react-bootstrap/Button';
 import styles from "../commentComponents/comment.module.css";
@@ -15,7 +13,6 @@ export const EditCommentModal = ({
     data,
 }) => {
     const { onCommentEditSubmit } = useCommentContext()
-    const commentService = useService(commentServiceFactory)
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
