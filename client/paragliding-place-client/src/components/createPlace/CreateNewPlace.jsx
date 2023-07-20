@@ -2,10 +2,11 @@ import { useForm } from '../../hooks/useForm';
 
 import React, { useState } from 'react';
 import { usePlaceContext } from '../../contexts/PlaceContext';
-import { TbCircleLetterA, TbCircleLetterB, TbCircleLetterC, TbCircleLetterD } from "react-icons/tb";
-
 import { requestFactory } from "../../services/requester";
 
+import { checkButtonDirections } from '../../constants/constants';
+
+import { TbCircleLetterA, TbCircleLetterB, TbCircleLetterC, TbCircleLetterD } from "react-icons/tb";
 import styles from './CreateEditNewPlace.module.css';
 
 export const CreateNewPlace = () => {
@@ -67,16 +68,13 @@ export const CreateNewPlace = () => {
     };
     // Delete not functional only for test show info about places in db
 
-    const onRatingChange = (e) => {
+    const onRatingChange = () => {
         values.difficulty_level = rating
     }
 
     const onDirectionsChange = (e) => {
         values.direction[e.target.value] = e.target.checked
-
-
         setDirections(state => ({ ...state, [e.target.value]: e.target.checked }));
-
     }
 
     return (
@@ -185,212 +183,34 @@ export const CreateNewPlace = () => {
                             <table className={styles.tableDirection}>
                                 <tbody>
                                     <tr>
-
-                                        <th className={styles.tableDirectionDifferent}>
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='e'>E
-                                                    <input type="checkbox" name="direction" value="e" id='e' onChange={onDirectionsChange} checked={directions['e'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='es'>ES
-                                                    <input type="checkbox" name="direction" value="es" id='es' onChange={onDirectionsChange} checked={directions['es'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='ees'>EES
-                                                    <input type="checkbox" name="direction" value="ees" id='ees' onChange={onDirectionsChange} checked={directions['ees'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='en'>EN
-                                                    <input type="checkbox" name="direction" value="en" id='en' onChange={onDirectionsChange} checked={directions['en'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='een'>EEN
-                                                    <input type="checkbox" name="direction" value="een" id='een' onChange={onDirectionsChange} checked={directions['een'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='ene'>ENE
-                                                    <input type="checkbox" name="direction" value="ene" id='ene' onChange={onDirectionsChange} checked={directions['ene'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='ese'>ESE
-                                                    <input type="checkbox" name="direction" value="ese" id='ese' onChange={onDirectionsChange} checked={directions['ese'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                        </th>
-
-                                        <th className={styles.tableDirectionDifferent}>
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='w'>W
-                                                    <input type="checkbox" name="direction" value="w" id='w' onChange={onDirectionsChange} checked={directions['w'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='ws'>WS
-                                                    <input type="checkbox" name="direction" value="ws" id='ws' onChange={onDirectionsChange} checked={directions['ws'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='wws'>WWS
-                                                    <input type="checkbox" name="direction" value="wws" id='wws' onChange={onDirectionsChange} checked={directions['wws'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='wn'>WN
-                                                    <input type="checkbox" name="direction" value="wn" id='wn' onChange={onDirectionsChange} checked={directions['wn'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='wwn'>WWN
-                                                    <input type="checkbox" name="direction" value="wwn" id='wwn' onChange={onDirectionsChange} checked={directions['wwn'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='wnw'>WNW
-                                                    <input type="checkbox" name="direction" value="wnw" id='wnw' onChange={onDirectionsChange} checked={directions['wnw'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='wsw'>WSW
-                                                    <input type="checkbox" name="direction" value="wsw" id='wsw' onChange={onDirectionsChange} checked={directions['wsw'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-                                        </th>
-
-                                        <th className={styles.tableDirectionDifferent}>
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='n'>N
-                                                    <input type="checkbox" name="direction" value="n" id='n' onChange={onDirectionsChange} checked={directions['n'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='nw'>NW
-                                                    <input type="checkbox" name="direction" value="nw" id='nw' onChange={onDirectionsChange} checked={directions['nw'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='nnw'>NNW
-                                                    <input type="checkbox" name="direction" value="nnw" id='nnw' onChange={onDirectionsChange} checked={directions['nnw'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='ne'>NE
-                                                    <input type="checkbox" name="direction" value="ne" id='ne' onChange={onDirectionsChange} checked={directions['ne'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='nne'>NNE
-                                                    <input type="checkbox" name="direction" value="nne" id='nne' onChange={onDirectionsChange} checked={directions['nne'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='nwn'>NWN
-                                                    <input type="checkbox" name="direction" value="nwn" id='nwn' onChange={onDirectionsChange} checked={directions['nwn'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='nen'>NEN
-                                                    <input type="checkbox" name="direction" value="nen" id='nen' onChange={onDirectionsChange} checked={directions['nen'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-                                        </th>
-
-                                        <th className={styles.tableDirectionDifferent}>
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='s'>S
-                                                    <input type="checkbox" name="direction" value="s" id='s' onChange={onDirectionsChange} checked={directions['s'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='sw'>SW
-                                                    <input type="checkbox" name="direction" value="sw" id='sw' onChange={onDirectionsChange} checked={directions['sw'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='ssw'>SSW
-                                                    <input type="checkbox" name="direction" value="ssw" id='ssw' onChange={onDirectionsChange} checked={directions['ssw'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='se'>SE
-                                                    <input type="checkbox" name="direction" value="se" id='se' onChange={onDirectionsChange} checked={directions['se'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='sse'>SSE
-                                                    <input type="checkbox" name="direction" value="sse" id='sse' onChange={onDirectionsChange} checked={directions['sse'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='sws'>SWS
-                                                    <input type="checkbox" name="direction" value="sws" id='sws' onChange={onDirectionsChange} checked={directions['sws'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-
-                                            <div className={styles.checkboxWrapper}>
-                                                <label className={styles.divCheck} htmlFor='ses'>SES
-                                                    <input type="checkbox" name="direction" value="ses" id='ses' onChange={onDirectionsChange} checked={directions['ses'] || false} />
-                                                    <span className={styles.checkbox}></span>
-                                                </label>
-                                            </div>
-                                        </th>
+                                        {Object.entries(checkButtonDirections).map(([mainDirection, indetailDirection]) =>
+                                            <th className={styles.tableDirectionDifferent} key={mainDirection}>
+                                                {indetailDirection.map(directionDetail => (
+                                                    <div
+                                                        className={styles.checkboxWrapper}
+                                                        key={directionDetail}>
+                                                        <label
+                                                            className={styles.divCheck}
+                                                            htmlFor={directionDetail}>
+                                                            {directionDetail.toUpperCase()}
+                                                            <input
+                                                                type="checkbox"
+                                                                name="direction"
+                                                                value={directionDetail}
+                                                                id={directionDetail}
+                                                                onChange={onDirectionsChange}
+                                                                checked={directions[directionDetail] || false}
+                                                            />
+                                                            <span
+                                                                className={styles.checkbox}>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                ))}
+                                            </th>
+                                        )}
                                     </tr>
+
                                 </tbody>
                             </table>
                             <input className={styles.submit} type="submit" value="Create" />

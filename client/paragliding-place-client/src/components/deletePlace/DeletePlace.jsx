@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 
-import { useForm } from '../../hooks/useForm';
 import { useService } from '../../hooks/useService';
 import { placeServiceFactory } from '../../services/placeService';
 
@@ -48,7 +47,7 @@ export const DeletePlace = () => {
         const commentInDatabase = Object.keys(place.comments)
         for (let i = 0; i < commentInDatabase.length; i++) {
             let placeId = Object.values(place.comments)[i][['place_comment']]
-            if (placeId == place.id) {
+            if (placeId === place.id) {
                 let commentId = Object.values(place.comments)[i]['id']
                 await commentService.deleteComment(parseInt(commentId))
             }

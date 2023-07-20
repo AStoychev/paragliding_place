@@ -10,7 +10,7 @@ export const ratingCalculate = (place, placeId, userId) => {
 
     place.rate && place.rate.map(x => {
 
-        if (x.place_id_rating == placeId) {
+        if (x.place_id_rating === placeId) {
 
             if (x.user_id === userId) {
                 rate = x.rating
@@ -20,11 +20,11 @@ export const ratingCalculate = (place, placeId, userId) => {
             // rate.push(x.rating)
             if (x.rating === "A") {
                 rateA += 1
-            } else if (x.rating == "B") {
+            } else if (x.rating === "B") {
                 rateB += 1
-            } else if (x.rating == "C") {
+            } else if (x.rating === "C") {
                 rateC += 1
-            } else if (x.rating == "D") {
+            } else if (x.rating === "D") {
                 rateD += 1
             }
         }

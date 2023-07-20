@@ -5,7 +5,7 @@ import { useForm } from "../../../hooks/useForm";
 
 import styles from "../rateComponents/CreateRate.modules.css";
 
-export const CreateRace = ({
+export const CreateRate = ({
     onRateSubmit,
 }) => {
 

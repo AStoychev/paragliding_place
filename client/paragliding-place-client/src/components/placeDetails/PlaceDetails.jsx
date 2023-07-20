@@ -8,7 +8,7 @@ import { placeServiceFactory } from "../../services/placeService";
 import { commentServiceFactory } from "../../services/commentService";
 import { ratingServiceFactory } from "../../services/ratingService";
 
-import { CreateRace } from "./rateComponents/CreateRate";
+import { CreateRate } from "./rateComponents/CreateRate";
 
 import { useService } from "../../hooks/useService";
 import { useAuthContext } from "../../contexts/AuthContext";
@@ -116,7 +116,7 @@ export const PlaceDetails = () => {
         {   
             comments && comments.map(x => (
             // place.comments && place.comments.map(x => (
-                x.place_comment == place.id ?
+                x.place_comment === place.id ?
                     haveComment.push(x)
                     :
                     null
@@ -229,7 +229,7 @@ export const PlaceDetails = () => {
                                         alreadyRate ? <div className={styles.alreadyRateDiv} > You already rate for this place with rate: <span className={styles.alreadyRateSpan}>{ownRate}</span> </div> :
                                             <div>
                                                 <label className={styles.placeLabel}>Difficulty Level</label>
-                                                <CreateRace onRateSubmit={onRateSubmit} />
+                                                <CreateRate onRateSubmit={onRateSubmit} />
                                             </div>
                                         :
                                         <div className={styles.logoutComment}>If you want to vote <span className={styles.spanComment}><LoginModal navigatePath={navigatePath} /></span> </div>

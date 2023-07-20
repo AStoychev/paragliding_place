@@ -119,7 +119,7 @@ export const EditProfile = () => {
                                                         value={values.email_visibility}
                                                         onChange={onVisibilityChange}
                                                     />
-                                                    <AiOutlineEyeInvisible className="genderIcon" onClick={() => setVisibility("Invisible")} color={values.email_visibility == "Invisible" ? "#ffc107" : "black"} />
+                                                    <AiOutlineEyeInvisible className="genderIcon" onClick={() => setVisibility("Invisible")} color={values.email_visibility === "Invisible" ? "#ffc107" : "black"} />
                                                 </label>
 
                                                 <label htmlFor='emailVisible' className="labelGender" onChange={changeHandler}>
@@ -130,7 +130,7 @@ export const EditProfile = () => {
                                                         value={values.email_visibility}
                                                         onChange={onVisibilityChange}
                                                     />
-                                                    <AiOutlineEye className="genderIcon" onClick={() => setVisibility("Visible")} color={values.email_visibility == "Visible" ? "#ffc107" : "black"} />
+                                                    <AiOutlineEye className="genderIcon" onClick={() => setVisibility("Visible")} color={values.email_visibility === "Visible" ? "#ffc107" : "black"} />
                                                 </label>
 
                                             </p>
@@ -154,7 +154,7 @@ export const EditProfile = () => {
                                                         value={values.gender}
                                                         onChange={onGenderChange}
                                                     />
-                                                    <IoIosMan className="genderIcon" onClick={() => setNewGender("Male")} color={values.gender == "Male" ? "#ffc107" : "black"} />
+                                                    <IoIosMan className="genderIcon" onClick={() => setNewGender("Male")} color={values.gender === "Male" ? "#ffc107" : "black"} />
                                                 </label>
 
                                                 <label htmlFor="ratingFemale" className="labelGender" onChange={changeHandler}>
@@ -165,7 +165,7 @@ export const EditProfile = () => {
                                                         value={values.gender}
                                                         onChange={onGenderChange}
                                                     />
-                                                    <IoIosWoman className="genderIcon" onClick={() => setNewGender("Female")} color={values.gender == "Female" ? "#ffc107" : "black"} />
+                                                    <IoIosWoman className="genderIcon" onClick={() => setNewGender("Female")} color={values.gender === "Female" ? "#ffc107" : "black"} />
                                                 </label>
 
                                                 <label htmlFor="ratingNeuter" className="labelGender" onChange={changeHandler}>
@@ -176,7 +176,7 @@ export const EditProfile = () => {
                                                         value={values.gender}
                                                         onChange={onGenderChange}
                                                     />
-                                                    <BsEmojiNeutralFill className="genderIcon" onClick={() => setNewGender("Neuter")} color={values.gender == "Neuter" ? "#ffc107" : "black"} />
+                                                    <BsEmojiNeutralFill className="genderIcon" onClick={() => setNewGender("Neuter")} color={values.gender === "Neuter" ? "#ffc107" : "black"} />
                                                 </label>
 
                                             </div>
