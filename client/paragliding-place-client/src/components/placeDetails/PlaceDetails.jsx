@@ -48,7 +48,7 @@ export const PlaceDetails = () => {
 
     const [place, dispatch] = useReducer(placeReducer, {});
 
-    const { comments, onCreateCommentSubmit, removeComment } = useCommentContext()
+    const { comments, onCreateCommentSubmit, onCommentEditSubmit, removeComment } = useCommentContext()
 
     const commentService = useService(commentServiceFactory)
     const ratingService = useService(ratingServiceFactory)
@@ -86,6 +86,14 @@ export const PlaceDetails = () => {
         onCreateCommentSubmit(values.text, placeId, userId, userName)
     };
 
+    const onCommentEdit = (values) => {
+        onCommentEditSubmit(values)
+    }
+
+    const onCommentDelete = (values) => {
+        removeComment(values)
+    }
+
     const onRateSubmit = async (values) => {
         const response = await ratingService.create(values.rating, userName, userId, placeId);
 
@@ -95,10 +103,6 @@ export const PlaceDetails = () => {
             userName,
             userEmail,
         })
-    }
-
-    const onCommentDelete = (values) => {
-        removeComment(values)
     }
 
     const showAllDirections = () => {
@@ -259,9 +263,9 @@ export const PlaceDetails = () => {
                                         <div key={x.id}> <Link to={`/profile/${x.user_id}`}>{x.owner}</Link>: {x.text}
                                             {isOwner(x.user_id, userId) &&
                                                 <div className={styles.buttonDeleteEditComments}>
-                                                    {<DeleteCommentModal commentId={x.id} onCommentDelete={onCommentDelete} />}
-                                                    {/* <DeleteCommentModal deleteComment={x.id} /> */}
-                                                    <EditCommentModal editComment={x.text} editCommentId={x.id} commentPlaceId={placeId} />
+                                                    <DeleteCommentModal commentId={x.id} onCommentDelete={onCommentDelete} />
+                                                    {/* {console.log(x)} */}
+                                                    <EditCommentModal onCommentEdit={onCommentEdit} data={x} />
                                                 </div>
                                             }
                                         </div>

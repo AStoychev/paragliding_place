@@ -34,7 +34,6 @@ export const CommentProvider = ({
 
         setComment(state => state.map(x => x.id === values.id ? result : x))
 
-        window.location.reload()
         navigate(`place-details/${placeId}`)
     };
 

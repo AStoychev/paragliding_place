@@ -8,11 +8,12 @@ import { useCommentContext } from '../../../contexts/CommentContext';
 import { useService } from '../../../hooks/useService';
 
 import Button from 'react-bootstrap/Button';
-
-
 import styles from "../commentComponents/comment.module.css";
 
-export const EditCommentModal = (props) => {
+export const EditCommentModal = ({
+    onCommentEdit,
+    data,
+}) => {
     const { onCommentEditSubmit } = useCommentContext()
     const commentService = useService(commentServiceFactory)
 
@@ -20,34 +21,18 @@ export const EditCommentModal = (props) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    let editCommentId = props.editCommentId
-
-    const { values, changeHandler, onSubmit, changeValues } = useForm({
-        id: '',
-        text: '',
-        place_comment: '',
-        user_id: '',
-        owner: '',
+    const { values, changeHandler, onSubmit } = useForm({
+        id: data.id,
+        text: data.text,
+        place_comment: data.place_comment,
+        user_id: data.user_id,
+        owner: data.owner,
     }, onCommentEditSubmit);
 
-    useEffect(() => {
-        commentService.getOne(editCommentId)
-            .then(result => {
-                changeValues(result);
-            });
-    }, [editCommentId])
-
-    const editComment = async (values) => {
-        const response = await commentService.edit(editCommentId, values.text);
-
-        // dispatch({
-        //     type: 'COMMENT_ADD',
-        //     payload: response,
-        //     userName,
-        //     userEmail,
-        // })
-    };
-
+    const onEdit = () => {
+        onCommentEdit(values);
+        handleClose()
+    }
 
     return (
         <>
@@ -61,8 +46,8 @@ export const EditCommentModal = (props) => {
                     </Button>
                     <label>Edit comment:</label>
                     <form className="form" method='POST' onSubmit={onSubmit}>
-                        <textarea name="text" placeholder="Comment......" value={values.text} onChange={changeHandler}></textarea>
-                        <input className="btn submit" style={{ backgroundColor: "#7a7ef0" }} type="submit" value="Add Comment" onClick={handleClose} />
+                        <textarea name="text" placeholder="Comment......" defaultValue={data.text} onChange={changeHandler}></textarea>
+                        <input className="btn submit" style={{ backgroundColor: "#7a7ef0" }} type="submit" value="Edit Comment" onClick={onEdit}/>
                     </form>
                 </article >
             </Modal>
