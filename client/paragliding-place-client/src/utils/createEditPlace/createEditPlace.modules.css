@@ -1,0 +1,169 @@
+.placeLabel {
+    font-size: 28px;
+    color: black;
+}
+
+.inputName {
+    background: #ecf0f3;
+    height: 35px;
+    width: 375px;
+    margin-left: 17%;
+    margin-top: 1px;
+    font-size: 17px;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
+}
+
+.tableDirection {
+    margin-left: 11%;
+}
+
+.tableDirectionDifferent {
+    padding-right: 30px;
+}
+
+.divCheck {
+    width: 80px;
+    height: 25px;
+    padding-right: 70px;
+    margin-left: 1px;
+    font-size: 17px;
+    /* border-radius: 15%; */
+    color: rgb(6, 6, 6);
+    /* background-color: rgb(24, 16, 89); */
+}
+
+.labelDirection {
+    font-size: 15px;
+    padding-top: 1px;
+    margin-left: 13%;
+    color: black;
+    padding-right: 20%;
+}
+
+.textareaDirection {
+    display: block;
+    text-align: center;
+    font-size: 17px;
+    width: 190px;
+    height: 35%;
+    max-height: 200px;
+    margin-top: 1px;
+    margin-left: 6%;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: Georgia;
+    box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
+}
+
+.ratingContainer {
+    width: 270px;
+    height: 60px;
+    margin-left: 26%;
+    background: rgb(64, 70, 64);
+    /* margin-left: 1px;
+    padding-right: 1px; */
+    /* float: left;
+    clear: none; */
+}
+
+.labelRating {
+    display: inline;
+    color: rgb(0, 0, 0);
+    margin-left: 6.4%;
+    /* float: left;
+    clear: none;
+    display: block;
+    padding: 0px 1em 0px 8px; */
+}
+
+.ratingLetter {
+    cursor: pointer;
+    color: black;
+    font-size: 35px;
+    /* float: left;
+    clear: none;
+    margin: 2px 0 0 2px; */
+
+}
+
+.ratingLetter :hover {
+    color: #ffc107;
+}
+
+.tableDirection {
+    margin-left: 11%;
+}
+
+.tableDirectionDifferent {
+    padding-right: 30px;
+}
+
+.checkboxWrapper *,
+.checkboxWrapper *::before,
+.checkboxWrapper *::after {
+    box-sizing: border-box;
+}
+
+.checkboxWrapper label {
+    display: block;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.checkboxWrapper input {
+    visibility: hidden;
+    display: none;
+}
+
+.checkboxWrapper input:checked~.checkbox {
+    transform: rotate(45deg);
+    width: 14px;
+    /* margin-left: 12px; */
+    margin-left: 67px;
+    margin-top: -33px;
+    border-color: #24c78e;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-radius: 0;
+}
+
+.checkboxWrapper .checkbox {
+    display: block;
+    margin-left: 59px;
+    margin-top: -27.5px;
+    width: inherit;
+    height: inherit;
+    border: 3px solid #434343;
+    border-radius: 6px;
+    transition: all 0.375s;
+}
+
+.divCheck {
+    width: 80px;
+    height: 25px;
+    padding-right: 70px;
+    margin-left: 1px;
+    font-size: 17px;
+    /* border-radius: 15%; */
+    color: rgb(6, 6, 6);
+    /* background-color: rgb(24, 16, 89); */
+}
+
+input[type="checkbox"] {
+    color: white;
+    background-color: rgb(57, 221, 57);
+    height: 10px;
+    width: 10px;
+    margin-top: -15px;
+    margin-left: 58px;
+    /* margin-left: 13%;
+    margin-top: 1px;
+    font-size: 17px;
+    border-radius: 50px; */
+    /* box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white; */
+}

@@ -42,16 +42,16 @@ export const CommentProvider = ({
         setComment(state => state.filter(comment => comment.id !== commentId))
     }
 
-    const getComment = (commentId) => {
-        return comments.find(comment => comment._id === commentId);
-    };
+    // const getComment = (commentId) => {
+    //     return comments.find(comment => comment._id === commentId);
+    // };
 
     const constextValues = {
         comments,
         onCreateCommentSubmit,
         onCommentEditSubmit,
         removeComment,
-        getComment,
+        // getComment,
     };
 
     return (

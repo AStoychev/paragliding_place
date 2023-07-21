@@ -1,6 +1,7 @@
 import { requestFactory } from "./requester";
 
 const baseUrl = `http://localhost:8000/api/auth/profile`;
+const resetBaseUrl = `http://localhost:8000/api/auth/password_reset/`;
 
 export const profileServiceFactory = (token) => {
     const request = requestFactory(token);
@@ -23,9 +24,9 @@ export const profileServiceFactory = (token) => {
 
     const changePassword = (userId, data) => request.put(`${baseUrl}/edit/change-password/${userId}`, data);
 
-    const resetPassword = (email) => request.post(`http://localhost:8000/api/auth/password_reset/`, email);
+    const resetPassword = (email) => request.post(resetBaseUrl, email);
 
-    const createNewPassword = (password, token) => request.post(`http://localhost:8000/api/auth/password_reset/confirm/`, password, token);
+    const createNewPassword = (password, token) => request.post(`${resetBaseUrl}confirm/`, password, token);
 
     // const deletePlace = (userId) => request.delete(`${baseUrl}/delete/${userId}`);
 

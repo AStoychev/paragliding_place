@@ -4,9 +4,18 @@ import React, { useState } from 'react';
 import { usePlaceContext } from '../../contexts/PlaceContext';
 import { requestFactory } from "../../services/requester";
 
+import { NamePlace } from "../../utils/createEditPlace/namePlace";
+import { LatitudeTakesOff } from '../../utils/createEditPlace/latitudeTakesOff';
+import { LatitudeLanding } from '../../utils/createEditPlace/latitudeLanding';
+import { LongitudeTakesOff } from '../../utils/createEditPlace/longitudeTakesOff';
+import { LongituteLandind } from '../../utils/createEditPlace/longitudeLanding';
+import { DescribeLaunch } from '../../utils/createEditPlace/describeLaunch';
+import { DescribeLanding } from '../../utils/createEditPlace/describeLanding';
+import { RatingSystem } from '../../utils/createEditPlace/ratingSystem';
+import { Directions } from '../../utils/createEditPlace/directions';
+
 import { checkButtonDirections } from '../../constants/constants';
 
-import { TbCircleLetterA, TbCircleLetterB, TbCircleLetterC, TbCircleLetterD } from "react-icons/tb";
 import styles from './CreateEditNewPlace.module.css';
 
 export const CreateNewPlace = () => {
@@ -86,137 +95,38 @@ export const CreateNewPlace = () => {
                         <div className={styles.rightSide}>
                             <h3 className={styles.header}>Create Place</h3>
 
-                            <label className={styles.placeLabel} htmlFor="place">Place Name</label>
-                            <input value={values.place} className={styles.inputName} onChange={changeHandler} id="place" type="text" name="place" placeholder="Write name" />
+                            <NamePlace values={values} changeHandler={changeHandler} />
 
                             <table className={styles.tablePosition} >
-
                                 <tbody>
                                     <tr>
-                                        <th className={styles.tableDiffernt}>
-                                            <label htmlFor="latitude_takes_off" className={styles.labelDirection}>Latitute&nbsp;Launch</label>
-                                            <input value={values.latitude_takes_off} className={styles.inputDirection} onChange={changeHandler} id="latitude_takes_off" type="number" name="latitude_takes_off" placeholder="0.00" />
-                                        </th>
-                                        <th>
-                                            <label htmlFor="latitude_landing" className={styles.labelDirection}>Latitute&nbsp;Landing</label>
-                                            <input value={values.latitude_landing} className={styles.inputDirection} onChange={changeHandler} id="latitude_landing" type="number" name="latitude_landing" placeholder="0.00" />
-                                        </th>
+                                        <LatitudeTakesOff values={values} changeHandler={changeHandler} />
+                                        <LatitudeLanding values={values} changeHandler={changeHandler} />
                                     </tr>
                                 </tbody>
-
                                 <tbody>
                                     <tr>
-                                        <th className={styles.tableDiffernt}>
-                                            <label htmlFor="longitude_takes_off" className={styles.labelDirection}>Longitude&nbsp;Launch</label>
-                                            <input value={values.longitude_takes_off} className={styles.inputDirection} onChange={changeHandler} id="longitude_takes_off" type="number" name="longitude_takes_off" placeholder="0.00" />
-                                        </th>
-                                        <th>
-                                            <label htmlFor="longitude_landing" className={styles.labelDirection}>Longitude&nbsp;Landing</label>
-                                            <input value={values.longitude_landing} className={styles.inputDirection} onChange={changeHandler} id="longitude_landing" type="number" name="longitude_landing" placeholder="0.00" />
-                                        </th>
+                                        <LongitudeTakesOff values={values} changeHandler={changeHandler} />
+                                        <LongituteLandind values={values} changeHandler={changeHandler} />
                                     </tr>
                                 </tbody>
-
                                 <tbody>
                                     <tr>
-                                        <th className={styles.tableDiffernt}>
-                                            <label htmlFor="description_launch" className={styles.labelDirection}>Describe&nbsp;Launch</label>
-
-                                            <textarea value={values.description_launch} className={styles.textareaDirection} onChange={changeHandler} type="text" id="description_launch" name="description_launch" placeholder="Describe the place"></textarea>
-                                        </th>
-                                        <th>
-                                            <label htmlFor="description_landing" className={styles.labelDirection}>Describe&nbsp;Landing</label>
-
-                                            <textarea value={values.description_landing} className={styles.textareaDirection} onChange={changeHandler} type="text" id="description_landing" name="description_landing" placeholder="Describe the place"></textarea>
-                                        </th>
+                                        <DescribeLaunch values={values} changeHandler={changeHandler} />
+                                        <DescribeLanding values={values} changeHandler={changeHandler} />
                                     </tr>
                                 </tbody>
-
                             </table>
 
-                            <label className={styles.placeLabel}>Difficulty Level</label>
-                            <div className={styles.ratingContainer}>
-                                <label className={styles.labelRating} onChange={changeHandler} >
-                                    <input
-                                        type="radio"
-                                        name="rating"
-                                        value={values.difficulty_level}
-                                        onChange={onRatingChange}
-                                    />
-                                    <TbCircleLetterA className={styles.ratingLetter} onClick={() => setRating("A")} color={"A" <= (hover || rating) ? "#ffc107" : "#e4e5e9"} onMouseEnter={() => setHover("A")} onMouseLeave={() => setHover(null)} />
-                                </label>
-                                <label className={styles.labelRating} onChange={changeHandler} >
-                                    <input
-                                        type="radio"
-                                        name="rating"
-                                        value={values.difficulty_level}
-                                        onChange={onRatingChange}
-                                    />
-                                    <TbCircleLetterB className={styles.ratingLetter} onClick={() => setRating("B")} color={"B" <= (hover || rating) ? "#ffc107" : "#e4e5e9"} onMouseEnter={() => setHover("B")} onMouseLeave={() => setHover(null)} />
-                                </label>
-                                <label className={styles.labelRating} onChange={changeHandler} >
-                                    <input
-                                        type="radio"
-                                        name="rating"
-                                        value={values.difficulty_level}
-                                        onChange={onRatingChange}
-                                    />
-                                    <TbCircleLetterC className={styles.ratingLetter} onClick={() => setRating("C")} color={"C" <= (hover || rating) ? "#ffc107" : "#e4e5e9"} onMouseEnter={() => setHover("C")} onMouseLeave={() => setHover(null)} />
-                                </label>
-                                <label className={styles.labelRating} onChange={changeHandler} >
-                                    <input
-                                        type="radio"
-                                        name="rating"
-                                        value={values.difficulty_level}
-                                        onChange={onRatingChange}
-                                    />
-                                    <TbCircleLetterD className={styles.ratingLetter} onClick={() => setRating("D")} color={"D" <= (hover || rating) ? "#ffc107" : "#e4e5e9"} onMouseEnter={() => setHover("D")} onMouseLeave={() => setHover(null)} />
-                                </label>
-                                {/* <p className={styles.ratingParagraph}>You choose: <span className={styles.chooseRating}>{rating}</span></p> */}
-                            </div>
+                            <h3 className={styles.headerDifficultyLevel}>Difficulty Level</h3>
+                            <RatingSystem values={values} changeHandler={changeHandler} onRatingChange={onRatingChange} setRating={setRating} />
 
+                            <h3 className={styles.headerDirections}>Direction</h3>
+                            < Directions values={values} directions={directions} checkButtonDirections={checkButtonDirections} onDirectionsChange={onDirectionsChange}/>
 
-
-
-                            <label className={styles.placeLabel}>Direction</label>
-
-                            <table className={styles.tableDirection}>
-                                <tbody>
-                                    <tr>
-                                        {Object.entries(checkButtonDirections).map(([mainDirection, indetailDirection]) =>
-                                            <th className={styles.tableDirectionDifferent} key={mainDirection}>
-                                                {indetailDirection.map(directionDetail => (
-                                                    <div
-                                                        className={styles.checkboxWrapper}
-                                                        key={directionDetail}>
-                                                        <label
-                                                            className={styles.divCheck}
-                                                            htmlFor={directionDetail}>
-                                                            {directionDetail.toUpperCase()}
-                                                            <input
-                                                                type="checkbox"
-                                                                name="direction"
-                                                                value={directionDetail}
-                                                                id={directionDetail}
-                                                                onChange={onDirectionsChange}
-                                                                checked={directions[directionDetail] || false}
-                                                            />
-                                                            <span
-                                                                className={styles.checkbox}>
-                                                            </span>
-                                                        </label>
-                                                    </div>
-                                                ))}
-                                            </th>
-                                        )}
-                                    </tr>
-
-                                </tbody>
-                            </table>
                             <input className={styles.submit} type="submit" value="Create" />
                         </div>
                     </div>
-                    {/* <input className={styles.submit} type="submit" value="Create" /> */}
                 </form>
             </section>
         </div>

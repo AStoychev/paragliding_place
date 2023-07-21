@@ -10,10 +10,7 @@ import { useForm } from '../../hooks/useForm';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Link } from 'react-router-dom';
 
-import {
-    isEqualAndHaveLength, emailValidation, usernameValidation, showIsValid, showIsInvalid, showValidUsername,
-    showInvalidUsername, passwordValidMatch, passwordInvalidMatch
-} from '../../validators/validators';
+import { isEqualAndHaveLength, emailValidation, usernameValidation, showIsValid, showIsInvalid } from '../../validators/validators';
 
 import { ShowValidUsername, ShowInvalidUsername, PasswordValidMatch, PasswordInvalidMatch } from '../../utils/messages';
 
@@ -120,13 +117,13 @@ export const RegisterModal = () => {
                                 onKeyDown={keyDownHandler}
                             />
                             {checkUsername === true && (values.username).length >= 1 &&
-                                <p >
+                                <>
                                     {usernameValidation(values.username) === true ?
                                         <ShowValidUsername />
                                         :
                                         <ShowInvalidUsername />
                                     }
-                                </p>
+                                </>
 
                             }
                         </Form.Group>
@@ -184,10 +181,8 @@ export const RegisterModal = () => {
                     </Form>
                     <label>
 
-                        {checkForErrorEmail() === true ?
+                        {checkForErrorEmail() &&
                             <span style={{ fontSize: "20px", fontWeight: "bold", color: "red", margin: "8%", paddingLeft: "11.5%" }}>We’re sorry. This email or usesrname already exists…</span>
-                            :
-                            <span></span>
                         }
                     </label>
                     {

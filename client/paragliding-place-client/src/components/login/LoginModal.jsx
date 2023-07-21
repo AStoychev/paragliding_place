@@ -45,7 +45,7 @@ export const LoginModal = ({ navigatePath }) => {
             return true
         }
     }
-    
+
     return (
         <>
             <Link variant="primary" onClick={handleShow} className={styles.navLink}>
@@ -87,10 +87,8 @@ export const LoginModal = ({ navigatePath }) => {
                         </Form.Group>
                     </Form>
                     <label>
-                        {checkForErrors() ?
+                        {checkForErrors() &&
                             <span style={{ fontSize: "20px", fontWeight: "bold", color: "red", margin: "8%", paddingLeft: "11.5%" }}>Email or password don't match!</span>
-                            :
-                            <span></span>
                         }
                     </label>
                     {checkAllFieldIsFull ?
