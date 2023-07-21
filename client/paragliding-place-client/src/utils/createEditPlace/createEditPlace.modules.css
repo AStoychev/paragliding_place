@@ -28,9 +28,7 @@
     padding-right: 70px;
     margin-left: 1px;
     font-size: 17px;
-    /* border-radius: 15%; */
     color: rgb(6, 6, 6);
-    /* background-color: rgb(24, 16, 89); */
 }
 
 .labelDirection {
@@ -64,30 +62,18 @@
     height: 60px;
     margin-left: 26%;
     background: rgb(64, 70, 64);
-    /* margin-left: 1px;
-    padding-right: 1px; */
-    /* float: left;
-    clear: none; */
 }
 
 .labelRating {
     display: inline;
     color: rgb(0, 0, 0);
     margin-left: 6.4%;
-    /* float: left;
-    clear: none;
-    display: block;
-    padding: 0px 1em 0px 8px; */
 }
 
 .ratingLetter {
     cursor: pointer;
     color: black;
     font-size: 35px;
-    /* float: left;
-    clear: none;
-    margin: 2px 0 0 2px; */
-
 }
 
 .ratingLetter :hover {
@@ -123,7 +109,6 @@
 .checkboxWrapper input:checked~.checkbox {
     transform: rotate(45deg);
     width: 14px;
-    /* margin-left: 12px; */
     margin-left: 67px;
     margin-top: -33px;
     border-color: #24c78e;
@@ -149,9 +134,7 @@
     padding-right: 70px;
     margin-left: 1px;
     font-size: 17px;
-    /* border-radius: 15%; */
     color: rgb(6, 6, 6);
-    /* background-color: rgb(24, 16, 89); */
 }
 
 input[type="checkbox"] {
@@ -161,9 +144,4 @@ input[type="checkbox"] {
     width: 10px;
     margin-top: -15px;
     margin-left: 58px;
-    /* margin-left: 13%;
-    margin-top: 1px;
-    font-size: 17px;
-    border-radius: 50px; */
-    /* box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white; */
 }
