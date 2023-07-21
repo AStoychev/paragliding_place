@@ -220,10 +220,10 @@ export const PlaceDetails = () => {
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header>See the ratings of the pilots who visited the place</Accordion.Header>
                                 <Accordion.Body >
-                                    Rate A: {rateA}% <br></br> <ProgressBar className={styles.voteBar} variant="success" now={rateA} /><br></br>
-                                    Rate B: {rateB}% <br></br> <ProgressBar className={styles.voteBar} variant="info" now={rateB} /><br></br>
-                                    Rate C: {rateC}% <br></br> <ProgressBar className={styles.voteBar} variant="warning" now={rateC} /><br></br>
-                                    Rate D: {rateD}% <br></br> <ProgressBar className={styles.voteBar} variant="danger" now={rateD} /> <br></br>
+                                    Rate A: {rateA || 0}% <br></br> <ProgressBar className={styles.voteBar} variant="success" now={rateA} /><br></br>
+                                    Rate B: {rateB || 0}% <br></br> <ProgressBar className={styles.voteBar} variant="info" now={rateB} /><br></br>
+                                    Rate C: {rateC || 0}% <br></br> <ProgressBar className={styles.voteBar} variant="warning" now={rateC} /><br></br>
+                                    Rate D: {rateD || 0}% <br></br> <ProgressBar className={styles.voteBar} variant="danger" now={rateD} /> <br></br>
 
                                     {isAuthenticated ?
                                         alreadyRate ? <div className={styles.alreadyRateDiv} > You already rate for this place with rate: <span className={styles.alreadyRateSpan}>{ownRate}</span> </div> :
