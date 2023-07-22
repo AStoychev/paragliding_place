@@ -8,6 +8,10 @@ export const CommentContext = createContext();
 export const CommentProvider = ({
     children,
 }) => {
+
+    // Try error
+    const [errors, setErrors] = useState("")
+    // Try error
     const navigate = useNavigate();
     const [comments, setComment] = useState([]);
     const commentService = commentServiceFactory(); //auth.accessToken
@@ -19,12 +23,23 @@ export const CommentProvider = ({
             })
     }, []);
 
+    const catchServerError = (error) => {
+        if (error) {
+            setErrors("Something get wrong check for empty field ot try later!")
+            setTimeout(() => {
+                setErrors("");
+            }, 2500);
+        }
+    }
+
     const onCreateCommentSubmit = async (text, placeId, userId, userName) => {
-        const newComment = await commentService.create(text, placeId, userId, userName);
-
-        setComment(state => [...state, newComment])
-
-        navigate(`place-details/${placeId}`)
+        try {
+            const newComment = await commentService.create(text, placeId, userId, userName);
+            setComment(state => [...state, newComment])
+            navigate(`place-details/${placeId}`)
+        } catch (error) {
+            catchServerError(error)
+        }
     };
 
     const onCommentEditSubmit = async (values) => {
@@ -52,6 +67,7 @@ export const CommentProvider = ({
         onCommentEditSubmit,
         removeComment,
         // getComment,
+        errors,
     };
 
     return (

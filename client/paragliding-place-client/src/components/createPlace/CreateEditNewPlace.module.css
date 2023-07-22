@@ -146,3 +146,11 @@ input[type=radio] {
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: rgb(252, 200, 68);
 }
+
+.showErrors {
+    font-size: 20px; 
+    font-weight: bold;
+    color: red;
+    margin: 8%;
+    padding-left: 11.5%; 
+}

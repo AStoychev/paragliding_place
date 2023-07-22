@@ -27,7 +27,8 @@ export const LoginModal = ({ navigatePath }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const { onLoginSubmit } = useAuthContext();
+    const { onLoginSubmit, thisError } = useAuthContext();
+
     const { values, changeHandler, onSubmit, keyDownHandler } = useForm({
         [LoginFormKeys.Username]: '',
         // [LoginFormKeys.Email]: '',
@@ -37,14 +38,6 @@ export const LoginModal = ({ navigatePath }) => {
     }, onLoginSubmit);
 
     const checkAllFieldIsFull = !Object.values(values).includes("")
-
-    const { thisError } = useAuthContext()
-
-    const checkForErrors = () => {
-        if (Object.values(thisError).length > 0) {
-            return true
-        }
-    }
 
     return (
         <>
@@ -86,11 +79,11 @@ export const LoginModal = ({ navigatePath }) => {
                             />
                         </Form.Group>
                     </Form>
-                    <label>
-                        {checkForErrors() &&
-                            <span style={{ fontSize: "20px", fontWeight: "bold", color: "red", margin: "8%", paddingLeft: "11.5%" }}>Email or password don't match!</span>
-                        }
-                    </label>
+
+                    {thisError &&
+                        <p className={styles.showErrors}>{thisError}</p>
+                    }
+
                     {checkAllFieldIsFull ?
                         <input type="submit" className={styles.submitBtn} value="Login" onClick={onSubmit} />
                         :

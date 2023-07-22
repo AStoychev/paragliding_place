@@ -22,7 +22,8 @@ export const RegisterModal = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const { onRegisterSubmit } = useContext(AuthContext);
+    const { onRegisterSubmit, thisError } = useContext(AuthContext);
+    
     const { values, changeHandler, onSubmit, keyDownHandler } = useForm({
         email: '',
         username: '',
@@ -56,15 +57,6 @@ export const RegisterModal = () => {
         }
         return false
     }
-
-    // Email exist error
-    let { errorEmail } = useContext(AuthContext);
-    const checkForErrorEmail = () => {
-        if (Object.values(errorEmail).length > 0) {
-            return true
-        }
-    }
-    // Email exist error
 
     return (
         <>
@@ -179,12 +171,11 @@ export const RegisterModal = () => {
                             }
                         </Form.Group>
                     </Form>
-                    <label>
 
-                        {checkForErrorEmail() &&
-                            <span style={{ fontSize: "20px", fontWeight: "bold", color: "red", margin: "8%", paddingLeft: "11.5%" }}>We’re sorry. This email or usesrname already exists…</span>
+                        {thisError &&
+                            <p className={styles.showErrors}>{thisError}</p>
                         }
-                    </label>
+
                     {
                         checkAllFieldIsTrue() ?
                             <input type="submit" className={styles.submitBtn} value="Register" onClick={onSubmit} />

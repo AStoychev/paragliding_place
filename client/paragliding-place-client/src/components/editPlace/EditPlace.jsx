@@ -22,7 +22,7 @@ import { checkButtonDirections } from '../../constants/constants';
 import styles from '../createPlace/CreateEditNewPlace.module.css';
 
 export const EditPlace = () => {
-    const { onPlaceEditSubmit } = usePlaceContext();
+    const { onPlaceEditSubmit, errors } = usePlaceContext();
     const { placeId } = useParams();
     const placeService = useService(placeServiceFactory);
 
@@ -94,7 +94,7 @@ export const EditPlace = () => {
     return (
         <div className={styles.container}>
             <section id={styles.createPlace} className="content auth">
-                <form method='POST' onSubmit={onSubmit}>
+                <form method='POST' onSubmit={onSubmit} name="editPlace">
                     <div className={styles.threeColumnsGrid}>
                         <div className={styles.leftSide}></div>
                         <div className={styles.rightSide}>
@@ -128,6 +128,10 @@ export const EditPlace = () => {
 
                             <h3 className={styles.headerDirections}>Direction</h3>
                             < Directions values={values} directions={directions} checkButtonDirections={checkButtonDirections} onDirectionsChange={onDirectionsChange} />
+
+                            {errors &&
+                                <p className={styles.showErrors}>{errors}</p>
+                            }
 
                             <input className={styles.submit} type="submit" value="Edit" />
                         </div>

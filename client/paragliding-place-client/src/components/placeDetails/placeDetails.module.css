@@ -1,5 +1,5 @@
 .container {
-    position:initial;
+    position: initial;
     /* display:grid; */
     height: 100%;
     width: 100%;
@@ -237,7 +237,7 @@ input[type=radio] {
 
 .chooseRating {
     font-size: 24px;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: rgb(252, 200, 68);
 }
 
@@ -252,22 +252,40 @@ input[type=radio] {
 
 .placeLabel {
     color: black;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+}
+
+.ratingContainer {
+    text-align: center;
+    align-items: center;
+    padding-right: 100px;
 }
 
 /* .voteBar {
     background: none;
 } */
 
-.alreadyRateDiv{
+.alreadyRateDiv {
     font-size: 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     color: rgb(28, 45, 88);
 }
 
-.alreadyRateSpan{
+.alreadyRateSpan {
     font-size: 23px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     color: rgb(28, 45, 88);
+}
+
+.showErrors {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    margin: 8%;
+    padding-left: 11.5%;
 }

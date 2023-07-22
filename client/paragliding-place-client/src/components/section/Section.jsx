@@ -38,7 +38,8 @@ export const Section = () => {
     // This is our custom icon for cluster
     const createCustomClusterIcon = (cluster) => {
         return new divIcon({
-            html: `<div class="cluster-icon">${cluster.getChildCount() / 2}</div>`,
+            html: `<div class="cluster-icon"><img src="../images/pin.png" alt="location" title="Click to see details"/></div>`,
+            // html: `<div class="cluster-icon">${cluster.getChildCount() / 2}</div>`,
             className: "custom-marker-cluster",
             // iconSize: point(33, 33, true),
         });
@@ -111,7 +112,7 @@ export const Section = () => {
 
                     {allPlaces.map(marker => (
                         <Marker position={[marker.latitude_takes_off, marker.longitude_takes_off]} icon={customIcon} key={marker.latitude_takes_off}>
-                            <Popup >Launch place {marker.place} {takeIdPlace(marker.id)}
+                            <Popup>Launch place {marker.place} {takeIdPlace(marker.id)}
                                 <p>{marker.description_launch}</p>
 
                                 <li className='placeDetails'>

@@ -48,7 +48,7 @@ export const PlaceDetails = () => {
 
     const [place, dispatch] = useReducer(placeReducer, {});
 
-    const { comments, onCreateCommentSubmit, onCommentEditSubmit, removeComment } = useCommentContext()
+    const { comments, onCreateCommentSubmit, onCommentEditSubmit, removeComment, errors } = useCommentContext()
 
     const commentService = useService(commentServiceFactory)
     const ratingService = useService(ratingServiceFactory)
@@ -109,19 +109,18 @@ export const PlaceDetails = () => {
         return Object.keys(place.direction || {}).filter(k => place.direction[k])
     }
 
-    showAllDirections()
+    // showAllDirections()
 
     const haveComments = () => {
         let haveComment = []
-        {   
-            comments && comments.map(x => (
+
+        comments && comments.map(x => (
             // place.comments && place.comments.map(x => (
-                x.place_comment === place.id ?
-                    haveComment.push(x)
-                    :
-                    null
-            ))
-        }
+            Number(x.place_comment) === place.id ?
+                haveComment.push(x)
+                :
+                null
+        ))
         return haveComment
     }
 
@@ -228,7 +227,7 @@ export const PlaceDetails = () => {
                                     {isAuthenticated ?
                                         alreadyRate ? <div className={styles.alreadyRateDiv} > You already rate for this place with rate: <span className={styles.alreadyRateSpan}>{ownRate}</span> </div> :
                                             <div>
-                                                <label className={styles.placeLabel}>Difficulty Level</label>
+                                                <p className={styles.placeLabel}>Difficulty Level</p>
                                                 <CreateRate onRateSubmit={onRateSubmit} />
                                             </div>
                                         :
@@ -253,18 +252,18 @@ export const PlaceDetails = () => {
                         </div>
 
                         <div>
-
                             <div className={styles.comments}>
                                 <div className="details-comments">
-                                    <h2>Comments:
-                                    </h2>
+                                    <h2>Comments:</h2>
+                                    {errors &&
+                                        <p className={styles.showErrors} style={{ color: "red" }}>{errors}</p>
+                                    }
 
                                     <div>{haveComments().map(x => (
                                         <div key={x.id}> <Link to={`/profile/${x.user_id}`}>{x.owner}</Link>: {x.text}
                                             {isOwner(x.user_id, userId) &&
                                                 <div className={styles.buttonDeleteEditComments}>
                                                     <DeleteCommentModal commentId={x.id} onCommentDelete={onCommentDelete} />
-                                                    {/* {console.log(x)} */}
                                                     <EditCommentModal onCommentEdit={onCommentEdit} data={x} />
                                                 </div>
                                             }
@@ -284,7 +283,6 @@ export const PlaceDetails = () => {
                                     <div className={styles.logoutComment}>If you want to left comment <span className={styles.spanComment}><LoginModal navigatePath={navigatePath} /></span> </div>
                                 }
                             </div>
-
                         </div>
                     </div>
                 </div>

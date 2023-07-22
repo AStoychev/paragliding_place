@@ -1,6 +1,6 @@
 import { useForm } from '../../hooks/useForm';
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { usePlaceContext } from '../../contexts/PlaceContext';
 import { requestFactory } from "../../services/requester";
 
@@ -20,7 +20,7 @@ import styles from './CreateEditNewPlace.module.css';
 
 export const CreateNewPlace = () => {
 
-    const { onCreatePlaceSubmit } = usePlaceContext()
+    const { onCreatePlaceSubmit, errors } = usePlaceContext()
     const { values, changeHandler, onSubmit } = useForm({
         id: '',
         place: '',
@@ -65,7 +65,6 @@ export const CreateNewPlace = () => {
     const [directions, setDirections] = useState({});
 
     const [rating, setRating] = useState(null);
-    const [hover, setHover] = useState(null);
 
     // Delete not functional only for test show info about places in db
     // You can use this for rendering information on the map when is all already
@@ -89,7 +88,7 @@ export const CreateNewPlace = () => {
     return (
         <div className={styles.container}>
             <section id={styles.createPlace} className="content auth">
-                <form method='POST' onSubmit={onSubmit}>
+                <form method='POST' onSubmit={onSubmit} name="createPlace">
                     <div className={styles.threeColumnsGrid}>
                         <div className={styles.leftSide}></div>
                         <div className={styles.rightSide}>
@@ -122,13 +121,17 @@ export const CreateNewPlace = () => {
                             <RatingSystem values={values} changeHandler={changeHandler} onRatingChange={onRatingChange} setRating={setRating} />
 
                             <h3 className={styles.headerDirections}>Direction</h3>
-                            < Directions values={values} directions={directions} checkButtonDirections={checkButtonDirections} onDirectionsChange={onDirectionsChange}/>
+                            < Directions values={values} directions={directions} checkButtonDirections={checkButtonDirections} onDirectionsChange={onDirectionsChange} />
+
+                            {errors &&
+                                <p className={styles.showErrors}>{errors}</p>
+                            }
 
                             <input className={styles.submit} type="submit" value="Create" />
                         </div>
                     </div>
                 </form>
             </section>
-        </div>
+        </div >
     );
 }

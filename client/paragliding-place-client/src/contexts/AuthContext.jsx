@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
 import { authServiceFactory } from '../services/authService';
+import { catchServerError } from '../utils/errorHandlingServer';
 
 import { profileServiceFactory } from '../services/profileService';
 
@@ -18,8 +19,7 @@ export const AuthProvider = ({
     const navigate = useNavigate();
 
     // Try error
-    const [errors, setError] = useState({});
-    const [errorEmail, setErrorEmail] = useState({});
+    const [errors, setErrors] = useState("");
     // Try error
 
     const authService = authServiceFactory(auth.token);
@@ -38,12 +38,11 @@ export const AuthProvider = ({
         } catch (error) {
             console.log('There is a problem')
             if (error) {
-                setError(error)
+                setErrors("Email or password don't match!")
                 setTimeout(() => {
-                    setError({});
-                }, 2000);
+                    setErrors("");
+                }, 2500);
             }
-
         }
     };
 
@@ -56,26 +55,21 @@ export const AuthProvider = ({
 
         try {
             const result = await authService.register(registerData);
-
             setAuth(result);
-
             navigate('/');
-
         } catch (error) {
             console.log('There is a problem')
             if (error) {
-                setErrorEmail(error)
+                setErrors("We’re sorry. This email or usesrname already exists…")
                 setTimeout(() => {
-                    setErrorEmail({})
-                }, 2000);
+                    setErrors("")
+                }, 2500);
             }
-
         }
-
     };
 
     const onLogout = async () => {
-        
+
         await authService.logout();
 
         setAuth({});
@@ -91,19 +85,16 @@ export const AuthProvider = ({
 
     const onProfileEditSubmit = async (values) => {
         const profileId = values.id
-        
         const result = await profileService.edit(values.id, values);
-
         setProfile(state => state.map(x => x.id === values.id ? result : x))
-
         navigate(`profile/${profileId}`)
     };
 
     const onChangePassword = async (values) => {
         const profileId = values.id;
-        
+
         const result = await profileService.changePassword(profileId, values)
-        
+
         setProfile(state => state.map(x => x.id === values.id ? result : x))
 
         navigate(`profile/${profileId}`)
@@ -141,7 +132,6 @@ export const AuthProvider = ({
         // isAuthenticated: !!auth.accessToken,
 
         thisError: errors,
-        errorEmail: errorEmail,
     };
 
     return (
