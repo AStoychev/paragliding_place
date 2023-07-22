@@ -33,7 +33,6 @@ export const AuthProvider = ({
 
     const onLoginSubmit = async (data) => {
         const redirectTo = data.path
-
         try {
             const result = await authService.login(data);
             setAuth(result);
@@ -42,22 +41,14 @@ export const AuthProvider = ({
         } catch (error) {
             console.log('There is a problem')
             catchServerError(error, "Email or password don't match!")
-            // if (error) {
-            //     setErrors("Email or password don't match!")
-            //     setTimeout(() => {
-            //         setErrors("");
-            //     }, 2500);
-            // }
         }
     };
-
 
     const onRegisterSubmit = async (values) => {
         const { confirmPassword, ...registerData } = values;
         if (confirmPassword !== registerData.password) {
             return;
         }
-
         try {
             const result = await authService.register(registerData);
             setAuth(result);
@@ -69,45 +60,63 @@ export const AuthProvider = ({
     };
 
     const onLogout = async () => {
-
-        await authService.logout();
-
-        setAuth({});
-
-        // Try logout
-        localStorage.removeItem('auth');
-        // Try logout
-
-        // This reload page after logout. Use for clear authentication token permision
-        window.location.reload();
-        // This reload page after logout. Use for clear authentication token permision
+        try {
+            await authService.logout();
+            setAuth({});
+            // Try logout
+            localStorage.removeItem('auth');
+            // Try logout
+            // This reload page after logout. Use for clear authentication token permision
+            window.location.reload();
+            // This reload page after logout. Use for clear authentication token permision
+        } catch (error) {
+            console.log('There is a problem')
+            catchServerError(error, "There is some problem with logout!")
+        }
     };
 
     const onProfileEditSubmit = async (values) => {
         const profileId = values.id
-        const result = await profileService.edit(values.id, values);
-        setProfile(state => state.map(x => x.id === values.id ? result : x))
-        navigate(`profile/${profileId}`)
+        try {
+            const result = await profileService.edit(values.id, values);
+            setProfile(state => state.map(x => x.id === values.id ? result : x));
+            navigate(`profile/${profileId}`);
+        } catch (error) {
+            console.log('There is a problem');
+            catchServerError(error, "There is some problem with Profile edit!");
+        }
     };
 
     const onChangePassword = async (values) => {
         const profileId = values.id;
-
-        const result = await profileService.changePassword(profileId, values)
-
-        setProfile(state => state.map(x => x.id === values.id ? result : x))
-
-        navigate(`profile/${profileId}`)
+        try {
+            const result = await profileService.changePassword(profileId, values);
+            setProfile(state => state.map(x => x.id === values.id ? result : x));
+            navigate(`profile/${profileId}`);
+        } catch (error) {
+            console.log('There is a problem with change password');
+            catchServerError(error, "There is some problem with change password!");
+        }
     }
 
     const onResetPassword = async (values) => {
-        await profileService.resetPassword(values)
-        navigate('/feedback-enter-mail')
+        try {
+        await profileService.resetPassword(values);
+        navigate('/feedback-enter-mail');
+        } catch (error) {
+            console.log('There is a problem with reset password!');
+            catchServerError(error, "There is a problem with reset password!")
+        }
     }
 
     const onCreateNewPassword = async (password, token) => {
-        await profileService.createNewPassword(password, token)
-        navigate('/feedback-enter-token')
+        try {
+        await profileService.createNewPassword(password, token);
+        navigate('/feedback-enter-token');
+        } catch (error) {
+            console.log('There is a problem with reset password!');
+            catchServerError(error, "There is a problem with reset password!");
+        }
     }
 
 

@@ -11,6 +11,14 @@ export const CommentProvider = ({
 
     // Try error
     const [errors, setErrors] = useState("")
+    const catchServerError = (error, message) => {
+        if (error) {
+            setErrors(message)
+            setTimeout(() => {
+                setErrors("");
+            }, 2500);
+        }
+    }
     // Try error
     const navigate = useNavigate();
     const [comments, setComment] = useState([]);
@@ -23,50 +31,41 @@ export const CommentProvider = ({
             })
     }, []);
 
-    const catchServerError = (error) => {
-        if (error) {
-            setErrors("Something get wrong check for empty field ot try later!")
-            setTimeout(() => {
-                setErrors("");
-            }, 2500);
-        }
-    }
-
     const onCreateCommentSubmit = async (text, placeId, userId, userName) => {
         try {
             const newComment = await commentService.create(text, placeId, userId, userName);
             setComment(state => [...state, newComment])
             navigate(`place-details/${placeId}`)
         } catch (error) {
-            catchServerError(error)
+            catchServerError(error, "Something get wrong check for empty field ot try later!");
         }
     };
 
     const onCommentEditSubmit = async (values) => {
-        const placeId = parseInt(values.place_comment);
-
-        const result = await commentService.edit(values.id, values);
-
-        setComment(state => state.map(x => x.id === values.id ? result : x))
-
-        navigate(`place-details/${placeId}`)
+        try {
+            const placeId = parseInt(values.place_comment);
+            const result = await commentService.edit(values.id, values);
+            setComment(state => state.map(x => x.id === values.id ? result : x))
+            navigate(`place-details/${placeId}`)
+        } catch (error) {
+            catchServerError(error, "Something get wrong check for empty field ot try later!");
+        }
     };
 
     const removeComment = async (commentId) => {
-        await commentService.deleteComment(commentId)
-        setComment(state => state.filter(comment => comment.id !== commentId))
+        try {
+            await commentService.deleteComment(commentId);
+            setComment(state => state.filter(comment => comment.id !== commentId));
+        } catch (error) {
+            catchServerError(error, "Something get wrong plese try to delete comment later!")
+        }
     }
-
-    // const getComment = (commentId) => {
-    //     return comments.find(comment => comment._id === commentId);
-    // };
 
     const constextValues = {
         comments,
         onCreateCommentSubmit,
         onCommentEditSubmit,
         removeComment,
-        // getComment,
         errors,
     };
 
