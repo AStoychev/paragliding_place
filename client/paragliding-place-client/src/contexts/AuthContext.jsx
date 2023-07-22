@@ -3,12 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
 import { authServiceFactory } from '../services/authService';
-import { catchServerError } from '../utils/errorHandlingServer';
 
 import { profileServiceFactory } from '../services/profileService';
-
-// Handling
-// Handling
 
 export const AuthContext = createContext();
 
@@ -20,6 +16,14 @@ export const AuthProvider = ({
 
     // Try error
     const [errors, setErrors] = useState("");
+    const catchServerError = (error, message) => {
+        if (error) {
+            setErrors(message)
+            setTimeout(() => {
+                setErrors("");
+            }, 2500);
+        }
+    }
     // Try error
 
     const authService = authServiceFactory(auth.token);
@@ -37,12 +41,13 @@ export const AuthProvider = ({
 
         } catch (error) {
             console.log('There is a problem')
-            if (error) {
-                setErrors("Email or password don't match!")
-                setTimeout(() => {
-                    setErrors("");
-                }, 2500);
-            }
+            catchServerError(error, "Email or password don't match!")
+            // if (error) {
+            //     setErrors("Email or password don't match!")
+            //     setTimeout(() => {
+            //         setErrors("");
+            //     }, 2500);
+            // }
         }
     };
 
@@ -59,12 +64,7 @@ export const AuthProvider = ({
             navigate('/');
         } catch (error) {
             console.log('There is a problem')
-            if (error) {
-                setErrors("We’re sorry. This email or usesrname already exists…")
-                setTimeout(() => {
-                    setErrors("")
-                }, 2500);
-            }
+            catchServerError(error, "We’re sorry. This email or usesrname already exists…")
         }
     };
 

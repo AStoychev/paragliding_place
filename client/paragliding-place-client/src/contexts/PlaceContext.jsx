@@ -23,9 +23,9 @@ export const PlaceProvider = ({
             })
     }, []);
 
-    const catchServerError = (error) => {
+    const catchServerError = (error, message) => {
         if (error) {
-            setErrors("Something get wrong place check if place already exist or try later!")
+            setErrors(message)
             setTimeout(() => {
                 setErrors("");
             }, 2500);
@@ -35,10 +35,10 @@ export const PlaceProvider = ({
     const onCreatePlaceSubmit = async (data) => {
         try {
             const newPlace = await placeService.create(data);
-            setPlaces(state => [...state, newPlace])
-            navigate('/')
+            setPlaces(state => [...state, newPlace]);
+            navigate('/');
         } catch (error) {
-            catchServerError(error)
+            catchServerError(error, "Something get wrong place check if place already exist or try later!");
         }
     };
 
@@ -46,23 +46,18 @@ export const PlaceProvider = ({
         try {
             const placeId = values.id
             const result = await placeService.edit(values.id, values);
-            setPlaces(state => state.map(x => x.id === values.id ? result : x))
-            navigate(`place-details/${placeId}`)
+            setPlaces(state => state.map(x => x.id === values.id ? result : x));
+            navigate(`place-details/${placeId}`);
         } catch (error) {
-            catchServerError(error)
+            catchServerError(error, "Something get wrong place check if place already exist or try later!");
         }
     };
 
     const deletePlace = (placeId) => {
         try {
-            setPlaces(state => state.filter(place => place.id !== placeId))
+            setPlaces(state => state.filter(place => place.id !== placeId));
         } catch (error) {
-            if (error) {
-                setErrors("Something get wrong please try to delete this place again later!")
-                setTimeout(() => {
-                    setErrors("");
-                }, 2500);
-            }
+            catchServerError(error, "Something get wrong please try to delete this place again later!");
         }
     }
 
