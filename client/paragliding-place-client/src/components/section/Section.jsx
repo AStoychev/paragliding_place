@@ -12,13 +12,16 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import { Search } from "../search/Search";
 // Search
 
-import { customIcon, customIconLanding } from "../customIcon/customIcon";
+import { customIcon, customIconLanding, customIconMyLocation } from "../customIcon/customIcon";
 
 import "leaflet/dist/leaflet.css";
 
 import "./style.css"
 
 export const Section = () => {
+
+    const [myLocation, setMyLocation] = useState(false);
+    const [disableMyLocation, setDisableMyLocation] = useState(true);
 
     // Show all places
     const [allPlaces, setAllPlaces] = useState([]);
@@ -74,11 +77,35 @@ export const Section = () => {
         useEffect(() => {
             map.locate().on("locationfound", function (e) {
                 setPosition(e.latlng);
+
+                // This is for button how return to my location
+                if (e.latlng) {
+                    setDisableMyLocation(false)
+                }
+
+                if (myLocation) {
+                    map.flyTo(e.latlng, map.zoom = 13);
+                    setMyLocation(false);
+                }
+                // This is for button how return to my location
+
                 map.flyTo(searchingData ? searchingData : e.latlng, map.zoom = 13);
                 // map.flyTo(e.latlng, map.getZoom());
                 setBbox(e.bounds.toBBoxString().split(","));
             });
         }, [map]);
+
+        return position === null ? null : (
+            <Marker position={position} icon={customIconMyLocation}>
+                <Popup>
+                    You are here. <br />
+                    <b>Southwest lng</b>: {bbox[0]} <br />
+                    <b>Southwest lat</b>: {bbox[1]} <br />
+                    <b>Northeast lng</b>: {bbox[2]} <br />
+                    <b>Northeast lat</b>: {bbox[3]}
+                </Popup>
+            </Marker>
+        )
 
     }
     // This is for find my location
@@ -94,6 +121,23 @@ export const Section = () => {
     }
     // This is for search when location is turned off
 
+    // Return to my location
+    const GoToMyLocation = ({
+        disableMyLocation,
+    }) => {
+        // const [myLocation, setMyLocation] = useState(false)
+        return (
+            <div className="transitionButton">
+                {!disableMyLocation ?
+                    <img onClick={() => setMyLocation(true)} src="../images/navigation.png" alt="My Location" title="Go To My Location"></img>
+                    :
+                    <img className="notLocationImage" src="../images/notNavigation.png" alt="Not Location" title="Your Location is Turn Off"></img>
+                }
+            </div>
+        )
+    }
+    // Return to my location
+
     return (
         <div className="sectionStyle">
             <MapContainer style={{ height: "100%", minHeight: "100%" }} className="mapContainer" center={[44.158567, 9.213165]} zoom={5} >
@@ -104,6 +148,7 @@ export const Section = () => {
 
                 <div className="search-container">
                     <Search found={found} getDataFromSearch={getDataFromSearch} />
+                    <GoToMyLocation disableMyLocation={disableMyLocation} />
                 </div>
 
                 <MarkerClusterGroup

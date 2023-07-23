@@ -70,7 +70,6 @@ export const AuthProvider = ({
             window.location.reload();
             // This reload page after logout. Use for clear authentication token permision
         } catch (error) {
-            console.log('There is a problem')
             catchServerError(error, "There is some problem with logout!")
         }
     };
@@ -82,7 +81,6 @@ export const AuthProvider = ({
             setProfile(state => state.map(x => x.id === values.id ? result : x));
             navigate(`profile/${profileId}`);
         } catch (error) {
-            console.log('There is a problem');
             catchServerError(error, "There is some problem with Profile edit!");
         }
     };
@@ -94,7 +92,6 @@ export const AuthProvider = ({
             setProfile(state => state.map(x => x.id === values.id ? result : x));
             navigate(`profile/${profileId}`);
         } catch (error) {
-            console.log('There is a problem with change password');
             catchServerError(error, "There is some problem with change password!");
         }
     }
@@ -104,7 +101,6 @@ export const AuthProvider = ({
         await profileService.resetPassword(values);
         navigate('/feedback-enter-mail');
         } catch (error) {
-            console.log('There is a problem with reset password!');
             catchServerError(error, "There is a problem with reset password!")
         }
     }
@@ -114,7 +110,6 @@ export const AuthProvider = ({
         await profileService.createNewPassword(password, token);
         navigate('/feedback-enter-token');
         } catch (error) {
-            console.log('There is a problem with reset password!');
             catchServerError(error, "There is a problem with reset password!");
         }
     }
