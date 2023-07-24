@@ -22,7 +22,6 @@ export const Comments = ({
         let haveComment = []
 
         comments && comments.map(x => (
-            // place.comments && place.comments.map(x => (
             Number(x.place_comment) === place.id ?
                 haveComment.push(x)
                 :
