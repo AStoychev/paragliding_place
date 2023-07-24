@@ -35,7 +35,7 @@ export const CommentProvider = ({
         try {
             const newComment = await commentService.create(text, placeId, userId, userName);
             setComment(state => [...state, newComment])
-            navigate(`place-details/${placeId}`)
+            navigate(`place-details/${placeId}/comments`)
         } catch (error) {
             catchServerError(error, "Something get wrong check for empty field ot try later!");
         }
@@ -46,7 +46,7 @@ export const CommentProvider = ({
             const placeId = parseInt(values.place_comment);
             const result = await commentService.edit(values.id, values);
             setComment(state => state.map(x => x.id === values.id ? result : x))
-            navigate(`place-details/${placeId}`)
+            navigate(`place-details/${placeId}/comments`)
         } catch (error) {
             catchServerError(error, "Something get wrong check for empty field ot try later!");
         }

@@ -1,0 +1,18 @@
+.leftSideDetails {
+    position: sticky;
+    width: 500px;
+    height: 700px;
+    margin-left: 90px;
+    margin-top: 1%;
+    /* background-position: 50%; */
+}
+
+.leftSide:nth-of-type(1) {
+    flex-direction: column;
+    flex-shrink: 1;
+}
+
+.headerMap {
+    font-size: 18px;
+    margin-left: 30%;
+}

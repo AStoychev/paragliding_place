@@ -1,0 +1,129 @@
+.ratingContainer {
+    width: 385px;
+    height: 351px;
+    margin: 20px;
+    margin-left: 26%;
+    background-color: rgba(132, 201, 137, 0.445);
+    /* margin-left: 1px;
+    padding-right: 1px; */
+    /* float: left;
+    clear: none; */
+}
+
+.ratingSystemPosition {
+    padding-top: 20%;
+    margin-left: -0.5%;
+}
+
+.ratingSystem {
+    width: 385px;
+    height: 200px;
+    align-items: center;
+    /* margin: 20px;
+    margin-left: 26%; */
+    background-color: rgba(3, 65, 15, 0.445);
+    /* background-color: rgba(52, 67, 53, 0.445); */
+}
+
+.ratingPlace {
+    margin: 10px;
+}
+
+.rateForm{ 
+    text-align: center;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+.labelRating {
+    display: inline;
+    color: rgb(0, 0, 0);
+    margin-left: 6.4%;
+    /* float: left;
+    clear: none;
+    display: block;
+    padding: 0px 1em 0px 8px; */
+}
+
+.ratingLetter {
+    cursor: pointer;
+    color: black;
+    font-size: 35px;
+    /* float: left;
+    clear: none;
+    margin: 2px 0 0 2px; */
+
+}
+
+.chooseRating {
+    font-size: 24px;
+    margin-left: 3%;
+    margin-top: -1%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(252, 200, 68);
+}
+
+.ratingParagraph {
+    display:flex;
+    font-size: 21px;
+    font-weight: bold;
+    padding-top: 1%;
+    padding-left: 30%;
+    color: rgb(0, 10, 3);
+    /* color: rgb(205, 248, 217); */
+}
+
+.submitRating {
+    width: 50px;
+    height: 30px;
+    font-size: 18px;
+    margin-left: 43%;
+    background: rgb(129, 174, 125);
+    color: rgb(254, 254, 254);
+}
+
+.alreadyRateDiv {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: rgb(28, 45, 88);
+}
+
+.placeLabel {
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+}
+
+.logoutComment {
+    color: black;
+    /* background-color: #28bac1; */
+    /* flex: 1 0 100px; */
+    width: 80%;
+    margin-left: 10%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 17px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alreadyRateSpan {
+    font-size: 23px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: rgb(28, 45, 88);
+}
+
+.spanComment {
+    color: #000000;
+    background-color: rgb(111, 71, 255);
+    margin-left: 5px;
+    margin-bottom: 1px;
+    padding-left: 10px;
+}

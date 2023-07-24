@@ -86,7 +86,7 @@ export const Section = () => {
                                 <p>{marker.description_launch}</p>
 
                                 <li className='placeDetails'>
-                                    <Link className='placeDetailsLink' to={`/place-details/${marker.id}`}>Details</Link>
+                                    <Link className='placeDetailsLink' to={`/place-details/${marker.id}/detail`}>Details</Link>
                                 </li>
 
                                 <p>{marker.longitude_takes_off}, {marker.latitude_takes_off}</p>

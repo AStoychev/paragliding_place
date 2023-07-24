@@ -29,3 +29,59 @@
     color: rgb(240, 253, 228);
     background-color: rgb(238, 138, 138);
 }
+
+.comments {
+    flex: 1 0 100px;
+    height: 20%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: rgba(132, 201, 137, 0.445);
+    /* background-color: rgb(236, 253, 245); */
+    /* background-color: rgb(156, 201, 246); */
+    /* background-color: rgb(9, 87, 52); */
+    /* border-color: rgb(9, 87, 52);
+    border-style: solid;
+    border-width: 1px; */
+    /* background: #187e6d; */
+    color: #000000;
+    margin: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.showErrors {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    margin: 8%;
+    padding-left: 11.5%;
+}
+
+.buttonDeleteEditComments {
+    display: inline;
+}
+
+.logoutComment {
+    color: black;
+    /* background-color: #28bac1; */
+    /* flex: 1 0 100px; */
+    width: 80%;
+    margin-left: 10%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 17px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spanComment {
+    color: #000000;
+    background-color: rgb(111, 71, 255);
+    margin-left: 5px;
+    margin-bottom: 1px;
+    padding-left: 10px;
+}

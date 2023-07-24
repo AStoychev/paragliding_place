@@ -44,7 +44,7 @@ function App() {
                             <Route path='/login' element={<LoginModal />} />
                             <Route path='/register' element={<RegisterModal />} />
                             <Route path='/search' element={<Search />} />
-                            <Route path='/place-details/:placeId' element={<PlaceDetails />} />
+                            <Route path='/place-details/:placeId/*' element={<PlaceDetails />} />
                             <Route path='/createNewPlace' element={<CreateNewPlace />} />
                             <Route path='/profile/:userId' element={<Profile />} />
                             <Route path='/profile/edit/:userId' element={<EditProfile />} />

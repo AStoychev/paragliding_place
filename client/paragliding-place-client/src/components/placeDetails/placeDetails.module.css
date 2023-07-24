@@ -22,27 +22,13 @@
     padding: 0.5rem;
 }
 
-.leftSide {
-    position: sticky;
-    width: 500px;
-    height: 700px;
-    margin-left: 90px;
-    margin-top: 1%;
-    /* background-position: 50%; */
-}
-
-.rightSide {
+.rightSideDetails {
     width: 80%;
     height: 750px;
     background-position: 50%;
     margin-top: 10px;
 
     /* background-color: rgba(132, 201, 137, 0.445); */
-}
-
-.leftSide:nth-of-type(1) {
-    flex-direction: column;
-    flex-shrink: 1;
 }
 
 .rightSide:nth-of-type(2) {
@@ -53,6 +39,33 @@
 .topAndBottom {
     width: 100%;
     margin: auto;
+}
+
+.detailsNavigation {
+    /* background-color: rgb(102, 147, 115); */
+    text-align: center;
+
+    flex: 1 0 100px;
+    height: 20%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: #000000;
+    margin: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LiNavigation {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.LinkNavigation {
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
 }
 
 .containerItem {
@@ -130,36 +143,10 @@
     column-count: 3;
 }
 
-.comments {
-    flex: 1 0 100px;
-    height: 20%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: bold;
-    font-size: 17px;
-    background-color: rgba(132, 201, 137, 0.445);
-    /* background-color: rgb(236, 253, 245); */
-    /* background-color: rgb(156, 201, 246); */
-    /* background-color: rgb(9, 87, 52); */
-    /* border-color: rgb(9, 87, 52);
-    border-style: solid;
-    border-width: 1px; */
-    /* background: #187e6d; */
-    color: #000000;
-    margin: 10px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 /* .commentContent {
     font-size: 20px;
     font-family: Marker Felt, 'Times New Roman', Times, serif;
 } */
-
-.buttonDeleteEditComments {
-    display: inline;
-}
 
 .clusterIcon {
     height: 0.1px;
@@ -172,11 +159,6 @@
     align-items: center;
     font-weight: 900;
     font-size: 1.5rem;
-}
-
-.headerMap {
-    font-size: 12px;
-    margin-left: 30%;
 }
 
 .difficultyLevelDetails {
@@ -274,25 +256,3 @@ input[type=radio] {
 /* .voteBar {
     background: none;
 } */
-
-.alreadyRateDiv {
-    font-size: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: bold;
-    color: rgb(28, 45, 88);
-}
-
-.alreadyRateSpan {
-    font-size: 23px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: bold;
-    color: rgb(28, 45, 88);
-}
-
-.showErrors {
-    font-size: 20px;
-    font-weight: bold;
-    color: red;
-    margin: 8%;
-    padding-left: 11.5%;
-}
