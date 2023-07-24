@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import { placeServiceFactory } from "../../services/placeService";
 
+import { SearchPlaceLocationOff } from "./mapComponents/SearchPlaceLocationOff";
+
 import { MapContainer, TileLayer, useMap, Marker, Popup, LayersControl, LayerGroup, Circle, Pane } from "react-leaflet";
 import { Icon, divIcon, latLng, map } from "leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
@@ -106,26 +108,15 @@ export const Section = () => {
                 </Popup>
             </Marker>
         )
-
     }
     // This is for find my location
-
-
-    // This is for search when location is turned off
-    const SearchPlaceLocationOff = () => {
-        const map = useMap()
-        useEffect(() => {
-            map.flyTo(searchingData ? searchingData : [44.158567, 9.213165], searchingData ? map.zoom = 13 : map.zoom = 5)
-        }, [searchingData])
-        return null
-    }
-    // This is for search when location is turned off
 
     // Return to my location
     const GoToMyLocation = ({
         disableMyLocation,
     }) => {
         // const [myLocation, setMyLocation] = useState(false)
+        
         return (
             <div className="transitionButton">
                 {!disableMyLocation ?
@@ -184,7 +175,7 @@ export const Section = () => {
                 {/* This is for find my location */}
 
                 {/* This is for search place when location is off */}
-                <SearchPlaceLocationOff />
+                <SearchPlaceLocationOff searchingData={searchingData} />
                 {/* This is for search place when location is off */}
             </MapContainer>
         </div >

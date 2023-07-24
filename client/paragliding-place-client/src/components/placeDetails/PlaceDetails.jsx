@@ -215,10 +215,10 @@ export const PlaceDetails = () => {
                             <h3>The creator of the place appreciates with difficulty: <span className={styles.difficultyLevelDetails}>{place.difficulty_level}</span></h3>
                         </div>
 
-                        <Accordion >
+                        <Accordion className={styles.itemDirection}>
                             <Accordion.Item eventKey="0">
-                                <Accordion.Header>See the ratings of the pilots who visited the place</Accordion.Header>
-                                <Accordion.Body >
+                                <Accordion.Header className={styles.displayRating} type="button"><div>See the ratings of the pilots who visited the place</div></Accordion.Header>
+                                <Accordion.Body>
                                     Rate A: {rateA || 0}% <br></br> <ProgressBar className={styles.voteBar} variant="success" now={rateA} /><br></br>
                                     Rate B: {rateB || 0}% <br></br> <ProgressBar className={styles.voteBar} variant="info" now={rateB} /><br></br>
                                     Rate C: {rateC || 0}% <br></br> <ProgressBar className={styles.voteBar} variant="warning" now={rateC} /><br></br>
