@@ -1,12 +1,9 @@
 .container {
     position: initial;
-    /* display:grid; */
     height: 100%;
     width: 100%;
-    /* margin: auto; */
     overflow: auto;
     background-color: rgb(211, 245, 255);
-    /* background-color: #d8dbe4; */
     /* background-color: #f4f4f4; */
 
 }
