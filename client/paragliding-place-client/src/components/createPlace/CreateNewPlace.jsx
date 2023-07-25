@@ -1,6 +1,6 @@
 import { useForm } from '../../hooks/useForm';
 
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { usePlaceContext } from '../../contexts/PlaceContext';
 import { requestFactory } from "../../services/requester";
 
