@@ -14,12 +14,11 @@ export const LocationMarker = ({
     useEffect(() => {
         map.locate().on("locationfound", function (e) {
             setPosition(e.latlng);
-
             map.flyTo(searchingData ? searchingData : e.latlng, map.zoom = 13);
             // map.flyTo(e.latlng, map.getZoom());
             setBbox(e.bounds.toBBoxString().split(","));
         });
-    }, [map]);
+    }, [searchingData]);
 
     return position === null ? null : (
         <Marker position={position} icon={customIconMyLocation}>

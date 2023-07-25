@@ -54,6 +54,10 @@
     z-index: 1000;
 }
 
+.haveLocationImage {
+    cursor: pointer;
+}
+
 .notLocationImage {
     cursor: no-drop;
 }

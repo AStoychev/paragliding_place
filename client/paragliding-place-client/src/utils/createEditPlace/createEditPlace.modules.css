@@ -57,11 +57,11 @@
     box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
 }
 
-.ratingContainer {
+.ratingContainerCreate {
     width: 270px;
     height: 60px;
     margin-left: 26%;
-    background: rgb(64, 70, 64);
+    background: rgb(70, 65, 64);
 }
 
 .labelRating {

@@ -11,7 +11,7 @@ import { LongitudeTakesOff } from '../../utils/createEditPlace/longitudeTakesOff
 import { LongituteLandind } from '../../utils/createEditPlace/longitudeLanding';
 import { DescribeLaunch } from '../../utils/createEditPlace/describeLaunch';
 import { DescribeLanding } from '../../utils/createEditPlace/describeLanding';
-import { RatingSystem } from '../../utils/createEditPlace/ratingSystem';
+import { RatingSystemCreate } from '../../utils/createEditPlace/ratingSystem';
 import { Directions } from '../../utils/createEditPlace/directions';
 
 import { checkButtonDirections } from '../../constants/constants';
@@ -118,7 +118,7 @@ export const CreateNewPlace = () => {
                             </table>
 
                             <h3 className={styles.headerDifficultyLevel}>Difficulty Level</h3>
-                            <RatingSystem values={values} changeHandler={changeHandler} onRatingChange={onRatingChange} setRating={setRating} />
+                            <RatingSystemCreate values={values} changeHandler={changeHandler} onRatingChange={onRatingChange} setRating={setRating} />
 
                             <h3 className={styles.headerDirections}>Direction</h3>
                             < Directions values={values} directions={directions} checkButtonDirections={checkButtonDirections} onDirectionsChange={onDirectionsChange} />

@@ -11,9 +11,9 @@ export const GoToMyLocation = () => {
     useEffect(() => {
         map.locate().on("locationfound", function (e) {
             setDisableMyLocation(false)
-
+            
             if (myLocation) {
-                map.flyTo(e.latlng, map.zoom = 13);
+                map.flyTo(e.latlng, map.zoom = 18);
                 setMyLocation(false);
             }
         })
@@ -22,7 +22,7 @@ export const GoToMyLocation = () => {
     return (
         <div className="transitionButton">
             {!disableMyLocation ?
-                <img onClick={() => setMyLocation(true)} src="../images/navigation.png" alt="My Location" title="Go To My Location"></img>
+                <img onClick={() => setMyLocation(true)} className="haveLocationImage" src="../images/navigation.png" alt="My Location" title="Go To My Location"></img>
                 :
                 <img className="notLocationImage" src="../images/notNavigation.png" alt="Not Location" title="Your Location is Turn Off"></img>
             }

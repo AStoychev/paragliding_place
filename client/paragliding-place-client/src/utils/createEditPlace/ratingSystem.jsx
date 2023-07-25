@@ -1,8 +1,8 @@
 import { TbCircleLetterA, TbCircleLetterB, TbCircleLetterC, TbCircleLetterD } from "react-icons/tb";
 
-import './createEditPlace.modules.css';
+import styles from './createEditPlace.modules.css';
 
-export const RatingSystem = ({
+export const RatingSystemCreate = ({
     values,
     changeHandler,
     onRatingChange,
@@ -10,7 +10,7 @@ export const RatingSystem = ({
 }) => {
 
     return (
-        <div className="ratingContainer">
+        <div className="ratingContainerCreate">
             <label className="labelRating" onChange={changeHandler} >
                 <input
                     type="radio"

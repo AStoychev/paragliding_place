@@ -85,10 +85,11 @@ input[type=radio] {
 }
 
 .alreadyRateDiv {
-    font-size: 20px;
+    font-size: 18px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: bold;
     color: rgb(28, 45, 88);
+    text-align: center;
+    align-items: center;
 }
 
 .placeLabel {
@@ -114,7 +115,7 @@ input[type=radio] {
 }
 
 .alreadyRateSpan {
-    font-size: 23px;
+    font-size: 18px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     color: rgb(28, 45, 88);

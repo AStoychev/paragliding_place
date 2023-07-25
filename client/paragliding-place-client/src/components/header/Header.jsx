@@ -22,7 +22,7 @@ export const Header = () => {
 
 
                <h1 className={styles.mainHeader}><Link className={styles.headerText} to="/">SpotFly</Link>
-                  <Link className={styles.route} to="/"><img src="images/routes.png" alt="logo" /></Link>
+                  <Link className={styles.route} to="/"><img src="../../../images/routes.png" alt="logo" /></Link>
                </h1>
             </div>
             <nav className={styles.navBar}>

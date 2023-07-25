@@ -50,7 +50,7 @@ export const RateSystem = ({
             </div>
             
             {isAuthenticated ?
-                    alreadyRate ? <div className="alreadyRateDiv" > You already rate for this place with rate: <span className={styles.alreadyRateSpan}>{ownRate}</span> </div> :
+                    alreadyRate ? <div className="alreadyRateDiv" > You already rate for this place with rate: <span className="alreadyRateSpan">{ownRate}</span> </div> :
                         <div className="ratingSystemPosition">
                             {/* <p className="placeLabel">Difficulty Level</p> */}
                             <CreateRate onRateSubmit={onRateSubmit} />

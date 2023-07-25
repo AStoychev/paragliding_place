@@ -105,7 +105,7 @@ export const Section = () => {
 
                 </MarkerClusterGroup>
                 {/* This is for find my location */}
-                <LocationMarker seachingData={searchingData} />
+                <LocationMarker searchingData={searchingData} />
                 {/* This is for find my location */}
 
                 {/* This is for search place when location is off */}
