@@ -3,7 +3,7 @@
     height: 100%;
     width: 100%;
     overflow: auto;
-    background-color: rgb(211, 245, 255);
+    /* background-color: rgb(211, 245, 255); */
 }
 
 .twoColumGrid {
@@ -76,7 +76,8 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 17px;
-    background-color: rgba(132, 201, 137, 0.445);
+    background-color: rgb(211, 245, 255);
+    /* background-color: rgba(132, 201, 137, 0.445); */
     /* background-color: rgb(156, 201, 246); */
     /* background-color: rgb(9, 87, 52); */
     /* border-color: black;
@@ -107,7 +108,8 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 17px;
-    background-color: rgba(132, 201, 137, 0.445);
+    background-color: rgb(211, 245, 255);
+    /* background-color: rgba(132, 201, 137, 0.445); */
     /* border-style: solid;
     border-width: 1px; */
     color: #000000;
