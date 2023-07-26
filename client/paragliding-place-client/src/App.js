@@ -10,9 +10,7 @@ import { CommentProvider } from './contexts/CommentContext';
 import { Header } from './components/header/Header';
 import { Footer } from './components/footer/Footer';
 import { Section } from './components/section/Section';
-// import { Login } from './components/login/Login';
 import { Logout } from './components/logout/Logout';
-// import { Register } from './components/register/Register';
 import { About } from './components/about/About';
 
 import { LoginModal } from './components/login/LoginModal';
