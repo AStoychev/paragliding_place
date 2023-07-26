@@ -119,3 +119,11 @@
 .genderIcon :hover {
     color: #ffc107;
 }
+
+.showErrors {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    margin: 8%;
+    padding-left: 11.5%;
+}

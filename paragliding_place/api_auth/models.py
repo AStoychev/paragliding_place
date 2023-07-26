@@ -130,7 +130,7 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
         # Message
         'Hey! SpotFly is here. If you want to reset your password, please follow the steps below: \n'
         'Copy this code:' f' {reset_password_token.key}\n' 
-        'Click on this link and follow next step: http://localhost:3000/reset-password/confirm',
+        'Click on this link and follow next step:' f'http://localhost:3000/reset-password/confirm/{reset_password_token.key}',
         # From
         'stoychev.nas@gmail.com',
         # To

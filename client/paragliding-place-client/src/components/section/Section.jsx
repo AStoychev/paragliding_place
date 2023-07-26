@@ -10,10 +10,9 @@ import { SearchPlaceLocationOff } from "./mapComponents/SearchPlaceLocationOff";
 
 import { Search } from "../search/Search";
 
+import { createCustomClusterIcon, customIcon, customIconLanding } from "../customIcon/customIcon";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { divIcon } from "leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
-import { customIcon, customIconLanding } from "../customIcon/customIcon";
 import "leaflet/dist/leaflet.css";
 import "./style.css"
 
@@ -32,16 +31,6 @@ export const Section = () => {
 
     const takeIdPlace = (id) => {
         return id
-    }
-
-    // This is our custom icon for cluster
-    const createCustomClusterIcon = (cluster) => {
-        return new divIcon({
-            html: `<div class="cluster-icon"><img src="../images/pin.png" alt="location" title="Click to see details"/></div>`,
-            // html: `<div class="cluster-icon">${cluster.getChildCount() / 2}</div>`,
-            className: "custom-marker-cluster",
-            // iconSize: point(33, 33, true),
-        });
     }
 
     // Search

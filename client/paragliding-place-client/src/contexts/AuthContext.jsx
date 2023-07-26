@@ -98,17 +98,20 @@ export const AuthProvider = ({
 
     const onResetPassword = async (values) => {
         try {
-        await profileService.resetPassword(values);
-        navigate('/feedback-enter-mail');
+            await profileService.resetPassword(values);
+            navigate('/feedback-enter-mail');
         } catch (error) {
-            catchServerError(error, "There is a problem with reset password!")
+            if (error) {
+                setErrors("There is a problem with reset password please check email addres is correct!")
+            }
+            // catchServerError(error, "There is a problem with reset password please check email addres is correct!")
         }
     }
 
     const onCreateNewPassword = async (password, token) => {
         try {
-        await profileService.createNewPassword(password, token);
-        navigate('/feedback-enter-token');
+            await profileService.createNewPassword(password, token);
+            navigate('/feedback-enter-token');
         } catch (error) {
             catchServerError(error, "There is a problem with reset password!");
         }

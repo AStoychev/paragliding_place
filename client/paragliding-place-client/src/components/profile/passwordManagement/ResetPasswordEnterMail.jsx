@@ -9,7 +9,7 @@ import "../profile.modules.css"
 
 export const ResetPasswordEnterMail = () => {
 
-    const { onResetPassword } = useAuthContext();
+    const { onResetPassword, thisError } = useAuthContext();
 
     const [email, setEmail] = useState();
     const [loading, setLoading] = useState(false);
@@ -52,11 +52,14 @@ export const ResetPasswordEnterMail = () => {
                                 </div>
                                 <div className="submitResetPassword">
                                     <input type="submit" onClick={fetchData} value="Reset Password" disabled={disabled} />
-                                    {loading ?
-                                        <Spinner animation="border" variant="info" onAnimationStart={onSpinerLoad}/>
+
+                                    {thisError ?
+                                        <div className="showErrors">{thisError}</div>
                                         :
-                                        ""
+                                        loading &&
+                                        <Spinner animation="border" variant="info" onAnimationStart={onSpinerLoad} />
                                     }
+
                                 </div>
                             </div>
 

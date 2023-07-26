@@ -61,11 +61,16 @@ export const PlaceProvider = ({
         }
     }
 
+    const getPlace = (placeId) => {
+        return places.find(place => place.id === placeId);
+    }
+
     const constextValues = {
         places,
         onCreatePlaceSubmit,
         onPlaceEditSubmit,
         deletePlace,
+        getPlace,
         errors,
     };
 

@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { Routes, Route } from 'react-router-dom';
 import { Fragment } from 'react';
 
@@ -30,6 +32,11 @@ import { EditPlace } from './components/editPlace/EditPlace';
 
 import { Search } from './components/search/Search';
 
+import { NoUserRouteGuard } from './components/routeGuard/NoUserRouteGuard';
+import { UserRouteGuard } from './components/routeGuard/UserRouteGuard';
+import { OwnerGuardProfile } from './components/routeGuard/OwnerGuardProfile';
+import { OwnerGuardPlace } from './components/routeGuard/OwnerGuardPlace';
+
 
 function App() {
 
@@ -41,21 +48,35 @@ function App() {
                         <Header />
                         <Routes>
                             <Route path='/' element={<Section />} />
-                            <Route path='/login' element={<LoginModal />} />
-                            <Route path='/register' element={<RegisterModal />} />
+
                             <Route path='/search' element={<Search />} />
                             <Route path='/place-details/:placeId/*' element={<PlaceDetails />} />
-                            <Route path='/createNewPlace' element={<CreateNewPlace />} />
                             <Route path='/profile/:userId' element={<Profile />} />
-                            <Route path='/profile/edit/:userId' element={<EditProfile />} />
-                            <Route path='/profile/edit/change-password/:userId' element={<ChangePassword />} />
-                            <Route path='/reset-password' element={<ResetPasswordEnterMail />} />
-                            <Route path='/reset-password/confirm' element={<ResetPasswordEnterToken />} />
-                            <Route path='/feedback-enter-mail' element={<FeedbackEnterMail />} />
-                            <Route path='/feedback-enter-token' element={<FeedbackEnterToken />} />
                             <Route path='/about' element={<About />} />
-                            <Route path='/logout' element={<Logout />} />
-                            <Route path='/place/edit/:placeId' element={<EditPlace />} />
+
+                            <Route element={<NoUserRouteGuard />} >
+                                <Route path='/createNewPlace' element={<CreateNewPlace />} />
+                                <Route path='/logout' element={<Logout />} />
+                            </Route>
+
+                            <Route element={<UserRouteGuard />}>
+                                <Route path='/login' element={<LoginModal />} />
+                                <Route path='/register' element={<RegisterModal />} />
+                                <Route path='/reset-password' element={<ResetPasswordEnterMail />} />
+                                <Route path='/reset-password/confirm/*' element={<ResetPasswordEnterToken />} />
+                                <Route path='/feedback-enter-mail' element={<FeedbackEnterMail />} />
+                                <Route path='/feedback-enter-token' element={<FeedbackEnterToken />} />
+                            </Route>
+
+                            <Route element={<OwnerGuardProfile />}>
+                                <Route path='/profile/edit/:userId' element={<EditProfile />} />
+                                <Route path='/profile/edit/change-password/:userId' element={<ChangePassword />} />
+                            </Route>
+
+                            <Route element={<OwnerGuardPlace />} >
+                                <Route path='/place/edit/:placeId' element={<EditPlace />} />
+                            </Route>
+
                         </Routes>
                         <Footer />
                     </CommentProvider>
