@@ -98,7 +98,6 @@ export const RegisterModal = () => {
                         <Form.Group className="mb-3">
                             <Form.Label className={styles.htmlContent} htmlFor="username">Username:</Form.Label>
                             <Form.Control
-                                autoFocus
                                 type="username"
                                 id="username"
                                 name="username"

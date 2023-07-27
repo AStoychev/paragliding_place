@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useMap, Marker, Popup } from "react-leaflet";
-import { customIconMyLocation } from "../../customIcon/customIcon";
+import { customIconMyLocation } from "../../../utils/customIcon/customIcon";
 
 // This is for find my location
 export const LocationMarker = ({

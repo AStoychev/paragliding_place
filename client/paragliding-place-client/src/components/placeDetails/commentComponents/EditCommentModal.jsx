@@ -33,9 +33,9 @@ export const EditCommentModal = ({
 
     return (
         <>
-            <Button className={styles.buttonEditComment} variant="info" onClick={handleShow}>
+            <button variant="info" className={styles.buttonEditComment} onClick={handleShow}>
                 Edit
-            </Button>
+            </button>
             <Modal show={show} onHide={handleClose}>
                 < article className="create-comment" >
                     <Button className='closeButtonX' variant="secondary" onClick={handleClose}>
@@ -44,7 +44,7 @@ export const EditCommentModal = ({
                     <label>Edit comment:</label>
                     <form className="form" method='POST' onSubmit={onSubmit}>
                         <textarea name="text" placeholder="Comment......" defaultValue={data.text} onChange={changeHandler}></textarea>
-                        <input className="btn submit" style={{ backgroundColor: "#7a7ef0" }} type="submit" value="Edit Comment" onClick={onEdit}/>
+                        <input className="btn submit" style={{ backgroundColor: "#7a7ef0" }} type="submit" value="Edit Comment" onClick={onEdit} />
                     </form>
                 </article >
             </Modal>

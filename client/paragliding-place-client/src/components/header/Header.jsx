@@ -14,7 +14,6 @@ import styles from './Header.module.css'
 
 export const Header = () => {
    const { isAuthenticated, userId, userEmail, userName, userAuth, userAge, userFirstName } = useContext(AuthContext);
-
    return (
       <>
          <header className={styles.header}>

@@ -3,7 +3,7 @@ import { useEffect } from "react"
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 
-import { createCustomClusterIcon, customIcon, customIconLanding } from "../../customIcon/customIcon";
+import { createCustomClusterIcon, customIcon, customIconLanding } from "../../../utils/customIcon/customIcon";
 
 import "leaflet/dist/leaflet.css";
 import styles from "../detailsMapContainer/DetailsMapContainer.modules.css"
@@ -16,7 +16,7 @@ export const DetailsMapContainer = ({
     const placeCenterLatitude = parseFloat(place.latitude_takes_off);
     const placeCenterLongitude = parseFloat(place.longitude_takes_off);
 
-    // For current place
+    // Points out where is situated place
     const GoToPlace = () => {
         const checkForCoordinates = () => {
             if (isNaN(placeCenterLatitude) && isNaN(placeCenterLongitude)) {
@@ -31,7 +31,7 @@ export const DetailsMapContainer = ({
             )
         }, [])
     }
-    // For current place
+    // Points out where is situated place
 
     return (
         <div className="leftSideDetails">

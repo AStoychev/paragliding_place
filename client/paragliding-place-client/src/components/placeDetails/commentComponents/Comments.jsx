@@ -48,19 +48,20 @@ export const Comments = ({
         <div>
             <div className={styles.comments}>
                 <div className="details-comments">
-                    <h2>Comments:</h2>
+                    <h2 className={styles.commentsHeader}>Comments:</h2>
                     {errors &&
                         <p className={styles.showErrors} style={{ color: "red" }}>{errors}</p>
                     }
 
                     <div>{haveComments().map(x => (
-                        <div key={x.id}> <Link to={`/profile/${x.user_id}`}>{x.owner}</Link>: {x.text}
-                            {isOwner(x.user_id, userId) &&
-                                <div className={styles.buttonDeleteEditComments}>
-                                    <DeleteCommentModal commentId={x.id} onCommentDelete={onCommentDelete} />
-                                    <EditCommentModal onCommentEdit={onCommentEdit} data={x} />
-                                </div>
+                        <div className={styles.topCommentContainer} key={x.id}> <Link to={`/profile/${x.user_id}`}>{x.owner}</Link>: {x.text}
+                            {isOwner(x.user_id, userId) &&                          
+                                    <div>
+                                        <div className={styles.buttonDeleteEditDivComments}><DeleteCommentModal commentId={x.id} onCommentDelete={onCommentDelete} /></div>
+                                        <div className={styles.buttonDeleteEditDivComments}><EditCommentModal onCommentEdit={onCommentEdit} data={x} /></div>
+                                    </div>
                             }
+
                         </div>
                     ))}</div>
 
