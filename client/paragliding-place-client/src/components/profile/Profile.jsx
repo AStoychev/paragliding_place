@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams, Link } from "react-router-dom"
+import { useParams, useNavigate, Link } from "react-router-dom"
 import { useAuthContext } from "../../contexts/AuthContext";
 
 import { useService } from "../../hooks/useService";
@@ -21,14 +21,22 @@ export const Profile = () => {
     const profileService = useService(profileServiceFactory);
 
     const [user, setUser] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         Promise.all([
             profileService.getOne(profileId)
         ]).then(result => {
+            
+            // Redirect to page not found
+            if (result[0].length > 1) {
+                navigate("/pageNotFound")
+            }
+
             setUser(result)
         })
     }, [])
+
 
     return (
         <>

@@ -1,12 +1,11 @@
 /* This is css file created from React Leaflet */
 
 .sectionStyle {
-    /* position:inherit; */
-    height: 740px;
+    height: calc(84vh - 60px);
+    top: 30px;
+    /* height: 740px;
     width: 1683px;
-    /* padding-top: 6.6%; */
-    /* padding-bottom: 1px; */
-    margin-top: -1px;
+    margin-top: -1px; */
 }
 
 .mapContainer {
@@ -20,7 +19,6 @@
 }
 
 * {
-    /* box-sizing: border-box; */
     margin: 0;
     padding: 1px;
 }
@@ -38,7 +36,6 @@
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
-    /* background-color: rebeccapurple; */
     transform: translate(-25%, -25%);
     display: flex;
     justify-content: center;

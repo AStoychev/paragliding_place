@@ -1,6 +1,6 @@
 import { useState, Fragment } from 'react';
 
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { AuthProvider } from './contexts/AuthContext';
 import { PlaceProvider } from './contexts/PlaceContext';
@@ -55,7 +55,7 @@ function App() {
                                 <Route path='/place-details/:placeId/*' element={<PlaceDetails />} />
                                 <Route path='/profile/:userId' element={<Profile />} />
                                 <Route path='/about' element={<About />} />
-                                
+
                                 <Route element={<NoUserRouteGuard />} >
                                     <Route path='/createNewPlace' element={<CreateNewPlace />} />
                                     <Route path='/logout' element={<Logout />} />
@@ -79,7 +79,8 @@ function App() {
                                     <Route path='/place/edit/:placeId' element={<EditPlace />} />
                                 </Route>
 
-                                <Route path='/*' element={<PageNotFound />} />
+                                <Route path='/pageNotFound' element={<PageNotFound />} />
+                                <Route path='/*' element={<Navigate to="pageNotFound" />} />
 
                             </Routes>
                             <Footer />

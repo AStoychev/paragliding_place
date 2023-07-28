@@ -1,5 +1,5 @@
 import { useState, useEffect, useReducer } from "react"
-import { useParams, Link, NavLink, Routes, Route } from "react-router-dom"
+import { useParams, useNavigate, Link, NavLink, Routes, Route } from "react-router-dom"
 
 import { placeServiceFactory } from "../../services/placeService";
 
@@ -17,6 +17,8 @@ import { placeReducer } from "../../reducers/placeReducer";
 
 import { isOwner } from "../../validators/validators";
 
+import { PageNotFound } from "../pageNotFound/pageNotFound";
+
 import "leaflet/dist/leaflet.css";
 import styles from "../placeDetails/placeDetails.module.css";
 
@@ -33,6 +35,8 @@ export const PlaceDetails = () => {
     const placeService = useService(placeServiceFactory);
     const allPlaceService = placeServiceFactory();
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         Promise.all([
             placeService.getOne(placeId),
@@ -45,6 +49,11 @@ export const PlaceDetails = () => {
                 comments,
                 rate,
             };
+
+            // Redirect to page not found
+            if(placeData["detail"]) {
+                navigate("/pageNotFound")
+            }
 
             dispatch({ type: 'PLACE_FETCH', payload: placeState });
         });

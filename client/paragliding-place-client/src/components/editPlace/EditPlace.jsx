@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { usePlaceContext } from '../../contexts/PlaceContext';
 
 import { useForm } from '../../hooks/useForm';
@@ -17,7 +17,9 @@ import { RatingSystemCreate } from '../../utils/createEditPlace/ratingSystem';
 import { Directions } from '../../utils/createEditPlace/directions';
 
 import { DeletePlace } from '../deletePlace/DeletePlace'
+
 import { checkButtonDirections } from '../../constants/constants';
+import { checkCreateEditPlace } from '../../utils/checkCreateEditPlace';
 
 import styles from '../createPlace/CreateEditNewPlace.module.css';
 
@@ -33,7 +35,9 @@ export const EditPlace = () => {
         longitude_takes_off: '',
         latitude_landing: '',
         longitude_landing: '',
-        description: '',
+        description_launch: '',
+        description_landing: '',
+        // description: '',
         direction: {
             e: false,
             es: false,
@@ -91,6 +95,8 @@ export const EditPlace = () => {
         let len = Object.keys(values.direction).length
     }
 
+    const backButtonUrl = `http://localhost:3000/place-details/${placeId}/detail`
+
     return (
         <div className={styles.container}>
             <section id={styles.createPlace} className="content auth">
@@ -133,7 +139,14 @@ export const EditPlace = () => {
                                 <p className={styles.showErrors}>{errors}</p>
                             }
 
-                            <input className={styles.submit} type="submit" value="Edit" />
+                            <div className={styles.buttonsEdit}>
+                                {checkCreateEditPlace(values) ?
+                                    <input className={styles.submitEdit} type="submit" value="Edit" />
+                                    :
+                                    <input className={styles.submitEditDisabled} type="submit" value="Edit" title="Fill all fileds" disabled={true} />
+                                }
+                                <Link className={styles.backButton} to={backButtonUrl}><img src="../../../images/previous.png" title="Back" /></Link>
+                            </div>
                         </div>
                     </div>
                 </form>

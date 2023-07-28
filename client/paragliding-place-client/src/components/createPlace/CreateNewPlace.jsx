@@ -15,6 +15,7 @@ import { RatingSystemCreate } from '../../utils/createEditPlace/ratingSystem';
 import { Directions } from '../../utils/createEditPlace/directions';
 
 import { checkButtonDirections } from '../../constants/constants';
+import { checkCreateEditPlace } from '../../utils/checkCreateEditPlace';
 
 import styles from './CreateEditNewPlace.module.css';
 
@@ -28,7 +29,9 @@ export const CreateNewPlace = () => {
         longitude_takes_off: '',
         latitude_landing: '',
         longitude_landing: '',
-        description: '',
+        description_launch: '',
+        description_landing: '',
+        // description: '',
         difficulty_level: '',
         direction: {
             e: false,
@@ -127,7 +130,11 @@ export const CreateNewPlace = () => {
                                 <p className={styles.showErrors}>{errors}</p>
                             }
 
-                            <input className={styles.submit} type="submit" value="Create" />
+                            {checkCreateEditPlace(values) ?
+                                < input className={styles.submit} type="submit" value="Create"/>
+                                :
+                                < input className={styles.submitDisabled} type="submit" value="Create" title="Fill all fields" disabled={true}/>
+                            }
                         </div>
                     </div>
                 </form>

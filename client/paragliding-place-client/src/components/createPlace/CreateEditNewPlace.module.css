@@ -1,19 +1,10 @@
-/* #createPlace { */
-    /* position: sticky;
-    width: 1200px;
-    height: 887px; */
-    /* height: 748px; */
-    /* border-radius: 20px;
-    padding: 21px;
-    padding-right: 5px;
-    margin-left: 130px;
-    box-sizing: border-box;
-    background: #57ec89; */
-    /* background: url("C:\Users\Atanas\Desktop\paragliding_place\client\paragliding-place-client\public\images\locationParaglider.jpg"); */
-    /* box-shadow: 0px 0px 32px 0px #49535e, -14px -14px 20px #191c21; */
-/* } */
+.container {
+    height: calc(112vh - 60px);
+    padding-top: 10px;
+    top: 30px;
+    background-color: rgb(238, 246, 255);
+}
 
-/* container */
 .threeColumnsGrid {
     display: grid;
     grid-auto-rows: 1fr;
@@ -40,8 +31,10 @@
 /* right side of the panel */
 .rightSide {
     width: 600px;
-    height: 800px;
-    background-color: rgba(132, 201, 137, 0.445);
+    height: 943px;
+    margin-left: 10px;
+    background-color: rgba(134, 221, 253, 0.445);
+    /* background-color: rgba(132, 201, 137, 0.445); */
 }
 
 .header {
@@ -84,13 +77,10 @@ input[type="number"] {
     box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
 }
 
-/* input[type="number"]{ padding: 20px 10px; line-height: 28px; } */
-
 .submit {
     background: #017aff;
-    margin-top: 6%;
-    margin-left: 25%;   
-    /* background: #7abce5; */
+    margin-top: 12%;
+    margin-left: 25%;
     height: 41px;
     width: 300px;
     border-radius: 20px;
@@ -98,28 +88,25 @@ input[type="number"] {
     font-size: 23px;
     cursor: pointer;
     font-weight: 900;
-    /* box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white; */
     transition: 0.5s;
 }
 
 .submit:hover {
     color: white;
     background-color: #013b79;
-    /* background-color: #268ccb; */
 }
 
 .submitDisabled {
-    margin-top: 60px;
-    opacity: 0.7;
-    background: #0a2b4d;
-    /* background: #7abce5; */
-    height: 50px;
+    background: #5e6063;
+    margin-top: 12%;
+    margin-left: 25%;
+    height: 41px;
+    width: 300px;
     border-radius: 20px;
     color: white;
-    font-size: 26px;
+    font-size: 23px;
     cursor: pointer;
     font-weight: 900;
-    /* box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white; */
     transition: 0.5s;
 }
 
@@ -127,7 +114,59 @@ input[type="number"] {
     color: white;
     cursor: no-drop;
     visibility: visible;
-    /* background-color: #268ccb; */
+}
+
+.buttonsEdit {
+    margin-top: 12%;
+    margin-left: 41%;
+    /* margin-left: 35%; */
+}
+
+.submitEdit {
+    background: #017aff;
+    height: 41px;
+    width: 200px;
+    border-radius: 20px;
+    color: white;
+    font-size: 23px;
+    cursor: pointer;
+    font-weight: 900;
+    transition: 0.5s;
+}
+
+.submitEdit:hover {
+    color: white;
+    background-color: #013b79;
+}
+
+.submitEditDisabled {
+    background: #5e6063;
+    height: 41px;
+    width: 200px;
+    border-radius: 20px;
+    color: white;
+    font-size: 23px;
+    cursor: pointer;
+    font-weight: 900;
+    transition: 0.5s;
+}
+
+.submitEditDisabled:hover {
+    color: white;
+    cursor: no-drop;
+    visibility: visible;
+}
+
+.backButton {
+    position: absolute;
+    margin-top: -2.6%;
+    margin-left: -3%;
+    /* margin-left: -0.5%; */
+    border-radius: 20px;
+    font-size: 23px;
+    cursor: pointer;
+    font-weight: 900;
+    transition: 0.5s;
 }
 
 input[type=radio] {
@@ -143,14 +182,16 @@ input[type=radio] {
 
 .chooseRating {
     font-size: 24px;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: rgb(252, 200, 68);
 }
 
 .showErrors {
-    font-size: 20px; 
+    position: absolute;
+    font-size: 18px;
     font-weight: bold;
     color: red;
-    margin: 8%;
-    padding-left: 11.5%; 
+    /* margin: 8%; */
+    padding-top: 10px;
+    padding-left: 8%;
 }

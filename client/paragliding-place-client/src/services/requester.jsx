@@ -54,6 +54,10 @@ const requester = async (method, url, data) => {
         window.localStorage.clear()
     }
 
+    if (response.status === 404) {
+        console.log("Error 404")
+    }
+
     const result = await response.json();
 
     if (!response.ok) {

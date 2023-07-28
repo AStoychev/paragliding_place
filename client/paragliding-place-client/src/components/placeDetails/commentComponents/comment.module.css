@@ -115,3 +115,49 @@
     margin-bottom: 1px;
     padding-left: 10px;
 }
+
+/* Create Edit comment */
+
+.createComment {
+    width: 500px;
+    height: 300px;
+    background-color: rgb(229, 234, 238);
+}
+
+.closeButtonX {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+}
+
+.labelComment {
+    margin-top: 1px;
+    font-size: 30px;
+    color: rgb(122, 169, 255);
+}
+
+.textareaComment {
+    width: 450px;
+    height: 160px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.textLimit{
+    display: block;
+    margin-top: 3px;
+    text-align: center;
+}
+
+.btnSubmit {
+    display: block;
+    width: 150px;
+    height: 43px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5%;
+    background: rgb(31, 31, 220);
+}

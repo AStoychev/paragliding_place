@@ -28,7 +28,7 @@ export const PlaceProvider = ({
             setErrors(message)
             setTimeout(() => {
                 setErrors("");
-            }, 2500);
+            }, 3500);
         }
     }
 
@@ -38,7 +38,9 @@ export const PlaceProvider = ({
             setPlaces(state => [...state, newPlace]);
             navigate('/');
         } catch (error) {
-            catchServerError(error, "Something get wrong place check if place already exist or try later!");
+            catchServerError(error, (<span>Something get wrong place check
+                <br></br>
+                if place already exist or try later!</span>));
         }
     };
 
@@ -49,7 +51,9 @@ export const PlaceProvider = ({
             setPlaces(state => state.map(x => x.id === values.id ? result : x));
             navigate(`place-details/${placeId}`);
         } catch (error) {
-            catchServerError(error, "Something get wrong place check if place already exist or try later!");
+            catchServerError(error, (<span>Something get wrong place check
+                <br></br>
+                if place already exist or try later!</span>));
         }
     };
 

@@ -1,12 +1,9 @@
-import { Route, redirect } from "react-router";
-
 import { requestFactory } from "./requester";
 
 const baseUrl = `http://localhost:8000/api/place`;
 
 export const placeServiceFactory = (token) => {
     const request = requestFactory(token);
-    let haveError = ""
 
     const getAll = async () => {
         const result = await request.get(baseUrl);
@@ -22,8 +19,7 @@ export const placeServiceFactory = (token) => {
             return result
 
         } catch (error) {
-            console.log("There is problem")
-            
+            return error
         }
     }
 
@@ -39,12 +35,12 @@ export const placeServiceFactory = (token) => {
 
     const deletePlace = (placeId) => request.delete(`${baseUrl}/delete/${placeId}`);
 
+
     return {
         getAll,
         getOne,
         create,
         edit,
         delete: deletePlace,
-        haveError,
     };
 }

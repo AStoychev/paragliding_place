@@ -3,8 +3,8 @@ import "./About.modules.css"
 export const About = () => {
    return (
       <div className="service">
+         <div className="containers">
          <h2 className="headerAbout">About</h2>
-         <div className="container">
             {/* <div className="row">
                <div className="col-md-12">
                   <div className="titlepage">
@@ -13,7 +13,7 @@ export const About = () => {
                </div>
             </div> */}
             <div className="row">
-               <div className="col-md-12 offset-md-1" style={{marginLeft: "3%"}}>
+               <div className="col-md-13 offset-md-1" style={{marginLeft: "3%"}}>
                   <div className="row">
                      <div className="col-md-5 col-sm-6">
                         <div className="service_box">

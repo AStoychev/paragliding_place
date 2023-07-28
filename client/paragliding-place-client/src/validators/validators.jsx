@@ -72,3 +72,13 @@ export const showIsInvalid = (inputField) => {
     return <span className="showIsInvalid">{inputField} is not valid!</span>
 };
 
+// This validator function is use in Create place and Edit Place and check for length in palace name
+// Not use at the moment
+export const placeNameValidator = (name) => {
+    if(name.length <= 30) {
+        console.log("valid")
+        return <span className="showIsValid">Name is valid</span>
+    }
+    console.log("Invalid")
+    return <span className="showIsInvalid">Name is not valid</span>
+}

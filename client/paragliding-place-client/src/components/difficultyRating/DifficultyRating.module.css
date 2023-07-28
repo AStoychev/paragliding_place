@@ -2,10 +2,6 @@
     width: 220px;
     height: 100px;
     background: rgb(64, 70, 64);
-    /* margin-left: 1px;
-    padding-right: 1px; */
-    /* float: left;
-    clear: none; */
 }
 
 input[type=radio] {
@@ -16,19 +12,12 @@ input[type=radio] {
     display: inline;
     color: rgb(0, 0, 0);
     margin-left: 15%;
-    /* float: left;
-    clear: none;
-    display: block;
-    padding: 0px 1em 0px 8px; */
 }
 
 .ratingLetter {
     cursor: pointer;
     color: black;
     font-size: 35px;
-    /* float: left;
-    clear: none;
-    margin: 2px 0 0 2px; */
 
 }
 

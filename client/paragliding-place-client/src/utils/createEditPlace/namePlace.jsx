@@ -4,6 +4,7 @@ export const NamePlace = ({
     values,
     changeHandler,
 }) => {
+
     return (
         <>
             <label className="placeLabel" htmlFor="place">Place Name</label>
