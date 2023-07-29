@@ -55,7 +55,7 @@ const requester = async (method, url, data) => {
     }
 
     if (response.status === 404) {
-        console.log("Error 404")
+        return result
     }
 
     const result = await response.json();

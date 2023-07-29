@@ -49,9 +49,9 @@ export const PlaceDetails = () => {
                 comments,
                 rate,
             };
-
+            
             // Redirect to page not found
-            if(placeData["detail"]) {
+            if(placeData === "error") {
                 navigate("/pageNotFound")
             }
 

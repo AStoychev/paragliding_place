@@ -19,7 +19,8 @@ export const placeServiceFactory = (token) => {
             return result
 
         } catch (error) {
-            return error
+            if (typeof(error) === "object")
+            return "error"
         }
     }
 
