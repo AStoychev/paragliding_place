@@ -4,10 +4,13 @@ import { useForm } from "../../../hooks/useForm";
 import { useAuthContext } from "../../../contexts/AuthContext";
 import { isEqualAndHaveLength } from "../../../validators/validators";
 
-import "../Profile.module.css"
+import { ResetPasswordEnable } from "../../../utils/buttons/ResetPasswordEnable";
+import { ResetPassowrdDisabled } from "../../../utils/buttons/ResetPasswordDisabled";
+
+import styles from "./PasswordManagemetn.module.css"
 
 export const ResetPasswordEnterToken = () => {
-    const { onCreateNewPassword } = useAuthContext();
+    const { onCreateNewPassword, thisError } = useAuthContext();
 
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
@@ -23,62 +26,69 @@ export const ResetPasswordEnterToken = () => {
 
     return (
         <>
-            <div className="container">
-                <div className="twoColumGrid">
-                    {/* <div className="leftSide"></div> */}
+            <div className={styles.container}>
+                <div>
+                    <h3 className={styles.header}>Reset Password</h3>
                     <form onSubmit={onSubmit}>
-                        <div className="rightSide">
-                            <div className="topAndBottom">
-                                <div className="containerItem">
-                                    <h1>Reset Password</h1>
-                                    <label htmlFor="password">New Password:
-                                        <input
-                                            className="changePasswordToken"
-                                            type="password"
-                                            id="password"
-                                            name='password'
-                                            onInput={e => setPassword(e.target.value)}
-                                            onChange={changeHandler}
+                        <div className={styles.changePasswordDiv}>
 
-                                        />
-                                    </label>
-                                    <label htmlFor="confirm-password">Confirm New Password:
-                                        <input
-                                            className="changePasswordToken"
-                                            type="password"
-                                            id="confirm-password"
-                                            name='confirm-password'
-                                            onInput={e => setConfirmPassword(e.target.value)}
-                                            onChange={changeHandler}
+                            <label htmlFor="password" className={styles.passwordLabel}>New Password:
+                                <div className={styles.passwordDiv}>
+                                    <input
+                                        className={styles.changePasswordInput}
+                                        type="password"
+                                        id="password"
+                                        name='password'
+                                        onInput={e => setPassword(e.target.value)}
+                                        onChange={changeHandler}
 
-                                        />
-                                    </label>
-                                    <label htmlFor="token">Code:
-                                        <input
-                                            className="changePasswordToken"
-                                            type="token"
-                                            id="token"
-                                            name='token'
-                                            onInput={e => setToken(e.target.value)}
-                                            onChange={changeHandler}
-
-                                        />
-                                    </label>
+                                    />
                                 </div>
-                                {
-                                    passwordAndConfirmPassordIsEqual ?
-                                        <input type="submit" value="Reset Password" />
-                                        :
-                                        <input type="submit" value="Reset Password" title="You have to fill all fields" disabled />
-                                }
+                            </label>
+                            <label className={styles.passwordLabel} htmlFor="confirm-password">Confirm New Password:
+                                <div className={styles.passwordDiv}>
+                                    <input
+                                        className={styles.changePasswordInput}
+                                        type="password"
+                                        id="confirm-password"
+                                        name='confirm-password'
+                                        onInput={e => setConfirmPassword(e.target.value)}
+                                        onChange={changeHandler}
 
-                            </div>
+                                    />
+                                </div>
+                            </label>
+                            <label className={styles.passwordLabel} htmlFor="token">Code:
+                                <div className={styles.passwordDiv}>
+                                    <input
+                                        className={styles.changePasswordInput}
+                                        type="token"
+                                        id="token"
+                                        name='token'
+                                        onInput={e => setToken(e.target.value)}
+                                        onChange={changeHandler}
 
+                                    />
+                                </div>
+                            </label>
+
+                        </div>
+
+                        {thisError &&
+                            <p className={styles.showErrors}>{thisError}</p>
+                        }
+
+                        <div className={styles.restPasswordTokenButton}>
+                            {
+                                passwordAndConfirmPassordIsEqual ?
+                                    <ResetPasswordEnable />
+                                    :
+                                    <ResetPassowrdDisabled />
+                            }
                         </div>
                     </form>
                 </div>
-
-            </div >
+            </div>
         </>
     )
 }

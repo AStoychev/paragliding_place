@@ -93,7 +93,9 @@ export const LoginModal = ({ navigatePath }) => {
                 </Modal.Body>
                 <Modal.Footer >
                     {/* Reset password */}
-                    <p style={{ paddingBottom: "30px", paddingRight: "175px", fontSize: "17px" }}>If you forget your password <Link to="reset-password" onClick={handleClose}>Forget Password</Link> </p>
+                    <p className={styles.forgotPassword}>If you forgot your password
+                        <Link className={styles.password} to="reset-password" onClick={handleClose}>Forgot Password</Link>
+                    </p>
                     {/* Reset password */}
 
                 </Modal.Footer>

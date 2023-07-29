@@ -5,7 +5,7 @@ import { useAuthContext } from "../../../contexts/AuthContext";
 import { isEqualAndHaveLength } from "../../../validators/validators";
 
 import { ChangePasswordEnable } from "../../../utils/buttons/ChangePasswordEnable";
-import { ChangePasswordDisable } from "../../../utils/buttons/ChangePasswordDisable"
+import { ChangePasswordDisabled } from "../../../utils/buttons/ChangePasswordDisabled"
 
 import styles from "./PasswordManagemetn.module.css"
 
@@ -13,7 +13,7 @@ export const ChangePassword = () => {
     const userProfileId = useParams()
     const profileId = userProfileId['userId']
 
-    const { userId, onChangePassword } = useAuthContext();
+    const { userId, onChangePassword, thisError } = useAuthContext();
 
     const { values, changeHandler, onSubmit, changeValues } = useForm({
         id: userId,
@@ -68,11 +68,15 @@ export const ChangePassword = () => {
                             </label>
 
                         </div>
-                        <div>
+
+                        {thisError &&
+                        <p className={styles.showErrors}>{thisError}</p>
+                        }
+                        <div className={styles.buttonChange}>
                             {isEqualAndHaveLength(values.new_password, values.confirm_password) && values.password !== "" ?
                                 <ChangePasswordEnable />
                                 :
-                                <ChangePasswordDisable />
+                                <ChangePasswordDisabled />
                             }
                         </div>
                     </form>

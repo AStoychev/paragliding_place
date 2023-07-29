@@ -218,14 +218,13 @@ label[for="terms"]>input {
     padding-left: 11.5%;
 }
 
-/* .showIsValid {
-    color: blue;
-    margin: 35%;
-    padding-left: 11.5%;
+.forgotPassword {
+    padding-bottom: 30px;
+    padding-right: 76px;
+    font-size: 17px;
 }
 
-.showIsInValid {
-    color: red;
-    margin: 11.5%;
-    padding: 33%;
-} */
+.password {
+    padding-left: 10px;
+    text-decoration: none;
+}

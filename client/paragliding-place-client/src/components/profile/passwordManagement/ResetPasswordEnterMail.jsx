@@ -3,8 +3,10 @@ import { useState } from "react";
 import { useForm } from "../../../hooks/useForm";
 import { useAuthContext } from "../../../contexts/AuthContext";
 
+import { ResetPasswordButton } from "../../../utils/buttons/ResetPasswordButton";
+
 import Spinner from 'react-bootstrap/Spinner';
-import "../Profile.module.css"
+import styles from "./PasswordManagemetn.module.css"
 
 
 export const ResetPasswordEnterMail = () => {
@@ -29,45 +31,43 @@ export const ResetPasswordEnterMail = () => {
 
     return (
         <>
-            <div className="container">
-                <div className="twoColumGrid">
-                    {/* <div className="leftSide"></div> */}
+            <div className={styles.container}>
+                <div>
+                    <h3 className={styles.header}>Reset Password</h3>
                     <form onSubmit={onSubmit}>
-                        <div className="rightSide">
-                            <div className="topAndBottom">
-                                <div className="containerItem">
-                                    <h1>Change Password</h1>
-
-                                    <label htmlFor="email">Email:
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            name='email'
-                                            disabled={disabled}
-                                            onInput={e => setEmail(e.target.value)}
-                                            onChange={changeHandler}
-
-                                        />
-                                    </label>
+                        <div className={styles.resetPasswordDiv}>
+                            <label className={styles.passwordLabel} htmlFor="email">Email:
+                                <div className={styles.passwordDiv}>
+                                    <input
+                                        className={styles.changePasswordInput}
+                                        type="email"
+                                        id="email"
+                                        name='email'
+                                        disabled={disabled}
+                                        onInput={e => setEmail(e.target.value)}
+                                        onChange={changeHandler}
+                                    />
                                 </div>
-                                <div className="submitResetPassword">
-                                    <input type="submit" onClick={fetchData} value="Reset Password" disabled={disabled} />
+                            </label>
 
-                                    {thisError ?
-                                        <div className="showErrors">{thisError}</div>
-                                        :
-                                        loading &&
-                                        <Spinner animation="border" variant="info" onAnimationStart={onSpinerLoad} />
-                                    }
+                            <div className={styles.submitResetPassword}>
 
-                                </div>
+                                {thisError ?
+                                    <div className={styles.showErrorsResetPassword}>{thisError}</div>
+                                    :
+                                    loading &&
+                                    <Spinner animation="border" variant="info" onAnimationStart={onSpinerLoad} />
+                                }
+
                             </div>
+                        </div>
 
+                        <div className={styles.reserPasswordButtonDiv}>
+                            <ResetPasswordButton fetchDate={fetchData} disabled={disabled} />
                         </div>
                     </form>
-                </div >
-
-            </div >
+                </div>
+            </div>
         </>
     )
 }

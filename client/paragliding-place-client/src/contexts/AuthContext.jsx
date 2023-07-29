@@ -21,7 +21,7 @@ export const AuthProvider = ({
             setErrors(message)
             setTimeout(() => {
                 setErrors("");
-            }, 2500);
+            }, 3500);
         }
     }
     // Try error
@@ -92,7 +92,7 @@ export const AuthProvider = ({
             setProfile(state => state.map(x => x.id === values.id ? result : x));
             navigate(`profile/${profileId}`);
         } catch (error) {
-            catchServerError(error, "There is some problem with change password!");
+            catchServerError(error, "There is some problem with change password! Please make sure your password is correct!");
         }
     }
 
@@ -113,7 +113,7 @@ export const AuthProvider = ({
             await profileService.createNewPassword(password, token);
             navigate('/feedback-enter-token');
         } catch (error) {
-            catchServerError(error, "There is a problem with reset password!");
+            catchServerError(error, "There is a problem with reset password please check code on your email is correct!");
         }
     }
 
