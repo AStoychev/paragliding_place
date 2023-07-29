@@ -1,0 +1,142 @@
+.container {
+    display: grid;
+    height: 503px;
+    width: 1100px;
+    margin: auto;
+    margin-top: 6%;
+    margin-bottom: 6%;
+    background-color: rgb(211, 245, 255);
+}
+
+.editProfileHeader {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.leftSide {
+    width: 400px;
+    height: 390px;
+    background: url("C:\Users\Atanas\Desktop\paragliding_place\client\paragliding-place-client\public\images\team.png");
+    background-position: 50%;
+}
+
+.rightSide {
+    width: 100%;
+    height: 450px;
+    text-align: center;
+}
+
+.containerItem {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+
+    /* border-style: solid;
+    border-width: 1px;
+    color: #000000; */
+}
+
+.item {
+    display: flex;
+    flex: 1 0 100px;
+    height: 400px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 17px;
+    color: #000000;
+    /* margin: 10px; */
+
+    /* justify-content: center;
+    align-items: center; */
+
+    /* border-style: solid;
+    border-width: 1px;
+    color: #000000; */
+
+}
+
+.oneLineLabel {
+    color: black;
+    display: table-cell;
+    width: 1px;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.formGroup {
+    display: inline-block;
+    padding: 30px;
+}
+
+.mainInformationProfile {
+    padding: 1px;
+}
+
+input[type="text"],
+input[type="number"] {
+    background: #ecf0f3;
+    height: 35px;
+    width: 180px;
+    font-size: 17px;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
+}
+
+.emailVisibilityDiv {
+    display: table-cell;
+    width: 1px;
+    padding: 10px;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.emailVisibilityWrapper {
+    margin-left: 20%;
+}
+
+.labelGender {
+    /* display:contents; */
+    display: table-cell;
+    width: 1px;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.buttonSetting {
+    color: #04ff68;
+    padding-left: 10px;
+}
+
+.genderDiv {
+    padding: 10px;
+}
+
+.genderIcon {
+    color: black;
+    font-size: 50px;
+}
+
+.genderIcon :hover {
+    color: #ffc107;
+}
+
+.changePasswordDiv {
+    padding-top: 10px;
+}
+
+.showErrors {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    margin: 8%;
+    padding-left: 11.5%;
+}
+
+.submitBtn {
+    position: relative;
+    height: 50px;
+    padding-top: 1%;
+    overflow: hidden;
+}

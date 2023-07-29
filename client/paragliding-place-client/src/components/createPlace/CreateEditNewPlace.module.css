@@ -92,7 +92,6 @@ input[type="number"] {
 }
 
 .submit:hover {
-    color: white;
     background-color: #013b79;
 }
 

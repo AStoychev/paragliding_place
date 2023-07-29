@@ -1,24 +1,15 @@
 import { Link } from "react-router-dom"
-import "../profile.modules.css"
+import styles from "./PasswordManagemetn.module.css"
 
 export const FeedbackEnterToken = () => {
     return (
         <>
-            <div className="container">
-                <div className="twoColumGrid">
-                    {/* <div className="leftSide"></div> */}
-                        <div className="rightSide">
-                            <div className="topAndBottom">
-                                <div className="containerItem">
-                                    You password was changed
-                                    Go to <Link to="/">Home Page</Link>
-                                </div>
-                            </div>
-
-                        </div>
+            <div className={styles.container}>
+                <div className={styles.message}>You password was changed!
+                    <img className={styles.image} src="../../../images/reset-password.png" alt="#" />
+                    <div className={styles.homeDivLink}><Link className={styles.homePageLink} to="/">Home Page</Link></div>
                 </div>
-
-            </div >
+            </div>
         </>
     )
 }

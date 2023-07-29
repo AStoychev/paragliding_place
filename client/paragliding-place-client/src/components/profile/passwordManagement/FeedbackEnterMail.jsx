@@ -1,25 +1,15 @@
 import { Link } from "react-router-dom"
-import "../profile.modules.css"
+import styles from "./PasswordManagemetn.module.css"
 
 export const FeedbackEnterMail = () => {
     return (
         <>
-            <div className="container">
-                <div className="twoColumGrid">
-                    {/* <div className="leftSide"></div> */}
-                        <div className="rightSide">
-                            <div className="topAndBottom">
-                                <div className="containerItem">
-                                    Check your email for next step!
-                                    Or 
-                                    Go to <Link to="/">Home Page</Link>
-                                </div>
-                            </div>
-
-                        </div>
+            <div className={styles.container}>
+                <div className={styles.message}>Check your email for next step!
+                    <img className={styles.image} src="../../../images/read.png" alt="#" />
+                    <div className={styles.homeDivLink}><Link className={styles.errorLink} to="/">Home Page</Link></div>
                 </div>
-
-            </div >
+            </div>
         </>
     )
 }

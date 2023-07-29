@@ -4,7 +4,7 @@ import { useForm } from "../../../hooks/useForm";
 import { useAuthContext } from "../../../contexts/AuthContext";
 
 import Spinner from 'react-bootstrap/Spinner';
-import "../profile.modules.css"
+import "../Profile.module.css"
 
 
 export const ResetPasswordEnterMail = () => {

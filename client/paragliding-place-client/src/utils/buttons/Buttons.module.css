@@ -1,0 +1,68 @@
+.submit {
+    position: absolute; 
+    background: #017aff;
+    height: 31px;
+    width: 150px;
+    margin-left: 35%;
+    border-radius: 20px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.submit:hover {
+    background-color: #013b79;
+}
+
+.backButton {
+    position: absolute; 
+    background: #017aff;
+    height: 31px;
+    width: 150px;
+    border-radius: 20px;
+    border-style: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.backButton:hover {
+    background-color: #013b79;
+}
+
+.changePasswordEnable {
+    position: absolute; 
+    background: #017aff;
+    height: 31px;
+    width: 150px;
+    margin-left: 25%;
+    border-radius: 20px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.changePasswordEnable:hover {
+    background-color: #013b79;
+}
+
+.changePasswordDisable {
+    position: absolute; 
+    background: #979898;
+    height: 31px;
+    width: 150px;
+    margin-left: 25%;
+    border-radius: 20px;
+    color: white;
+    font-size: 18px;
+    cursor: no-drop;
+    font-weight: 500;
+    transition: 0.5s;
+}

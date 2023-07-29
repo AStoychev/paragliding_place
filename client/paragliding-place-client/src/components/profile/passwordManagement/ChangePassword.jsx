@@ -4,7 +4,10 @@ import { useForm } from "../../../hooks/useForm";
 import { useAuthContext } from "../../../contexts/AuthContext";
 import { isEqualAndHaveLength } from "../../../validators/validators";
 
-import "../profile.modules.css"
+import { ChangePasswordEnable } from "../../../utils/buttons/ChangePasswordEnable";
+import { ChangePasswordDisable } from "../../../utils/buttons/ChangePasswordDisable"
+
+import styles from "./PasswordManagemetn.module.css"
 
 export const ChangePassword = () => {
     const userProfileId = useParams()
@@ -21,56 +24,60 @@ export const ChangePassword = () => {
 
     return (
         <>
-            <div className="container">
-                <div className="twoColumGrid">
-                    {/* <div className="leftSide"></div> */}
+            <div className={styles.container}>
+                <div>
+                    <h3 className={styles.header}>Change Password</h3>
                     <form onSubmit={onSubmit}>
-                        <div className="rightSide">
-                            <div className="topAndBottom">
-                                <div className="containerItem">
-                                    <h1>Change Password</h1>
+                        <div className={styles.changePasswordDiv}>
 
-                                    <label htmlFor="oldPassword">Old Password:
-                                        <input
-                                            type="password"
-                                            id="oldPassword"
-                                            name='old_password'
-                                            onChange={changeHandler}
-
-                                        />
-                                    </label>
-                                    <label htmlFor="new_password">New Password:
-                                        <input
-                                            type="password"
-                                            id="new_password"
-                                            name='new_password'
-                                            onChange={changeHandler}
-
-                                        />
-                                    </label>
-
-                                    <label htmlFor="confirm_password">Confirm New Password:
-                                        <input
-                                            type="password"
-                                            id="confirm_password"
-                                            name='confirm_password'
-                                            onChange={changeHandler}
-
-                                        />
-                                    </label>
+                            <label htmlFor="oldPassword" className={styles.passwordLabel}>Old Password:
+                                <div className={styles.passwordDiv}>
+                                    <input
+                                        className={styles.changePasswordInput}
+                                        type="password"
+                                        id="oldPassword"
+                                        name='password'
+                                        value={values.password}
+                                        onChange={changeHandler}
+                                    />
                                 </div>
-                                {isEqualAndHaveLength(values.new_password, values.confirm_password) ?
-                                    <input type="submit" value="Change Password" />
-                                    :
-                                    <input type="submit" value="Change Password" disabled={true} />
-                                }
-                            </div>
+                            </label>
+                            <label className={styles.passwordLabel} htmlFor="new_password">New Password:
+                                <div className={styles.passwordDiv}>
+                                    <input
+                                        className={styles.changePasswordInput}
+                                        type="password"
+                                        id="new_password"
+                                        name='new_password'
+                                        value={values.new_password}
+                                        onChange={changeHandler}
+                                    />
+                                </div>
+                            </label>
+                            <label className={styles.passwordLabel} htmlFor="confirm_password">Confirm New Password:
+                                <div className={styles.passwordDiv}>
+                                    <input
+                                        className={styles.changePasswordInput}
+                                        type="password"
+                                        id="confirm_password"
+                                        name='confirm_password'
+                                        value={values.confirm_password}
+                                        onChange={changeHandler}
+                                    />
+                                </div>
+                            </label>
 
+                        </div>
+                        <div>
+                            {isEqualAndHaveLength(values.new_password, values.confirm_password) && values.password !== "" ?
+                                <ChangePasswordEnable />
+                                :
+                                <ChangePasswordDisable />
+                            }
                         </div>
                     </form>
                 </div>
-
-            </div >
+            </div>
         </>
     )
 }

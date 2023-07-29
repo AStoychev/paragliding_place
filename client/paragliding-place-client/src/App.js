@@ -17,7 +17,7 @@ import { RegisterModal } from './components/register/RegisterModal';
 import { CreateNewPlace } from './components/createPlace/CreateNewPlace';
 
 import { Profile } from './components/profile/Profile';
-import { EditProfile } from './components/profile/EditProfile';
+import { EditProfile } from './components/profile/editProfile/EditProfile';
 import { ChangePassword } from './components/profile/passwordManagement/ChangePassword';
 import { ResetPasswordEnterMail } from './components/profile/passwordManagement/ResetPasswordEnterMail';
 import { ResetPasswordEnterToken } from './components/profile/passwordManagement/ResetPasswordEnterToken';

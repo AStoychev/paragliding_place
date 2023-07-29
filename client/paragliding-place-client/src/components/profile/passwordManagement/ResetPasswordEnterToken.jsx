@@ -4,7 +4,7 @@ import { useForm } from "../../../hooks/useForm";
 import { useAuthContext } from "../../../contexts/AuthContext";
 import { isEqualAndHaveLength } from "../../../validators/validators";
 
-import "../profile.modules.css"
+import "../Profile.module.css"
 
 export const ResetPasswordEnterToken = () => {
     const { onCreateNewPassword } = useAuthContext();

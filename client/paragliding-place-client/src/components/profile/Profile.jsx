@@ -8,15 +8,13 @@ import { profileServiceFactory } from "../../services/profileService";
 
 import { isOwner, findEmptyValue } from "../../validators/validators";
 
-import { DifficultyRating } from "../difficultyRating/DifficultyRating"
-
-import "./profile.modules.css"
+import styles from "./Profile.module.css"
 
 export const Profile = () => {
     const userProfileId = useParams()
     const profileId = userProfileId['userId']
 
-    const { userId, isAuthenticated, userName, userEmail, userFirstName, userLastName, userAge, userCountry, userGender } = useAuthContext();
+    const { userId } = useAuthContext();
 
     const profileService = useService(profileServiceFactory);
 
@@ -40,23 +38,23 @@ export const Profile = () => {
 
     return (
         <>
-            <div className="container">
-                <div className="twoColumGrid">
-                    <div className="rightSide">
-                        <div className="topAndBottom">
+            <div className={styles.container}>
+                <div className={styles.twoColumGrid}>
+                    <div className={styles.rightSide}>
+                        <div className={styles.topAndBottom}>
 
-                            <div className="containerItem">
+                            <div className={styles.containerItem}>
 
-                                <div className="leftSide">
+                                <div className={styles.leftSide}>
 
                                 </div>
 
                                 {user.map(x => (
-                                    <div className="item" key={x.id}>
+                                    <div className={styles.item} key={x.id}>
                                         <ul>
                                             <h1>{x.username}
                                                 {isOwner(x.id, userId) &&
-                                                    <Link className="buttonSetting" to={`/profile/edit/${x.id}`} title="Setting" ><img src="../images/setting.png" alt="Edit" /></Link>
+                                                    <Link className={styles.buttonSetting} to={`/profile/edit/${x.id}`} title="Setting" ><img src="../images/setting.png" alt="Edit" /></Link>
                                                 }
                                             </h1>
                                             <p>Name: {x.first_name} {x.last_name}</p>
