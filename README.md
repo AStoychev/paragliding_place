@@ -42,6 +42,7 @@ When GPS is turned off, the map view is a smaller zoom that guides the user to E
 When GPS is turned on, the map view has a larges zoom that guides the user to the place where he is located. Of course, there is a quick button which, after pressing, agains guide the user to the place where ha is located. ![](https://github.com/AStoychev/paragliding_place/blob/main/client/paragliding-place-client/public/images/navigation.png)
 
 The application also has a search engine, with a field that hints at the searched location, at the moment when user starts typing.
+
 ![](https://github.com/AStoychev/paragliding_place/blob/main/client/paragliding-place-client/public/images/images%20not%20in%20app/searchEngine.jpg)
 
 ## Technologies:
@@ -83,3 +84,5 @@ I already mentioned someone above. The technologies used the applicatipon are:
    - Then again install: `npm i`
    - A after that we start the app with: `npm start`
    - ***! If react icons show error we have to install in the same folder (paragliding_place\client>) react-icons with command: `npm install react-icons --save` . After that we can start the application with: `npm start`***
+
+If You have any questions, don't hesitateto write to me :raised_hand:
