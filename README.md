@@ -1,6 +1,6 @@
 # SpotFly
  
-## H2 About the app
+## About the app
 
 SpotFly is web application who is created to help a junior paragliding pilot, but not only, 
 to find suitable place for their first fligt without instructor to guide them. 
@@ -16,7 +16,7 @@ level on place according to your experience and leave your comment.
 I guess the app can save a lot of time for new pilots who looking for suitable lacations for theit solo
 flights.
 
-## H2 What I learn
+## What I learn
 
 I started developing the app in early 2023. From then to now, I,ve learned a lot about web programming.
 Related to Django REST, sending emails vie Gmail SMTP and more detailed knowledge related to using
@@ -27,3 +27,28 @@ React in SoftUni course and made my first application entirely on React, which y
 I combined Django REST and React in the SpotFly project. Developing the project I learned a lot about
 states, hooks and goog prectices. In its main part, the application present a map, for which I used
 React Leaflet. Leaflet is a lightweight mapping library that utilizas OpenStreetMap.
+
+## Features
+
+The features thet the SpotFly app can do are:
+**Create a new user:**
+ - Register, Login, Logout;
+ - Edit profile - **_ only if the user is authorized; _**
+ - Password change - **_ only if the user is authorized; _**
+ - Forgot password - **_ only if the user is authorized; _**
+
+**Create a new flight location** - **_ only for authenticated users _**
+ - Editin the place - **_ only if the user is authorized; _**
+ - Information about the place - **_ everyone can see the details, the rating and comments about the place; _**
+ - Rate System for difficulty of the place - **_ only for authenticated user; _**
+ - Add comment - **_ only for authenticated user; _**_
+   - Delete and edit comment - **_ only for authorized users _**
+
+The application works with the GPS.
+When GPS is turned off, the map view is a smaller zoom that guides the user to Europe.
+When GPS is turned on, the map view has a larges zoom that guides the user to the
+place where he is located. Of course, there is a quick button which, after pressing, agains guide
+the user to the place where ha is located.
+
+The application also has a search engine, with a field that hints at the searched location, at the moment
+when user starts typing.
