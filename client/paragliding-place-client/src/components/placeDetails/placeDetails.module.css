@@ -4,7 +4,6 @@
     width: 100%;
     overflow: auto;
     margin-top: 5px;
-    /* background-color: rgb(211, 245, 255); */
 }
 
 .twoColumGrid {
@@ -23,8 +22,6 @@
     height: 750px;
     background-position: 50%;
     margin-top: 10px;
-
-    /* background-color: rgba(132, 201, 137, 0.445); */
 }
 
 .rightSide:nth-of-type(2) {
@@ -38,16 +35,13 @@
 }
 
 .detailsNavigation {
-    /* background-color: rgb(102, 147, 115); */
     text-align: center;
-
     flex: 1 0 100px;
     height: 20%;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 18px;
     color: #000000;
     margin: 10px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,7 +60,6 @@
 
 .containerItem {
     display: flex;
-    /* background-color: #f4f4f4; */
     align-items: start;
     flex-wrap: wrap;
 }
@@ -78,16 +71,8 @@
     font-weight: bold;
     font-size: 17px;
     background-color: rgb(211, 245, 255);
-    /* background-color: rgba(132, 201, 137, 0.445); */
-    /* background-color: rgb(156, 201, 246); */
-    /* background-color: rgb(9, 87, 52); */
-    /* border-color: black;
-    border-style: solid;
-    border-width: 1px; */
-    /* background: #254de4; */
     color: #000000;
     margin: 10px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,12 +95,8 @@
     font-weight: bold;
     font-size: 17px;
     background-color: rgb(211, 245, 255);
-    /* background-color: rgba(132, 201, 137, 0.445); */
-    /* border-style: solid;
-    border-width: 1px; */
     color: #000000;
     margin: 10px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,11 +122,6 @@
     column-count: 3;
 }
 
-/* .commentContent {
-    font-size: 20px;
-    font-family: Marker Felt, 'Times New Roman', Times, serif;
-} */
-
 .clusterIcon {
     height: 0.1px;
     width: 0.1px;
@@ -167,13 +143,10 @@
 
 .logoutComment {
     color: black;
-    /* background-color: #28bac1; */
-    /* flex: 1 0 100px; */
     width: 80%;
     margin-left: 10%;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 17px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -186,9 +159,6 @@
     margin-bottom: 1px;
     padding-left: 10px;
 }
-
-
-
 
 .ratingContainer {
     width: 200px;
@@ -250,7 +220,3 @@ input[type=radio] {
     align-items: center;
     padding-right: 100px;
 }
-
-/* .voteBar {
-    background: none;
-} */
