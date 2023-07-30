@@ -31,6 +31,9 @@ The features thet the SpotFly app can do are:
  - Add comment - ***only for authenticated user;***
    - Delete and edit comment - ***only for authorized users***
 
+ ***Main Page***
+ ![](https://github.com/AStoychev/paragliding_place/blob/main/client/paragliding-place-client/public/images/SpotFly.jpg)
+
 The application works with the ***GPS***.
 
 When GPS is turned off, the map view is a smaller zoom that guides the user to Europe. When GPS is turned off the location button does not work.
