@@ -58,16 +58,16 @@ when user starts typing.
 
 I already mentioned someone above. The technologies used the applicatipon are:
 ### Backend:
-***Python***
+ ***-Python***
 
-***Django REST***
+ ***-Django REST***
 
 ### Frontend
-***JaveScript***
+ ***-JaveScript***
 
-***React***
+ ***-React***
 
-***React Leaflet***
+ ***-React Leaflet***
 
 ### Database
-***PostgreSQL***
+ ***-PostgreSQL***
