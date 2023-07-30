@@ -19,8 +19,8 @@ flights.
 ## What I learn
 
 I started developing the app in early 2023. From then to now, I,ve learned a lot about web programming.
-Related to Django REST, sending emails vie Gmail SMTP and more detailed knowledge related to using
-the class base views.
+Related to **_Django REST_**, sending emails vie **_Gmail SMTP_** and more detailed knowledge related to using
+the **_class base views.
 
 When I started devoloping the app I didn't have much experience with React.So I started learning
 React in SoftUni course and made my first application entirely on React, which you can see here. Then
@@ -33,11 +33,11 @@ React Leaflet. Leaflet is a lightweight mapping library that utilizas OpenStreet
 The features thet the SpotFly app can do are:
 **Create a new user:**
  - Register, Login, Logout;
- - Edit profile - **_ only if the user is authorized; _**
- - Password change - **_ only if the user is authorized; _**
- - Forgot password - **_ only if the user is authorized; _**
+ - Edit profile - ***only if the user is authorized;***
+ - Password change - ***only if the user is authorized;***
+ - Forgot password - ***only if the user is authorized;***
 
-**Create a new flight location** - **_ only for authenticated users _**
+**Create a new flight location** - ***only for authenticated users***
  - Editin the place - **_ only if the user is authorized; _**
  - Information about the place - **_ everyone can see the details, the rating and comments about the place; _**
  - Rate System for difficulty of the place - **_ only for authenticated user; _**
