@@ -54,16 +54,19 @@ the user to the place where ha is located.
 The application also has a search engine, with a field that hints at the searched location, at the moment
 when user starts typing.
 
-##Technologies:
+## Technologies:
 
 I already mentioned someone above. The technologies used the applicatipon are:
 ### Backend:
 ***Python***
+
 ***Django REST***
 
 ### Frontend
 ***JaveScript***
+
 ***React***
+
 ***React Leaflet***
 
 ### Database
