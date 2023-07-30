@@ -32,7 +32,7 @@ The features thet the SpotFly app can do are:
    - Delete and edit comment - ***only for authorized users***
 
  **Main Page**
- ![](https://github.com/AStoychev/paragliding_place/blob/main/client/paragliding-place-client/public/images/SpotFly.jpg)
+ ![](https://github.com/AStoychev/paragliding_place/blob/main/client/paragliding-place-client/public/images/images%20not%20in%20app/SpotFly.jpg)
 
 The application works with the ***GPS***.
 
@@ -42,6 +42,7 @@ When GPS is turned off, the map view is a smaller zoom that guides the user to E
 When GPS is turned on, the map view has a larges zoom that guides the user to the place where he is located. Of course, there is a quick button which, after pressing, agains guide the user to the place where ha is located. ![](https://github.com/AStoychev/paragliding_place/blob/main/client/paragliding-place-client/public/images/navigation.png)
 
 The application also has a search engine, with a field that hints at the searched location, at the moment when user starts typing.
+![](https://github.com/AStoychev/paragliding_place/blob/main/client/paragliding-place-client/public/images/images%20not%20in%20app/searchEngine.jpg)
 
 ## Technologies:
 
