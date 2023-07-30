@@ -17,8 +17,6 @@ import { placeReducer } from "../../reducers/placeReducer";
 
 import { isOwner } from "../../validators/validators";
 
-import { PageNotFound } from "../pageNotFound/pageNotFound";
-
 import "leaflet/dist/leaflet.css";
 import styles from "../placeDetails/placeDetails.module.css";
 
