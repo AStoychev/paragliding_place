@@ -61,3 +61,25 @@ I already mentioned someone above. The technologies used the applicatipon are:
 
 ### Database
  ***-PostgreSQL***
+
+## How to install and run the project?
+
+1. Clone the SpotFly with HTTPS:
+   `git clone https://github.com/AStoychev/paragliding_place.git`
+
+2. Open the app with PyCharm or Visual Studio Code. I personaly use both. For backend I use PyCharn and for frontend I use Visual Studio Code.
+ 
+3. When open backend - this is folder ***paragliding_place***. You have to create changes in settings.py files.
+   - SECRET_KEY; DEBUG; ALLOWED_HOSTS; CORS_ALLOWED_ORIGINS - the default port for React app is 3000;
+   - Then we have to set up database: DB_ENGINE; DB_NAME; DB_USER; DB_PASSWORD; DB_HOST;DB_PORT. I use PostreSQL.
+   - Then install all used libraries, modules and packages used in the applications with command: `pip install -r requirements.txt`
+   - Then start server with command: `python manage.py runserver` or just click rigth button over folder ***paragliding_place*** and click ***Run***
+   - ***Only for send emails*** If we want to send emails. This is functionality for reset password. We have to set up this in settings.py. EMAIL_EMAIL_BACKEND; EMAIL_EMAIL_HOST; EMAIL_EMAIL_HOST_USER; EMAIL_EMAIL_HOST_PASSWORD; EMAIL_EMAIL_PORT; EMAIL_EMAIL_USE_TLS. You have to set up your Gmail 2-Step Verification. Follow the steps in this video:
+![Watch video](https://www.youtube.com/watch?v=Y_u5KIeXiVI). And can use this information for set up send email ![](https://mailtrap.io/blog/django-send-email/)
+
+4. When open frontend - this is folder ***client***. You have to install some packages.
+   - First when open the folder client in terminal start command `npm i`;
+   - Then in terminal: `cd paragliding-place-client\`
+   - Then again install: `npm i`
+   - A after that we start the app with: `npm start`
+   - ***! If react icons show error we have to install in the same folder (paragliding_place\client>) react-icons with command: `npm install react-icons --save` . After that we can start the application with: `npm start`***
