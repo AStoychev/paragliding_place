@@ -5,20 +5,15 @@
     margin: auto;
     margin-top: 6%;
     margin-bottom: 6%;
-    /* overflow: auto; */
     background-color: rgb(211, 245, 255);
-    /* background-color: #d8dbe4; */
-    /* background-color: #f4f4f4; */
 }
 
 .leftSide {
     width: 400px;
     height: 390px;
     margin-left: 90px;
-    margin-top: -2%;
-    background: url("C:\Users\Atanas\Desktop\paragliding_place\client\paragliding-place-client\public\images\team.png");
+    margin-top: 3%;
     background-position: 50%;
-    /* background-color: rebeccapurple; */
 }
 
 .rightSide {
@@ -27,14 +22,11 @@
     background-position: 50%;
     margin-top: 10px;
     text-align: center;
-
-    /* background-color: rgba(132, 201, 137, 0.445); */
 }
 
 .containerItem {
     display: flex;
     padding-top: 3%;
-    /* background-color: #f4f4f4; */
     align-items: start;
     flex-wrap: wrap;
 }
@@ -46,27 +38,11 @@
     font-weight: bold;
     font-size: 17px;
     color: #000000;
-    margin: 10px;
-
-    /* border-style: solid;
-    border-width: 1px;
-    color: #000000; */
-
+    margin-top: 4%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-
-/* .item:nth-of-type(1) {
-    flex-direction: column;
-    flex-shrink: 1;
-}
-
-.item:nth-of-type(2) {
-    flex-direction: column;
-    flex-shrink: 2;
-} */
 
 .itemDirection {
     flex: 1 0 100px;
@@ -74,12 +50,7 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 17px;
-    /* background-color: rgba(132, 201, 137, 0.445); */
-    /* border-style: solid;
-    border-width: 1px;
-    color: #000000; */
     margin: 10px;
-
     display: flex;
     justify-content: center;
     align-items: center;

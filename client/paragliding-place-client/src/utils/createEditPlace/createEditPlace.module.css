@@ -1,5 +1,7 @@
 .placeLabel {
-    font-size: 28px;
+    margin-left: 21%;
+    font-weight: bold;
+    font-size: 15px;
     color: black;
 }
 
@@ -7,7 +9,7 @@
     background: #ecf0f3;
     height: 35px;
     width: 375px;
-    margin-left: 17%;
+    margin-left: 35%;
     margin-top: 1px;
     font-size: 17px;
     border-radius: 50px;
@@ -144,4 +146,8 @@ input[type="checkbox"] {
     width: 10px;
     margin-top: -15px;
     margin-left: 58px;
+}
+
+.tableDifferent {
+    padding-left: 16px;
 }

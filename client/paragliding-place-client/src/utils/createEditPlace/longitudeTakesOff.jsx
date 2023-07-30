@@ -1,19 +1,19 @@
-import './createEditPlace.modules.css';
+import styles from './createEditPlace.module.css';
 
 export const LongitudeTakesOff = ({
     values,
     changeHandler,
 }) => {
     return (
-        <th className="tableDiffernt">
+        <th className={styles.tableDiffernt}>
             <label
                 htmlFor="longitude_takes_off"
-                className="labelDirection"
+                className={styles.labelDirection}
             >
                 Longitude&nbsp;Launch
             </label>
             <input
-                className="inputDirection"
+                className={styles.inputDirection}
                 value={values.longitude_takes_off}
                 onChange={changeHandler}
                 type="number"

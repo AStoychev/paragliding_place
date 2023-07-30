@@ -1,4 +1,4 @@
-import './createEditPlace.modules.css';
+import styles from './createEditPlace.module.css';
 
 export const NamePlace = ({
     values,
@@ -7,10 +7,10 @@ export const NamePlace = ({
 
     return (
         <>
-            <label className="placeLabel" htmlFor="place">Place Name</label>
+            <label className={styles.placeLabel} htmlFor="place">Place Name</label>
             <input
                 value={values.place}
-                className="inputName"
+                className={styles.inputName}
                 onChange={changeHandler}
                 id="place"
                 type="text"

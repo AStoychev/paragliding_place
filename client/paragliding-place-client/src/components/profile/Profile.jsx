@@ -25,7 +25,7 @@ export const Profile = () => {
         Promise.all([
             profileService.getOne(profileId)
         ]).then(result => {
-            
+
             // Redirect to page not found
             if (result[0].length > 1) {
                 navigate("/pageNotFound")
@@ -45,7 +45,7 @@ export const Profile = () => {
                             <div className={styles.containerItem}>
 
                                 <div className={styles.leftSide}>
-
+                                    <img src="../../images/team.png" alt="Setting" />
                                 </div>
 
                                 {user.map(x => (

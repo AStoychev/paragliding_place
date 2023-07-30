@@ -93,7 +93,9 @@ export const CreateNewPlace = () => {
             <section id={styles.createPlace} className="content auth">
                 <form method='POST' onSubmit={onSubmit} name="createPlace">
                     <div className={styles.threeColumnsGrid}>
-                        <div className={styles.leftSide}></div>
+                        <div className={styles.leftSide}>
+                            <img src="../../images/paraglidingCreatePlaceNew.jpg" alt="Setting" />
+                        </div>
                         <div className={styles.rightSide}>
                             <h3 className={styles.header}>Create Place</h3>
 
@@ -131,9 +133,9 @@ export const CreateNewPlace = () => {
                             }
 
                             {checkCreateEditPlace(values) ?
-                                < input className={styles.submit} type="submit" value="Create"/>
+                                < input className={styles.submit} type="submit" value="Create" />
                                 :
-                                < input className={styles.submitDisabled} type="submit" value="Create" title="Fill all fields" disabled={true}/>
+                                < input className={styles.submitDisabled} type="submit" value="Create" title="Fill all fields" disabled={true} />
                             }
                         </div>
                     </div>

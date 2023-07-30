@@ -1,20 +1,20 @@
-import './createEditPlace.modules.css';
+import styles from './createEditPlace.module.css';
 
 export const DescribeLaunch = ({
     values,
     changeHandler,
 }) => {
     return (
-        <th className="tableDiffernt">
+        <th className={styles.tableDifferent}>
             <label
                 htmlFor="description_launch"
-                className="labelDirection">
+                className={styles.labelDirection}>
                 Describe&nbsp;Launch
             </label>
 
             <textarea
                 value={values.description_launch}
-                className="textareaDirection"
+                className={styles.textareaDirection}
                 onChange={changeHandler}
                 type="text"
                 id="description_launch"

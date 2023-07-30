@@ -1,4 +1,4 @@
-import './createEditPlace.modules.css';
+import styles from './createEditPlace.module.css';
 
 export const LongituteLandind = ({
     values,
@@ -8,12 +8,12 @@ export const LongituteLandind = ({
         <th>
             <label
                 htmlFor="longitude_landing"
-                className="labelDirection"
+                className={styles.labelDirection}
             >
                 Longitude&nbsp;Landing
             </label>
             <input
-                className="inputDirection"
+                className={styles.inputDirection}
                 value={values.longitude_landing}
                 onChange={changeHandler}
                 type="number"

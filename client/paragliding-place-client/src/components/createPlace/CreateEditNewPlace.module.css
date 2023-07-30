@@ -21,11 +21,9 @@
 .leftSide {
     width: 400px;
     height: 700px;
-    margin-left: 90px;
+    margin-left: 73px;
     margin-top: 50px;
-    background: url("C:\Users\Atanas\Desktop\paragliding_place\client\paragliding-place-client\public\images\paraglidingCreatePlaceNew.jpg");
     background-position: 50%;
-    /* background-color: rebeccapurple; */
 }
 
 /* right side of the panel */
@@ -34,12 +32,10 @@
     height: 943px;
     margin-left: 10px;
     background-color: rgba(134, 221, 253, 0.445);
-    /* background-color: rgba(132, 201, 137, 0.445); */
 }
 
 .header {
     padding-left: 36%;
-    /* font-family: "Sans-Serif"; */
 }
 
 .headerDifficultyLevel {
@@ -61,6 +57,7 @@
 .tablePosition {
     margin-left: 13%;
 }
+
 
 th {
     padding-left: 6px;
@@ -118,7 +115,6 @@ input[type="number"] {
 .buttonsEdit {
     margin-top: 12%;
     margin-left: 41%;
-    /* margin-left: 35%; */
 }
 
 .submitEdit {
@@ -160,7 +156,6 @@ input[type="number"] {
     position: absolute;
     margin-top: -2.6%;
     margin-left: -3%;
-    /* margin-left: -0.5%; */
     border-radius: 20px;
     font-size: 23px;
     cursor: pointer;
@@ -190,7 +185,6 @@ input[type=radio] {
     font-size: 18px;
     font-weight: bold;
     color: red;
-    /* margin: 8%; */
     padding-top: 10px;
     padding-left: 8%;
 }

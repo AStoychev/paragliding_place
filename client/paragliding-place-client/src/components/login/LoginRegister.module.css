@@ -2,24 +2,18 @@
     position: relative;
     width: 1391;
     height: 596px;
-    /* border-radius: 20px; */
     padding: 10px;
     box-sizing: border-box;
     background: #25372b;
-    /* background: url("C:\Users\Atanas\Desktop\living_wall client\client\public\images\Moss.jpg"); */
-    /* box-shadow: 0px 0px 32px 0px #49535e, -14px -14px 20px #191c21; */
 }
 
 #registerPage {
     position: relative;
     width: 1391;
     height: 596px;
-    /* border-radius: 20px; */
     padding: 10px;
     box-sizing: border-box;
     background: #25372b;
-    /* background: url("C:\Users\Atanas\Desktop\living_wall client\client\public\images\Moss.jpg"); */
-    /* box-shadow: 0px 0px 32px 0px #49535e, -14px -14px 20px #191c21; */
 }
 
 .containerFrame {
@@ -44,8 +38,6 @@
 .brand-logo {
     height: 100px;
     width: 100px;
-    /* background: #25372b; */
-    /* background: url("../images/icon-gamepad-2.png"); */
     margin: auto;
     border-radius: 5%;
     box-sizing: border-box;
@@ -55,13 +47,11 @@
 .container>h1 {
     font-size: 50px;
     margin-top: 30px;
-    /* font-weight: 900; */
     font-size: 2.5rem;
     text-align: center;
     color: rgb(253, 250, 250);
     letter-spacing: 1px;
     font-family: Georgia;
-    /* 'Times New Roman', Times, serif; */
     margin-bottom: 37px;
 }
 
@@ -87,7 +77,6 @@ label {
     color: white;
     margin-top: 13px;
     font-family: Georgia;
-    /* 'Times New Roman', Times, serif; */
 }
 
 label:nth-of-type(2) {
@@ -138,35 +127,30 @@ label[for="terms"]>input {
     margin-top: 10px;
     margin-left: 89px;
     background: #006fe6;
-    /* background: #7abce5; */
     height: 45px;
     border-radius: 20px;
     color: white;
     font-size: 26px;
     cursor: pointer;
     font-weight: 900;
-    /* box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white; */
     transition: 0.5s;
 }
 
 .submitBtn:hover {
     color: white;
     background-color: rgb(0, 64, 133);
-    /* background-color: #268ccb; */
 }
 
 .submitDisabled {
     margin-top: 10px;
     margin-left: 89px;
     background: #666e65;
-    /* background: #7abce5; */
     height: 45px;
     border-radius: 20px;
     color: white;
     font-size: 26px;
     cursor: no-drop;
     font-weight: 900;
-    /* box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white; */
     transition: 0.5s;
 }
 
@@ -183,26 +167,11 @@ label[for="terms"]>input {
     color: rgba(197, 225, 12, 0.395);
 }
 
-
-/* .field-set-register {
-    width: 100px;
-    height: 100px;
-    border: 10px;
-    border-radius: 10px;
-    text-align: center;
-    border-color: black;
-    background-color: red;
-    opacity: 0.5;
-    margin-left: 80%;
-} */
-
 .navLink {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
     padding-right: 15px;
-    /* color: rgb(82, 51, 187);
-    text-decoration: none; */
 }
 
 .navLink:hover {

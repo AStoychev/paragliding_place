@@ -78,11 +78,7 @@ export const EditProfile = () => {
                             <div className={styles.containerItem}>
 
                                 <div className={styles.leftSide}>
-                                    {/* <span>
-                                        <Link className={styles.changePasswordLink} to={`/profile/edit/change-password/${userId}`} title="Change Password">
-                                            <img src="../../images/key.png" alt="Change Password" />
-                                        </Link>
-                                    </span> */}
+                                    <img src="../../images/team.png" alt="Setting" />
                                 </div>
 
                                 <div className={styles.item}>
@@ -202,7 +198,7 @@ export const EditProfile = () => {
 
                             <div className={styles.submitBtn}>
                                 <EditButton />
-                                <BackButton backButtonUrl={backButtonUrl}/>
+                                <BackButton backButtonUrl={backButtonUrl} />
                             </div>
 
                         </div>

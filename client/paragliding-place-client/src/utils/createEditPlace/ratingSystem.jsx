@@ -1,6 +1,6 @@
 import { TbCircleLetterA, TbCircleLetterB, TbCircleLetterC, TbCircleLetterD } from "react-icons/tb";
 
-import styles from './createEditPlace.modules.css';
+import styles from './createEditPlace.module.css';
 
 export const RatingSystemCreate = ({
     values,
@@ -10,42 +10,42 @@ export const RatingSystemCreate = ({
 }) => {
 
     return (
-        <div className="ratingContainerCreate">
-            <label className="labelRating" onChange={changeHandler} >
+        <div className={styles.ratingContainerCreate}>
+            <label className={styles.labelRating} onChange={changeHandler} >
                 <input
                     type="radio"
                     name="rating"
                     value={values.difficulty_level}
                     onChange={onRatingChange}
                 />
-                <TbCircleLetterA className="ratingLetter" onClick={() => setRating("A")} color={values.difficulty_level === "A" ? "#ffc107" : "#e4e5e9"} />
+                <TbCircleLetterA className={styles.ratingLetter} onClick={() => setRating("A")} color={values.difficulty_level === "A" ? "#ffc107" : "#e4e5e9"} />
             </label>
-            <label className="labelRating" onChange={changeHandler} >
+            <label className={styles.labelRating} onChange={changeHandler} >
                 <input
                     type="radio"
                     name="rating"
                     value={values.difficulty_level}
                     onChange={onRatingChange}
                 />
-                <TbCircleLetterB className="ratingLetter" onClick={() => setRating("B")} color={values.difficulty_level === "B" ? "#ffc107" : "#e4e5e9"} />
+                <TbCircleLetterB className={styles.ratingLetter} onClick={() => setRating("B")} color={values.difficulty_level === "B" ? "#ffc107" : "#e4e5e9"} />
             </label>
-            <label className="labelRating" onChange={changeHandler} >
+            <label className={styles.labelRating} onChange={changeHandler} >
                 <input
                     type="radio"
                     name="rating"
                     value={values.difficulty_level}
                     onChange={onRatingChange}
                 />
-                <TbCircleLetterC className="ratingLetter" onClick={() => setRating("C")} color={values.difficulty_level === "C" ? "#ffc107" : "#e4e5e9"} />
+                <TbCircleLetterC className={styles.ratingLetter} onClick={() => setRating("C")} color={values.difficulty_level === "C" ? "#ffc107" : "#e4e5e9"} />
             </label>
-            <label className="labelRating" onChange={changeHandler} >
+            <label className={styles.labelRating} onChange={changeHandler} >
                 <input
                     type="radio"
                     name="rating"
                     value={values.difficulty_level}
                     onChange={onRatingChange}
                 />
-                <TbCircleLetterD className="ratingLetter" onClick={() => setRating("D")} color={values.difficulty_level === "D" ? "#ffc107" : "#e4e5e9"} />
+                <TbCircleLetterD className={styles.ratingLetter} onClick={() => setRating("D")} color={values.difficulty_level === "D" ? "#ffc107" : "#e4e5e9"} />
             </label>
         </div>
     )

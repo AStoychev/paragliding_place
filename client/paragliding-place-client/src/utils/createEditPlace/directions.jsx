@@ -1,4 +1,4 @@
-import './createEditPlace.modules.css';
+import styles from'./createEditPlace.module.css';
 
 export const Directions = ({
     values,
@@ -8,17 +8,17 @@ export const Directions = ({
 }) => {
 
     return (
-        <table className="tableDirection">
+        <table className={styles.tableDirection}>
             <tbody>
                 <tr>
                     {Object.entries(checkButtonDirections).map(([mainDirection, indetailDirection]) =>
-                        <th className="tableDirectionDifferent" key={mainDirection}>
+                        <th className={styles.tableDirectionDifferent} key={mainDirection}>
                             {indetailDirection.map(directionDetail => (
                                 <div
-                                    className="checkboxWrapper"
+                                    className={styles.checkboxWrapper}
                                     key={directionDetail}>
                                     <label
-                                        className="divCheck"
+                                        className={styles.divCheck}
                                         htmlFor={directionDetail}>
                                         {directionDetail.toUpperCase()}
                                         <input
@@ -30,7 +30,7 @@ export const Directions = ({
                                             checked={directions[directionDetail] || values.direction[directionDetail]}
                                         />
                                         <span
-                                            className="checkbox">
+                                            className={styles.checkbox}>
                                         </span>
                                     </label>
                                 </div>
