@@ -106,5 +106,5 @@ I already mentioned someone above. The technologies used the applicatipon are:
    - Then again install: `npm i`
    - A after that we start the app with: `npm start`
    - ***! If react icons show error we have to install in the same folder (paragliding_place\client>) react-icons with command: `npm install react-icons --save` . After that we can start the application with: `npm start`***
-
+  
 ***If You have any questions, don't hesitate to write to me*** :raised_hand:
