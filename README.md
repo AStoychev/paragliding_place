@@ -76,6 +76,7 @@ I already mentioned someone above. The technologies used the applicatipon are:
    - DEBUG = FALSE;
    - ALLOWED_HOSTS = 'localhost 127.0.0.1';
    - CORS_ALLOWED_ORIGINS - the default port for React app is 3000;
+ 
    3.2. Then we have to set up database. I use PostreSQL:
      - DB_ENGINE;
      - DB_NAME;
