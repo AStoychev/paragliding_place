@@ -37,7 +37,6 @@ export const EditPlace = () => {
         longitude_landing: '',
         description_launch: '',
         description_landing: '',
-        // description: '',
         direction: {
             e: false,
             es: false,
