@@ -88,7 +88,7 @@ I already mentioned someone above. The technologies used the applicatipon are:
    3.5 ***Only for send emails*** If we want to send emails. This is functionality for reset password. We have to set up this in settings.py.
      - EMAIL_EMAIL_BACKEND = django.core.mail.backends.smtp.EmailBackend;
      - EMAIL_EMAIL_HOST = smtp.gmail.com;
-     - EMAIL_EMAIL_HOST_USER = ***Enter the email that sends the messages***;
+     - EMAIL_EMAIL_HOST_USER = ***Enter the email that sends the messages. In this case it should be Gmail***;
      - EMAIL_EMAIL_HOST_PASSWORD = ***The code that Gmail gives after setting up the 2-Step Verification***;
      - EMAIL_EMAIL_PORT = 587;
      - EMAIL_EMAIL_USE_TLS = True;
