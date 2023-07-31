@@ -83,8 +83,11 @@ I already mentioned someone above. The technologies used the applicatipon are:
      - DB_PASSWORD;
      - DB_HOST;
      - DB_PORT.
+       
    3.3. Then install all used libraries, modules and packages used in the applications with command: `pip install -r requirements.txt`
+   
    3.4 Then start server with command: `python manage.py runserver` or just click rigth button over folder ***paragliding_place*** and click ***Run***
+   
    3.5 ***Only for send emails*** If we want to send emails. This is functionality for reset password. We have to set up this in settings.py.
      - EMAIL_EMAIL_BACKEND = django.core.mail.backends.smtp.EmailBackend;
      - EMAIL_EMAIL_HOST = smtp.gmail.com;
