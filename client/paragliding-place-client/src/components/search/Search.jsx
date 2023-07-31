@@ -61,7 +61,7 @@ export const Search = ({
                         <div className="search">
                             <div className="searchContainer">
                                 <div className="search-inner">
-                                    <input className="searchInput" type="text" value={value} onChange={onChange} />
+                                    <input className="searchInput" type="search" value={value} onChange={onChange} />
                                     <Button className="searchBtn" variant="info" onClick={ClickHandler}>Search</Button>
                                 </div>
                                 <div className="dropdown">
