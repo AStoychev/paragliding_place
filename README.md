@@ -96,6 +96,7 @@ I already mentioned someone above. The technologies used the applicatipon are:
      - EMAIL_EMAIL_HOST_PASSWORD = ***The code that Gmail gives after setting up the 2-Step Verification***;
      - EMAIL_EMAIL_PORT = 587;
      - EMAIL_EMAIL_USE_TLS = True;
+ 
        You have to set up your Gmail 2-Step Verification. Follow the steps in this video: [Gmail 2-Step Verification](https://www.youtube.com/watch?v=Y_u5KIeXiVI). And can use this
        information for set up send email [Django Send Email](https://mailtrap.io/blog/django-send-email/)
 
