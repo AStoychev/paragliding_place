@@ -71,18 +71,40 @@ I already mentioned someone above. The technologies used the applicatipon are:
 2. Open the app with PyCharm or Visual Studio Code. I personaly use both. For backend I use PyCharn and for frontend I use Visual Studio Code.
  
 3. When open backend - this is folder ***paragliding_place***. You have to create changes in settings.py files.
-   - SECRET_KEY; DEBUG; ALLOWED_HOSTS; CORS_ALLOWED_ORIGINS - the default port for React app is 3000;
-   - Then we have to set up database: DB_ENGINE; DB_NAME; DB_USER; DB_PASSWORD; DB_HOST;DB_PORT. I use PostreSQL.
-   - Then install all used libraries, modules and packages used in the applications with command: `pip install -r requirements.txt`
-   - Then start server with command: `python manage.py runserver` or just click rigth button over folder ***paragliding_place*** and click ***Run***
-   - ***Only for send emails*** If we want to send emails. This is functionality for reset password. We have to set up this in settings.py. EMAIL_EMAIL_BACKEND; EMAIL_EMAIL_HOST; EMAIL_EMAIL_HOST_USER; EMAIL_EMAIL_HOST_PASSWORD; EMAIL_EMAIL_PORT; EMAIL_EMAIL_USE_TLS. You have to set up your Gmail 2-Step Verification. Follow the steps in this video:
-[Gmail 2-Step Verification](https://www.youtube.com/watch?v=Y_u5KIeXiVI). And can use this information for set up send email [Django Send Email](https://mailtrap.io/blog/django-send-email/)
+   3.1.
+   - SECRET_KEY;
+   - DEBUG = FALSE;
+   - ALLOWED_HOSTS = 'localhost 127.0.0.1';
+   - CORS_ALLOWED_ORIGINS - the default port for React app is 3000;
+ 
+   3.2. Then we have to set up database. I use PostreSQL:
+     - DB_ENGINE;
+     - DB_NAME;
+     - DB_USER;
+     - DB_PASSWORD;
+     - DB_HOST;
+     - DB_PORT.
+       
+   3.3. Then install all used libraries, modules and packages used in the applications with command: `pip install -r requirements.txt`
+   
+   3.4 Then start server with command: `python manage.py runserver` or just click rigth button over folder ***paragliding_place*** and click ***Run***
+   
+   3.5 ***Only for send emails*** If we want to send emails. This is functionality for reset password. We have to set up this in settings.py.
+     - EMAIL_EMAIL_BACKEND = django.core.mail.backends.smtp.EmailBackend;
+     - EMAIL_EMAIL_HOST = smtp.gmail.com;
+     - EMAIL_EMAIL_HOST_USER = ***Enter the email that sends the messages. In this case it should be Gmail***;
+     - EMAIL_EMAIL_HOST_PASSWORD = ***The code that Gmail gives after setting up the 2-Step Verification***;
+     - EMAIL_EMAIL_PORT = 587;
+     - EMAIL_EMAIL_USE_TLS = True;
+ 
+       You have to set up your Gmail 2-Step Verification. Follow the steps in this video: [Gmail 2-Step Verification](https://www.youtube.com/watch?v=Y_u5KIeXiVI). And can use this
+       information for set up send email [Django Send Email](https://mailtrap.io/blog/django-send-email/)
 
-4. When open frontend - this is folder ***client***. You have to install some packages.
+5. When open frontend - this is folder ***client***. You have to install some packages.
    - First when open the folder client in terminal start command `npm i`;
    - Then in terminal: `cd paragliding-place-client\`
    - Then again install: `npm i`
    - A after that we start the app with: `npm start`
    - ***! If react icons show error we have to install in the same folder (paragliding_place\client>) react-icons with command: `npm install react-icons --save` . After that we can start the application with: `npm start`***
-
-***If You have any questions, don't hesitate to write to me*** :raised_hand:
+  
+***If You have any questions, don't hesitate to write to me*** :world_map: :raised_hand: :cowboy_hat_face:
