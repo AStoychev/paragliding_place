@@ -55,13 +55,13 @@ class PlaceDeleteSerializer(serializers.ModelSerializer):
 class CommentForListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comments
-        fields = ('id', 'text', 'place_comment', 'user_id', 'owner')
+        fields = ('id', 'text', 'place_comment', 'user_id', 'owner', 'date_time')
 
 
 class CommentForCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comments
-        fields = ('id', 'text', 'place_comment', 'user_id', 'owner')
+        fields = ('id', 'text', 'place_comment', 'user_id', 'owner', 'date_time')
 
     def create(self, validated_data):
         validated_data['user'] = self.context['request'].user
@@ -71,13 +71,14 @@ class CommentForCreateSerializer(serializers.ModelSerializer):
 class CommentUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comments
-        fields = ('id', 'text', 'place_comment', 'user_id', 'owner')
+        fields = ('id', 'text', 'place_comment', 'user_id', 'owner', 'date_time')
 
     def update(self, instance, validated_data):
         instance.text = validated_data.get('text', instance.text)
         instance.place_comment = validated_data.get('place_comment', instance.place_comment)
         instance.user_id = validated_data.get('user_id', instance.user_id)
         instance.owner = validated_data.get('owner', instance.owner)
+        instance.date_time = validated_data.get('date_time', instance.date_time)
         instance.save()
         return instance
 

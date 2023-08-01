@@ -120,6 +120,10 @@ class Comments(models.Model):
         on_delete=models.RESTRICT,
     )
 
+    date_time = models.DateTimeField(
+        auto_now_add=True,
+    )
+
 
 class Rating(models.Model):
     MAX_LEN_OWNER = 15

@@ -8,7 +8,6 @@ export const commentServiceFactory = (token) => {
     const getAll = async () => {
         const result = await request.get(baseUrl);
         const places = Object.values(result);
-
         return places;
     };
 

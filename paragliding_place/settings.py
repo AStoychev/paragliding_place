@@ -17,7 +17,8 @@ DEBUG = bool(os.environ.get('DEBUG'))
 ALLOWED_HOSTS = []
 
 CORS_ALLOWED_ORIGINS = [
-    os.environ.get('CORS_ALLOWED_ORIGINS'),
+    'http://localhost:3000',
+    # os.environ.get('CORS_ALLOWED_ORIGINS'),
 ]
 
 # Application definition
@@ -92,14 +93,25 @@ WSGI_APPLICATION = 'paragliding_place.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": os.environ.get('DB_ENGINE'),
-        "NAME": os.environ.get('DB_NAME'),
-        "USER": os.environ.get('DB_USER'),
-        "PASSWORD": os.environ.get('DB_PASSWORD'),
-        "HOST": os.environ.get('DB_HOST'),
-        "PORT": os.environ.get('DB_PORT'),
+        "ENGINE": 'django.db.backends.postgresql',
+        "NAME": 'paragliding_place',
+        "USER": 'postgres',
+        "PASSWORD": 'asdfasdf',
+        "HOST": '127.0.0.1',
+        "PORT": '5432',
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": os.environ.get('DB_ENGINE'),
+#         "NAME": os.environ.get('DB_NAME'),
+#         "USER": os.environ.get('DB_USER'),
+#         "PASSWORD": os.environ.get('DB_PASSWORD'),
+#         "HOST": os.environ.get('DB_HOST'),
+#         "PORT": os.environ.get('DB_PORT'),
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -160,6 +172,8 @@ EMAIL_USE_TLS = os.environ.get('EMAIL_EMAIL_USE_TLS')
 
 DJANGO_SETTINGS_MODULE = True
 
+# This is for slash in api_place url
 # APPEND_SLASH = False
+SILENCED_SYSTEM_CHECKS = ['urls.W002', 'security.W019']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

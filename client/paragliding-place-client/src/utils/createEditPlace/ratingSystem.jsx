@@ -18,7 +18,7 @@ export const RatingSystemCreate = ({
                     value={values.difficulty_level}
                     onChange={onRatingChange}
                 />
-                <TbCircleLetterA className={styles.ratingLetter} onClick={() => setRating("A")} color={values.difficulty_level === "A" ? "#ffc107" : "#e4e5e9"} />
+                <TbCircleLetterA className={styles.ratingLetter} onClick={() => setRating("A")} color={values.difficulty_level === "A" ? "#ffc107" : "#e4e5e9"}/>
             </label>
             <label className={styles.labelRating} onChange={changeHandler} >
                 <input

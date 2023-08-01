@@ -20,6 +20,13 @@
     word-wrap: break-word;
 }
 
+.dateTime {
+    font-size: 12px;
+    margin-left: 3px;
+    font-style: italic;
+    background-color: rgb(139, 162, 172);
+}
+
 .buttonDeleteEditComments {
     width: 100%;
     text-align: center;

@@ -8,6 +8,8 @@ import { EditCommentModal } from "./../commentComponents/EditCommentModal";
 
 import { LoginModal } from "../../login/LoginModal";
 
+import { formatDateTime } from "../../../utils/formatingDateTime";
+
 import styles from "../commentComponents/comment.module.css";
 
 export const Comments = ({
@@ -54,12 +56,18 @@ export const Comments = ({
                     }
 
                     <div>{haveComments().map(x => (
-                        <div className={styles.topCommentContainer} key={x.id}> <Link to={`/profile/${x.user_id}`}>{x.owner}</Link>: {x.text}
-                            {isOwner(x.user_id, userId) &&                          
-                                    <div>
-                                        <div className={styles.buttonDeleteEditDivComments}><DeleteCommentModal commentId={x.id} onCommentDelete={onCommentDelete} /></div>
-                                        <div className={styles.buttonDeleteEditDivComments}><EditCommentModal onCommentEdit={onCommentEdit} data={x} /></div>
-                                    </div>
+                        <div className={styles.topCommentContainer} key={x.id}> <Link to={`/profile/${x.user_id}`}>
+                            {x.owner}
+                        </Link>
+                            :
+                            <span className={styles.dateTime}>{formatDateTime(x.date_time)}</span>
+                            <br></br>
+                            {x.text}
+                            {isOwner(x.user_id, userId) &&
+                                <div>
+                                    <div className={styles.buttonDeleteEditDivComments}><DeleteCommentModal commentId={x.id} onCommentDelete={onCommentDelete} /></div>
+                                    <div className={styles.buttonDeleteEditDivComments}><EditCommentModal onCommentEdit={onCommentEdit} data={x} /></div>
+                                </div>
                             }
 
                         </div>
