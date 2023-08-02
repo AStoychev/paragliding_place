@@ -7,7 +7,7 @@ import { ratingServiceFactory } from "../../../services/ratingService";
 import { useService } from "../../../hooks/useService";
 
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import styles from "../rateComponents/RateComponent.modules.css";
+import styles from "../rateComponents/RateComponent.module.css";
 
 export const RateSystem = ({
     userName,
@@ -41,22 +41,22 @@ export const RateSystem = ({
     const navigatePath = `place-details/${placeId}/rating`
 
     return (
-        <div className="ratingContainer">
-            <div className="ratingPlace">
-                Rate A: {rateA || 0}% <br></br> <ProgressBar className="voteBar" variant="success" now={rateA} /><br></br>
-                Rate B: {rateB || 0}% <br></br> <ProgressBar className="voteBar" variant="info" now={rateB} /><br></br>
-                Rate C: {rateC || 0}% <br></br> <ProgressBar className="voteBar" variant="warning" now={rateC} /><br></br>
-                Rate D: {rateD || 0}% <br></br> <ProgressBar className="voteBar" variant="danger" now={rateD} /> <br></br>
+        <div className={styles.ratingContainer}>
+            <div className={styles.ratingPlace}>
+                Rate A: {rateA || 0}% <br></br> <ProgressBar className={styles.voteBar} variant="success" now={rateA} /><br></br>
+                Rate B: {rateB || 0}% <br></br> <ProgressBar className={styles.voteBar} variant="info" now={rateB} /><br></br>
+                Rate C: {rateC || 0}% <br></br> <ProgressBar className={styles.voteBar} variant="warning" now={rateC} /><br></br>
+                Rate D: {rateD || 0}% <br></br> <ProgressBar className={styles.voteBar} variant="danger" now={rateD} /> <br></br>
             </div>
             
             {isAuthenticated ?
-                    alreadyRate ? <div className="alreadyRateDiv" > You already rate for this place with rate: <span className="alreadyRateSpan">{ownRate}</span> </div> :
-                        <div className="ratingSystemPosition">
+                    alreadyRate ? <div className={styles.alreadyRateDiv} > You already rate for this place with rate: <span className={styles.alreadyRateSpan}>{ownRate}</span> </div> :
+                        <div className={styles.ratingSystemPosition}>
                             {/* <p className="placeLabel">Difficulty Level</p> */}
                             <CreateRate onRateSubmit={onRateSubmit} />
                         </div>
                     :
-                    <div className="logoutComment">If you want to vote <span className="spanComment"><LoginModal navigatePath={navigatePath} /></span> </div>
+                    <div className={styles.logoutComment}>If you want to vote <span className={styles.spanComment}><LoginModal navigatePath={navigatePath} /></span> </div>
                 }
         </div>
     )

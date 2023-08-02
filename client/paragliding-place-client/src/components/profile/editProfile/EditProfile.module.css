@@ -104,10 +104,6 @@ input[type="number"] {
     font-size: 50px;
 }
 
-.genderIcon :hover {
-    color: #ffc107;
-}
-
 .changePasswordDiv {
     padding-top: 10px;
 }

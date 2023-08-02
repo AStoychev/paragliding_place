@@ -49,7 +49,7 @@ export const PlaceProvider = ({
             const placeId = values.id
             const result = await placeService.edit(values.id, values);
             setPlaces(state => state.map(x => x.id === values.id ? result : x));
-            navigate(`place-details/${placeId}`);
+            navigate(`place-details/${placeId}/detail`);
         } catch (error) {
             catchServerError(error, (<span>Something get wrong place check
                 <br></br>

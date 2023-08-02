@@ -68,6 +68,14 @@ export const EditProfile = () => {
 
     const backButtonUrl = `http://localhost:3000/profile/${profileId}`
 
+    const [hover, setHover] = useState(null);
+    const onHoverLetter = (letter) => {
+        if (hover === letter) {
+            return "#ffc107"
+        }
+        return "black"
+    }
+
     return (
         <>
             <div className={styles.container}>
@@ -132,7 +140,16 @@ export const EditProfile = () => {
                                                             value={values.email_visibility}
                                                             onChange={onVisibilityChange}
                                                         />
-                                                        <AiOutlineEyeInvisible className={styles.genderIcon} title="Invisible" onClick={() => setVisibility("Invisible")} color={values.email_visibility === "Invisible" ? "#ffc107" : "black"} />
+                                                        <AiOutlineEyeInvisible
+                                                            className={styles.genderIcon}
+                                                            title="Invisible"
+                                                            onClick={() => setVisibility("Invisible")}
+                                                            color={values.email_visibility === "Invisible" ? "#ffc107" : "black"
+                                                                &&
+                                                                onHoverLetter("Invisible")}
+                                                            onMouseEnter={() => setHover("Invisible")}
+                                                            onMouseLeave={() => setHover(null)}
+                                                        />
                                                     </label>
                                                     <label htmlFor='emailVisible' className={styles.labelGender} onChange={changeHandler}>
                                                         <input
@@ -142,7 +159,16 @@ export const EditProfile = () => {
                                                             value={values.email_visibility}
                                                             onChange={onVisibilityChange}
                                                         />
-                                                        <AiOutlineEye className={styles.genderIcon} title="Visible" onClick={() => setVisibility("Visible")} color={values.email_visibility === "Visible" ? "#ffc107" : "black"} />
+                                                        <AiOutlineEye
+                                                            className={styles.genderIcon}
+                                                            title="Visible"
+                                                            onClick={() => setVisibility("Visible")}
+                                                            color={values.email_visibility === "Visible" ? "#ffc107" : "black"
+                                                                &&
+                                                                onHoverLetter("Visible")}
+                                                            onMouseEnter={() => setHover("Visible")}
+                                                            onMouseLeave={() => setHover(null)}
+                                                        />
                                                     </label>
                                                 </div>
                                             </div>
@@ -157,7 +183,16 @@ export const EditProfile = () => {
                                                         value={values.gender}
                                                         onChange={onGenderChange}
                                                     />
-                                                    <IoIosMan className={styles.genderIcon} title="Male" onClick={() => setNewGender("Male")} color={values.gender === "Male" ? "#ffc107" : "black"} />
+                                                    <IoIosMan
+                                                        className={styles.genderIcon}
+                                                        title="Male"
+                                                        onClick={() => setNewGender("Male")}
+                                                        color={values.gender === "Male" ? "#ffc107" : "black"
+                                                            &&
+                                                            onHoverLetter("Male")}
+                                                        onMouseEnter={() => setHover("Male")}
+                                                        onMouseLeave={() => setHover(null)}
+                                                    />
                                                 </label>
 
                                                 <label htmlFor="ratingFemale" className={styles.labelGender} onChange={changeHandler}>
@@ -168,7 +203,16 @@ export const EditProfile = () => {
                                                         value={values.gender}
                                                         onChange={onGenderChange}
                                                     />
-                                                    <IoIosWoman className={styles.genderIcon} title="Female" onClick={() => setNewGender("Female")} color={values.gender === "Female" ? "#ffc107" : "black"} />
+                                                    <IoIosWoman
+                                                        className={styles.genderIcon}
+                                                        title="Female"
+                                                        onClick={() => setNewGender("Female")}
+                                                        color={values.gender === "Female" ? "#ffc107" : "black"
+                                                            &&
+                                                            onHoverLetter("Female")}
+                                                        onMouseEnter={() => setHover("Female")}
+                                                        onMouseLeave={() => setHover(null)}
+                                                    />
                                                 </label>
 
                                                 <label htmlFor="ratingNeuter" className={styles.labelGender} onChange={changeHandler}>
@@ -179,7 +223,16 @@ export const EditProfile = () => {
                                                         value={values.gender}
                                                         onChange={onGenderChange}
                                                     />
-                                                    <BsEmojiNeutralFill className={styles.genderIcon} title="Neuter" onClick={() => setNewGender("Neuter")} color={values.gender === "Neuter" ? "#ffc107" : "black"} />
+                                                    <BsEmojiNeutralFill
+                                                        className={styles.genderIcon}
+                                                        title="Neuter"
+                                                        onClick={() => setNewGender("Neuter")}
+                                                        color={values.gender === "Neuter" ? "#ffc107" : "black"
+                                                            &&
+                                                            onHoverLetter("Neuter")}
+                                                        onMouseEnter={() => setHover("Neuter")}
+                                                        onMouseLeave={() => setHover(null)}
+                                                    />
                                                 </label>
 
                                             </div>

@@ -3,7 +3,9 @@ import { TbCircleLetterA, TbCircleLetterB, TbCircleLetterC, TbCircleLetterD } fr
 
 import { useForm } from "../../../hooks/useForm";
 
-import styles from "../rateComponents/RateComponent.modules.css";
+import { onHoverLetter } from "../../../utils/onHoverLetter";
+
+import styles from "../rateComponents/RateComponent.module.css";
 
 export const CreateRate = ({
     onRateSubmit,
@@ -16,10 +18,10 @@ export const CreateRate = ({
     }, onRateSubmit);
 
     return (
-        <div className="ratingSystem">
-            <p className="placeLabel">Difficulty Level</p>
-            <form className="rateForm" onSubmit={onSubmit}>
-                <label className="labelRating">
+        <div className={styles.ratingSystem}>
+            <p className={styles.placeLabel}>Difficulty Level</p>
+            <form className={styles.rateForm} onSubmit={onSubmit}>
+                <label className={styles.labelRating}>
 
                     <input
                         type="radio"
@@ -27,10 +29,17 @@ export const CreateRate = ({
                         value={"A"}
                         onChange={changeHandler}
                     />
-                    <TbCircleLetterA className="ratingLetter" onClick={() => setRating("A")} color={"A" <= (hover || rating) ? "#ffc107" : "#e4e5e9"} onMouseEnter={() => setHover("A")} onMouseLeave={() => setHover(null)} />
+                    <TbCircleLetterA className={styles.ratingLetter}
+                        onClick={() => setRating("A")}
+                        color={rating === "A" ? "#ffc107" : "#e4e5e9"
+                            &&
+                            onHoverLetter("A", hover)}
+                        onMouseEnter={() => setHover("A")}
+                        onMouseLeave={() => setHover(null)}
+                    />
                 </label>
-                
-                <label className="labelRating">
+
+                <label className={styles.labelRating}>
 
                     <input
                         type="radio"
@@ -38,10 +47,17 @@ export const CreateRate = ({
                         value="B"
                         onChange={changeHandler}
                     />
-                    <TbCircleLetterB className="ratingLetter" onClick={() => setRating("B")} color={"B" <= (hover || rating) ? "#ffc107" : "#e4e5e9"} onMouseEnter={() => setHover("B")} onMouseLeave={() => setHover(null)} />
+                    <TbCircleLetterB className={styles.ratingLetter}
+                        onClick={() => setRating("B")}
+                        color={rating === "B" ? "#ffc107" : "#e4e5e9"
+                            &&
+                            onHoverLetter("B", hover)}
+                        onMouseEnter={() => setHover("B")}
+                        onMouseLeave={() => setHover(null)}
+                    />
                 </label>
 
-                <label className="labelRating">
+                <label className={styles.labelRating}>
 
                     <input
                         type="radio"
@@ -49,9 +65,16 @@ export const CreateRate = ({
                         value="C"
                         onChange={changeHandler}
                     />
-                    <TbCircleLetterC className="ratingLetter" onClick={() => setRating("C")} color={"C" <= (hover || rating) ? "#ffc107" : "#e4e5e9"} onMouseEnter={() => setHover("C")} onMouseLeave={() => setHover(null)} />
+                    <TbCircleLetterC className={styles.ratingLetter}
+                        onClick={() => setRating("C")}
+                        color={rating === "C" ? "#ffc107" : "#e4e5e9"
+                            &&
+                            onHoverLetter("C", hover)}
+                        onMouseEnter={() => setHover("C")}
+                        onMouseLeave={() => setHover(null)}
+                    />
                 </label>
-                <label className="labelRating">
+                <label className={styles.labelRating}>
 
                     <input
                         type="radio"
@@ -59,11 +82,17 @@ export const CreateRate = ({
                         value="D"
                         onChange={changeHandler}
                     />
-                    <TbCircleLetterD className="ratingLetter" onClick={() => setRating("D")} color={"D" <= (hover || rating) ? "#ffc107" : "#e4e5e9"} onMouseEnter={() => setHover("D")} onMouseLeave={() => setHover(null)} />
+                    <TbCircleLetterD className={styles.ratingLetter}
+                        onClick={() => setRating("D")}
+                        color={rating === "D" ? "#ffc107" : "#e4e5e9"
+                            &&
+                            onHoverLetter("D", hover)}
+                        onMouseEnter={() => setHover("D")}
+                        onMouseLeave={() => setHover(null)} />
                 </label>
 
-                <p className="ratingParagraph">You choose: <span className="chooseRating">{rating}</span></p>
-                <input className="submitRating" type="submit" value="Rate"></input>
+                <p className={styles.ratingParagraph}>You choose: <span className={styles.chooseRating}>{rating}</span></p>
+                <input className={styles.submitRating} type="submit" value="Rate"></input>
 
             </form>
         </div>

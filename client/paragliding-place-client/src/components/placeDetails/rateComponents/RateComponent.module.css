@@ -22,7 +22,8 @@
     align-items: center;
     /* margin: 20px;
     margin-left: 26%; */
-    background-color: rgba(3, 65, 15, 0.445);
+    background-color:  rgb(0, 137, 179);
+    /* background-color: rgba(3, 65, 15, 0.445); */
     /* background-color: rgba(52, 67, 53, 0.445); */
 }
 
@@ -59,9 +60,10 @@ input[type=radio] {
 }
 
 .chooseRating {
+    position: absolute;
     font-size: 24px;
-    margin-left: 3%;
-    margin-top: -1%;
+    margin-left: 130px;
+    margin-top: -0.2%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: rgb(252, 200, 68);
 }
@@ -83,6 +85,10 @@ input[type=radio] {
     margin-left: 43%;
     background: rgb(129, 174, 125);
     color: rgb(254, 254, 254);
+}
+
+.submitRating:hover {
+    background:  rgb(86, 221, 74);
 }
 
 .alreadyRateDiv {
