@@ -47,7 +47,8 @@ class LoginApiView(authtoken_views.ObtainAuthToken):
             'username': user.username,
             # 'age': user.age,
             # You can use this when email filed is in register page
-            'email': user.email
+            'email': user.email,
+            'is_staff': user.is_staff
         })
 
 

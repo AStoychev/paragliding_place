@@ -15,14 +15,14 @@ import { useService } from "../../hooks/useService";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { placeReducer } from "../../reducers/placeReducer";
 
-import { isOwner } from "../../validators/validators";
+import { isOwnerOrStaff } from "../../validators/validators";
 
 import "leaflet/dist/leaflet.css";
 import styles from "../placeDetails/placeDetails.module.css";
 
 export const PlaceDetails = () => {
     const { placeId } = useParams();
-    const { userId, isAuthenticated, userName } = useAuthContext();
+    const { userId, isAuthenticated, userName, isStaff } = useAuthContext();
 
     const [allPlaces, setAllPlaces] = useState([]);
 
@@ -74,7 +74,7 @@ export const PlaceDetails = () => {
                     <div className={styles.topAndBottom}>
                         <div className={styles.itemDirection}>
                             <h1>{place.place}
-                                {isOwner(place.user_id, userId) &&
+                                {isOwnerOrStaff(place.user_id, userId, isStaff) &&
                                     <Link className={styles.buttonSetting} to={`/place/edit/${place.id}`} title="Setting" ><img src="../../images/setting.png" alt="Setting" /></Link>
                                 }
                             </h1>

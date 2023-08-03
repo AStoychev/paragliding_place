@@ -6,7 +6,7 @@ import { useService } from "../../hooks/useService";
 
 import { profileServiceFactory } from "../../services/profileService";
 
-import { isOwner, findEmptyValue } from "../../validators/validators";
+import { isOwnerOrStaff, findEmptyValue } from "../../validators/validators";
 
 import styles from "./Profile.module.css"
 
@@ -14,7 +14,7 @@ export const Profile = () => {
     const userProfileId = useParams()
     const profileId = userProfileId['userId']
 
-    const { userId } = useAuthContext();
+    const { userId, isStaff } = useAuthContext();
 
     const profileService = useService(profileServiceFactory);
 
@@ -52,7 +52,7 @@ export const Profile = () => {
                                     <div className={styles.item} key={x.id}>
                                         <ul>
                                             <h1>{x.username}
-                                                {isOwner(x.id, userId) &&
+                                                {isOwnerOrStaff(x.id, userId, isStaff) &&
                                                     <Link className={styles.buttonSetting} to={`/profile/edit/${x.id}`} title="Setting" ><img src="../images/setting.png" alt="Edit" /></Link>
                                                 }
                                             </h1>

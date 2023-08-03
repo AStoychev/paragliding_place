@@ -1,8 +1,8 @@
 import "./validators.css"
 
 // This validator function check if user is owner
-export const isOwner = (compareId, ownerId) => {
-    if (compareId === ownerId) {
+export const isOwnerOrStaff = (compareId, ownerId, isStaff) => {
+    if (compareId === ownerId || isStaff) {
         return true
     }
 }

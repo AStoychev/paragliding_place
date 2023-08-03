@@ -7,10 +7,10 @@ export const OwnerGuardProfile = ({
     children,
 }) => {
     const userProfileId = useParams();
-    const { userId } = useAuthContext();
+    const { userId, isStaff } = useAuthContext();
     const profileId = Number(userProfileId["userId"])
 
-    if (profileId !== userId) {
+    if (profileId !== userId && !isStaff) {
         return <Navigate to={`/profile/${profileId}`} />;
     }
 

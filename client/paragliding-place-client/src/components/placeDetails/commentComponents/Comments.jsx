@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 import { useCommentContext } from "../../../contexts/CommentContext";
-import { isOwner } from "../../../validators/validators";
+import { isOwnerOrStaff } from "../../../validators/validators";
 import { CommentModal } from "./../commentComponents/CreateCommentModal";
 import { DeleteCommentModal } from "./../commentComponents/DeleteCommentModal";
 import { EditCommentModal } from "./../commentComponents/EditCommentModal";
@@ -63,7 +63,7 @@ export const Comments = ({
                             <span className={styles.dateTime}>{formatDateTime(x.date_time)}</span>
                             <br></br>
                             {x.text}
-                            {isOwner(x.user_id, userId) &&
+                            {isOwnerOrStaff(x.user_id, userId) &&
                                 <div>
                                     <div className={styles.buttonDeleteEditDivComments}><DeleteCommentModal commentId={x.id} onCommentDelete={onCommentDelete} /></div>
                                     <div className={styles.buttonDeleteEditDivComments}><EditCommentModal onCommentEdit={onCommentEdit} data={x} /></div>

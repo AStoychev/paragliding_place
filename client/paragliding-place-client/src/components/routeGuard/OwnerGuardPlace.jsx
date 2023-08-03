@@ -8,11 +8,11 @@ export const OwnerGuardPlace = ({
 }) => {
     const { placeId } = useParams();
     const { getPlace } = usePlaceContext();
-    const { userId } = useAuthContext();
+    const { userId, isStaff } = useAuthContext();
 
     const currentPlace = getPlace(Number(placeId));
 
-    if (currentPlace && currentPlace.user_id !== userId) {
+    if (currentPlace && currentPlace.user_id !== userId && !isStaff) {
         return <Navigate to={`/place-details/${placeId}/detail`} />;
     }
 

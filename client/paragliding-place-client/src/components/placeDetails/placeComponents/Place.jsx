@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
 import { urlForecast } from "../../../utils/urlForecast";
-import { isOwner } from "../../../validators/validators";
+import { isOwnerOrStaff } from "../../../validators/validators";
+
+import { dictionaryDirections } from "../../../constants/constants";
 
 import Button from 'react-bootstrap/Button';
 import styles from "../../placeDetails/placeDetails.module.css";
@@ -12,6 +14,13 @@ export const Place = ({
 
     const showAllDirections = () => {
         return Object.keys(place.direction || {}).filter(k => place.direction[k])
+    }
+
+    const fullDirectionName = (x) => {
+        // let firstLetter = (x ? x.charAt(0) : "")
+        const fullDirectionNamePlace = []
+        fullDirectionNamePlace.push(dictionaryDirections[x])
+        return fullDirectionNamePlace
     }
 
     return (
@@ -46,7 +55,7 @@ export const Place = ({
                     <h3>Wing direction for launch: </h3>
                     {showAllDirections().map(k => (
                         <ul className={styles.directionUnorderList} key={k}>
-                            <li className={styles.directionList}>{k}</li>
+                            <li className={styles.directionList}>{fullDirectionName(k)}</li>
                         </ul>
                     ))}
                     <form action={urlForecast(place.latitude_takes_off, place.longitude_takes_off)} method="get" target="_blank">

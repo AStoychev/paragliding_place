@@ -117,7 +117,6 @@ export const AuthProvider = ({
         }
     }
 
-
     const contextValues = {
         onLoginSubmit,
         onRegisterSubmit,
@@ -135,6 +134,7 @@ export const AuthProvider = ({
         userAuth: auth,
         userAge: auth.age,
         userFirstName: auth.first_name,
+        isStaff: auth.is_staff,
 
         // isAuthenticated: !!auth.accessToken,
 
