@@ -19,7 +19,7 @@ export const DescribeLaunch = ({
                 type="text"
                 id="description_launch"
                 name="description_launch"
-                placeholder="Describe the place">
+                placeholder="Describe the launch place">
             </textarea>
         </th>
     )

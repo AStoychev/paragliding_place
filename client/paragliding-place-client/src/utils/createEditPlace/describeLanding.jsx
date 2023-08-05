@@ -19,7 +19,7 @@ export const DescribeLanding = ({
                 type="text"
                 id="description_landing"
                 name="description_landing"
-                placeholder="Describe the place">
+                placeholder="Describe the landing place">
             </textarea>
         </th>
     )
