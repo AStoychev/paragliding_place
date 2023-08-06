@@ -3,9 +3,6 @@
 .sectionStyle {
     height: calc(84vh - 60px);
     top: 30px;
-    /* height: 740px;
-    width: 1683px;
-    margin-top: -1px; */
 }
 
 .mapContainer {
