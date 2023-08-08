@@ -1,13 +1,8 @@
 import { Link } from 'react-router-dom';
-// import { useContext } from 'react';
-
-// import { AuthContext } from '../../contexts/AuthContext';
 
 import styles from './Footer.module.css'
 
 export const Footer = () => {
-   // const { isAuthenticated } = useContext(AuthContext);
-
    return (
       <footer className={styles.footer}>
          {/* <div className={styles.footer}> */}
