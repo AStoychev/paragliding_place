@@ -1,8 +1,8 @@
-import { useForm } from '../../hooks/useForm';
-
 import React, { useState } from 'react';
+
 import { usePlaceContext } from '../../contexts/PlaceContext';
 import { requestFactory } from "../../services/requester";
+import { useForm } from '../../hooks/useForm';
 
 import { NamePlace } from "../../utils/createEditPlace/namePlace";
 import { LatitudeTakesOff } from '../../utils/createEditPlace/latitudeTakesOff';
