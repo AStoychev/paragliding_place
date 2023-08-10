@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useReducer } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 
 import { useService } from '../../hooks/useService';
@@ -11,6 +9,9 @@ import { commentServiceFactory } from '../../services/commentService';
 
 import { placeReducer } from '../../reducers/placeReducer';
 import { usePlaceContext } from '../../contexts/PlaceContext';
+
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 import styles from './DeletePlace.module.css';
 
