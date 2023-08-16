@@ -3,7 +3,6 @@ import { useState, useEffect } from "react"
 import { placeServiceFactory } from "../../services/placeService";
 
 import Button from 'react-bootstrap/Button';
-
 import Fade from 'react-bootstrap/Fade';
 
 import "./Search.modules.css"

@@ -13,6 +13,7 @@ import { Search } from "../search/Search";
 import { createCustomClusterIcon, customIcon, customIconLanding } from "../../utils/customIcon/customIcon";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
+
 import "leaflet/dist/leaflet.css";
 import "./style.css"
 
