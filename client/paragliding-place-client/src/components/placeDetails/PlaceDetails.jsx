@@ -2,15 +2,12 @@ import { useState, useEffect, useReducer } from "react"
 import { useParams, useNavigate, Link, NavLink, Routes, Route } from "react-router-dom"
 
 import { placeServiceFactory } from "../../services/placeService";
-
 import { commentServiceFactory } from "../../services/commentService";
 import { ratingServiceFactory } from "../../services/ratingService";
-
 import { DetailsMapContainer } from "./detailsMapContainer/DetailsMapContainer";
 import { Place } from "./placeComponents/Place";
 import { RateSystem } from "./rateComponents/Rate";
 import { Comments } from "./commentComponents/Comments";
-
 import { useService } from "../../hooks/useService";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { placeReducer } from "../../reducers/placeReducer";

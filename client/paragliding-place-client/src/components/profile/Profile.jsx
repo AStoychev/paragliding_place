@@ -5,7 +5,6 @@ import { useAuthContext } from "../../contexts/AuthContext";
 import { useService } from "../../hooks/useService";
 
 import { profileServiceFactory } from "../../services/profileService";
-
 import { isOwnerOrStaff, findEmptyValue } from "../../validators/validators";
 
 import styles from "./Profile.module.css"
