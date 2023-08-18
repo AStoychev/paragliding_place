@@ -1,19 +1,16 @@
 import { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
-
-import { LoginModal } from '../login/LoginModal';
-
 import { useContext } from 'react';
 
 import { useForm } from '../../hooks/useForm';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Link } from 'react-router-dom';
+import { LoginModal } from '../login/LoginModal';
 
 import { isEqualAndHaveLength, emailValidation, usernameValidation, showIsValid, showIsInvalid } from '../../validators/validators';
-
 import { ShowValidUsername, ShowInvalidUsername, PasswordValidMatch, PasswordInvalidMatch } from '../../utils/messages';
 
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 import styles from '../login/LoginRegister.module.css';
 
 export const RegisterModal = () => {

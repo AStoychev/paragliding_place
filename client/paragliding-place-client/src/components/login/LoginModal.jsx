@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
+import { Link } from 'react-router-dom';
 
 import { useAuthContext } from '../../contexts/AuthContext';
 import { useForm } from '../../hooks/useForm';
 import { RegisterModal } from '../register/RegisterModal';
 
-import { Link } from 'react-router-dom';
-
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 import styles from './LoginRegister.module.css';
 
 const LoginFormKeys = {

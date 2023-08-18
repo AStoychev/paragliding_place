@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { usePlaceContext } from '../../contexts/PlaceContext';
 
+import { usePlaceContext } from '../../contexts/PlaceContext';
 import { useForm } from '../../hooks/useForm';
 import { useService } from '../../hooks/useService';
 import { placeServiceFactory } from '../../services/placeService';
@@ -15,9 +15,7 @@ import { DescribeLaunch } from '../../utils/createEditPlace/describeLaunch';
 import { DescribeLanding } from '../../utils/createEditPlace/describeLanding';
 import { RatingSystemCreate } from '../../utils/createEditPlace/ratingSystem';
 import { Directions } from '../../utils/createEditPlace/directions';
-
 import { DeletePlace } from '../deletePlace/DeletePlace'
-
 import { checkButtonDirections } from '../../constants/constants';
 import { checkCreateEditPlace } from '../../utils/checkCreateEditPlace';
 
